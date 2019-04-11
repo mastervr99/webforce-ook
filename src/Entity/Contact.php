@@ -66,6 +66,11 @@ class Contact
      */
     private $ville;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="contacts")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -187,6 +192,18 @@ class Contact
     public function setVille(?string $ville): self
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getUser(): ?user
+    {
+        return $this->user;
+    }
+
+    public function setUser(?user $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
