@@ -11,4 +11,83 @@
             Enregistrer
         </button>
     </div>
+
+
+
+
+<section class="form-v2" id="form-inscription">
+    <div class="page-content">
+        <div class="form-v2-content">
+            <div class="form-left ">
+                <img src="img/form-v2.jpg" alt="form" class="arrondisGauche">
+                <div class="text-1">
+                </div>
+            </div>
+            <form class="form-detail" action="#" method="post" id="myform">
+                <h2>Créer mon compte</h2>
+                <div class="form-row">
+                    <label for="pseudo">Pseudo :</label>
+                    <input type="text" name="pseudo" id="pseudo" class="input-text" placeholder="ex: Mickael Jackson" value="<?= $_POST['pseudo'] ?? '' ?>">
+                </div>
+                <div class="form-row">
+                    <label for="email">Votre Email:</label>
+                    <input type="text" name="email" id="email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6} " value="<?= $_POST['email'] ?? '' ?>">
+                </div>
+                <div class="form-row">
+                    <label for="mdp">Mot de passe :</label>
+                    <input type="mdp" name="mdp" id="mdp" class="input-text" required>
+                </div>
+                <div class="form-row">
+                    <label for="comfirm-mdp">Confirmez votre mot de passe :</label>
+                    <input type="mdp" name="confirm_mdp" id="confirm_mdp" class="input-text" value="" required>
+                </div>
+                <div class="form-row-last">
+                    <input type="submit" name="register" class="register" value="Valider">
+                </div>
+                <a href="#" class="deja-compte">J'ai déjà un compte</a>
+
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        jQuery.validator.setDefaults({
+            debug: true,
+            success: function(label) {
+                label.attr('id', 'valid');
+            },
+        });
+        $("#myform").validate({
+            rules: {
+                mdp: "required",
+                confirm_mdp: {
+                    equalTo: "#mdp"
+                }
+            },
+            messages: {
+                pseudo: {
+                    required: "Merci de renseigner un pseudo"
+                },
+                your_email: {
+                    required: "Merci d'indiquer votre email"
+                },
+                mdp: {
+                    required: "Un mot de passe est nécessaire"
+                },
+                confirm_mdp: {
+                    required: "Veuillez confirmer votre mot de passe",
+                    equalTo: "Le mot de passe ne correspond pas"
+                }
+            }
+        });
+    </script>
+    <?php
+
+
+
+
+
+
 {% endblock %}
