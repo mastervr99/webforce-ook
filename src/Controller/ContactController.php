@@ -16,15 +16,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/{id}")
+     * @Route("/{id}", requirements={"id": "\d+"})
      */
-    public function index(User $user)
+    public function index(Contact $contact)
     {
-        $repository = $this->getDoctrine()->getRepository(Contact::class);
-        $contacts = $repository->findBy([], ['name' => 'ASC']);
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $contacts = $repository->findBy([], ['nom' => 'ASC']);
 
         return $this->render('contact/index.html.twig', [
-            'contact' => $contacts,
+            'contact' => $contacts
         ]);
     }
 
