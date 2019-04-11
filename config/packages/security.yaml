@@ -8,13 +8,38 @@ security:
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        db:
+            #            LES UTILIS ST DES ENTITY USER
+            entity:
+                class: App\Entity\User
+                #                L IDENTIFIANT EST L EMAIL
+                property: email
+
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+
+            #            ROUTE DE FORM DU LOGIN
+            form_login:
+                login_path: app_security_login
+                check_path: app_security_login
+
+            #                RTE DE LA PAGE DE DECONNEX
+            logout:
+                path: app_security_logout
+
+
+            #            PROVIDER DEFINI AU DESSUS DS LA SECTION PROVIDERS
+            provider: db
+
+            #           SUR TT LE SITE
+            pattern: ^/
+
+
 
             # activate different ways to authenticate
 
