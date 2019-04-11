@@ -8,7 +8,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * Class SecurityController
+ * @package App\Controller
+ *
+ *
+ */
 class SecurityController extends AbstractController
 {
     /**
@@ -25,10 +33,7 @@ class SecurityController extends AbstractController
             if ($form->isValid()) {
                 // encode le mot de passe à partir de la config "encoders"
                 // de config/packages/security.yaml
-                $password = $passwordEncoder->encodePassword(
-                    $user,
-                    $user->getPlainPassword()
-                );
+                $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
 
                 $user->setPassword($password);
 
@@ -51,4 +56,39 @@ class SecurityController extends AbstractController
             ]
         );
     }
+
+    /**
+     * @Route("/connexion")
+     */
+    public function login(AuthenticationUtils $authenticationUtils)
+    {
+
+//        TRAITEMENT DU FORM PAR SECURITY
+
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastAuthenticationError();
+
+        if(!empty($error)) {
+            $this->addFlash('error','Identifiants incorrects');
+        }
+
+
+        return $this->render('security/login.html.twig',
+            [
+                'last_username' => $lastUsername
+            ]);
+    }
+
+
+    /**
+     * @Route("/deconnexion")
+     */
+    public function logout()
+    {
+// CETTE METH PEUT RESTER VIDE IL FAUT JUSTE QUE SA ROUTE EXISTE PR LA PASSER DS LA SECTION LOGOUT DS SECURITY.YAML
+    }
+
+
+
+
 }
