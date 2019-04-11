@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -33,8 +35,6 @@ class User implements UserInterface
      */
     private $email;
 
-
-
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -44,6 +44,7 @@ class User implements UserInterface
      * @var string
      */
     private $plainpassword;
+
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -90,6 +91,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=20)
      */
     private $role = 'ROLE_USER';
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Contact", mappedBy="user")
+     */
+    private $contacts;
+
+    public function __construct()
+    {
+        $this->contacts = new ArrayCollection();
+    }
+
 
     /**
      * @return mixed
@@ -279,6 +290,37 @@ class User implements UserInterface
     public function setRole(string $role): User
     {
         $this->role = $role;
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contact[]
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+
+    public function addContact(Contact $contact): self
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts[] = $contact;
+            $contact->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(Contact $contact): self
+    {
+        if ($this->contacts->contains($contact)) {
+            $this->contacts->removeElement($contact);
+            // set the owning side to null (unless already changed)
+            if ($contact->getUser() === $this) {
+                $contact->setUser(null);
+            }
+        }
+
         return $this;
     }
 
