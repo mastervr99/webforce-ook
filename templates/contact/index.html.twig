@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container" id="tools">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="bt-ajouter btn btn-link btn-block mb-4 ">
+                <a class="btn btn-info nav-link" href="' . URL . 'admin/ajout-contact.php"><i class="fas fa-plus-circle mr-2"></i>Ajouter un contact</a>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-4" id="recherche">
+            <form id="search-form" class="form-inline" role="form" method="post" action="#" target="_blank">
+                <div class="input-group">
+                    <input type="text" class="form-control search-form" placeholder="Rechercher un contact">
+                    <span class="input-group-btn">
+                            <button type="submit" class="btn search-btn" data-target="#search-form" name="q"><i class="fa fa-search"></i></button>
+                        </span>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+            <a class="list-group-item ' . $activeall . '" href="?categ=*">Tous les contacts</a>
+            <div class ="form-group ">
+                <select class="form-control"  id="exampleFormControlSelect 1">
+                    <option value="'  . $activeall . ' href = "?categ =*">Tous les contacts</option>
+    <div class="container">
+        <ul>
+            {% for contact in contacts %}
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{{ path('app_category_index', {'id': category.id}) }}">
+                        {{ category }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
