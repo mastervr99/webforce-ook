@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Accueil Webforce Ook{% endblock %}</title>
+    <title>{% block title %}Webforce Ook{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('lib/bootstrap/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -17,20 +17,28 @@
         <a class="navbar-brand" href="<?= URL ?>">ContactForce</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
+
+        {#                SI LE USER ES CONNECTE#}
+        {% if app.user %}
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin" role="button" data-toggle="dropdown">Admin</a>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin" role="button" data-toggle="dropdown">Mon compte</a>
                     <div class="dropdown-menu" aria-labelledby="menuadmin">
                         <a class="dropdown-item" href="<?= URL . 'admin/contact-list.php' ?>">Mes contacts</a>
                         <a class="dropdown-item" href="<?= URL . 'admin/ajout-contact.php' ?>">Ajouter un contact</a>
-                        <a class="dropdown-item" href="<?= URL . 'index.php' ?>">Deconnexion</a>
+                        <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
+                        {#                    AJOUTER LES LIENS ADMIN#}
+
+                        {#                    FIN LIENS ADMIN#}
                     </div>
                 </li>
+                    {% else %}
 
-                <li class="nav-item"><a class="nav-link" href="<?= URL . 'inscription.php' ?>">M'inscrire</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= URL . 'connexion.php' ?>">Me connecter</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= URL . 'faq.php' ?>">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">M'inscrire</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= URL . 'faq.php' ?>">FAQ</a></li>
 
+                {% endif %}
             </ul>
         </div>
     </div>
