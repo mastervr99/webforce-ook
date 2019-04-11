@@ -18,14 +18,9 @@ class ContactController extends AbstractController
     /**
      * @Route("/{id}", requirements={"id": "\d+"})
      */
-    public function index(Contact $contact)
+    public function index( )
     {
-        $repository = $this->getDoctrine()->getRepository(User::class);
-        $contacts = $repository->findBy([], ['nom' => 'ASC']);
-
-        return $this->render('contact/index.html.twig', [
-            'contact' => $contacts
-        ]);
+        return $this->render('contact/index.html.twig');
     }
 
 }
