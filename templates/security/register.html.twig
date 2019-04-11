@@ -1,21 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Inscription</h1>
+    <div class="page-content">
+        <div class="form-v2-content">
+            <div class="row ">
+                <div class="col-md-6">
 
-    {{ form_start(form) }}
+                    <div class="form-left">
+                        <img src="img/form-v2.jpg" alt="Créez votre compte" class="arrondisGauche">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-detail">
+                        <h2>Créer mon compte</h2>
 
-    {{ form_row(form.lastname) }}
-    {{ form_row(form.firstname) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword) }}
 
-    <div class="text-right">
-        <button type="submit" class="btn btn-outline-success">
-            Inscription
-        </button>
+                        {{ form_start(form) }}
+                        <div class="form-row">
+                            {{ form_row(form.lastname) }}
+                        </div>
+                        <div class="form-row">
+                            {{ form_row(form.firstname) }}
+                        </div>
+                        <div class="form-row">
+                            {{ form_row(form.email) }}
+                        </div>
+                        <div class="form-row">
+                            {{ form_row(form.plainPassword) }}
+                        </div>
+
+                        <div class="form-row">
+                            <button class="btn-valider" type="submit">Valider</button>
+                        </div>
+                        <a href="#" class="deja-compte">J'ai déjà un compte</a>
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    {{ form_end(form) }}
-
 {% endblock %}
