@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bonjour {{ user.firstname }}{% endblock %}
+{% block title %}
+    {% if app.user %}
+        Bonjour {{ user.firstname }}
+    {% else %}
+        Bonjour
+    {% endif %}
+{% endblock %}
 
 {% block body %}
     <div class="container" id="tools">
@@ -70,7 +76,7 @@
                     </div>
                 </li>
             {% else %}
-                <div class="alert alert-info mt-5">Désolé aucun contact ne correspond</div>
+                <div class="alert alert-info mt-5">Vous n'avez pas encore enregistré de contact</div>
             {% endfor %}
         </ul>
     </div>
