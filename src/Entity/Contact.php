@@ -67,7 +67,7 @@ class Contact
     private $ville;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="contacts")
      */
     private $user;
 

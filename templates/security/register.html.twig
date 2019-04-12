@@ -2,22 +2,44 @@
 
 {% block body %}
 
+    <div class="page-content">
+        <div class="container">
+            <div class="row form-v2-content mx-auto ">
 
-    <h1>Inscription</h1>
+                <div class="col-md-6 photo ">
+                    <div class="form-left">
+                    </div>
+                </div>
 
-    {{ form_start(form) }}
+                <div class="col-md-6">
+                    <div class="form-detail">
+                        <h2>Créer mon compte</h2>
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_row(form.lastname) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.firstname) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.email) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.plainPassword) }}
+                        </div>
 
-    {{ form_row(form.lastname) }}
-    {{ form_row(form.firstname) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword) }}
+                        <div class="form-group">
+                            <button class="btn-valider btn-block" type="submit">Valider</button>
+                        </div>
+                        {{ form_end(form) }}
 
-    <div class="text-right">
-        <button type="submit" class="btn btn-outline-success">
-            Inscription
-        </button>
+
+                        <div class="sentence">
+                            <a href="#" >J'ai déjà un compte</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    {{ form_end(form) }}
-
 {% endblock %}
