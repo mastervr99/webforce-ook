@@ -24,7 +24,8 @@ class UserController extends AbstractController
         $contacts = $repository->findBy([], ['nom' => 'ASC']);
 
         return $this->render('user/index.html.twig', [
-            'contacts' => $contacts
+            'contacts' => $contacts,
+            'user' => $user
         ]);
     }
 
@@ -51,4 +52,6 @@ class UserController extends AbstractController
 //            'form' => $form
 //        ]);
     }
+
+
 }

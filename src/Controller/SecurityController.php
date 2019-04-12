@@ -32,7 +32,6 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-
             if ($form->isValid()) {
                 // encode le mot de passe à partir de la config "encoders"
                 // de config/packages/security.yaml
@@ -47,8 +46,7 @@ class SecurityController extends AbstractController
 
                 $this->addFlash('success','Votre compte est créé');
 
-                return $this->redirectToRoute('app_index_index');
-
+                return $this->redirectToRoute('app_user_index');
             } else {
                 $this->addFlash('error', 'Le formulaire contient des erreurs');
             }
