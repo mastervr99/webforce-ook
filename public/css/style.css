@@ -7,7 +7,7 @@ body {
     /* background: #eaeaea; */
     font-family: 'Open Sans', 'Muli', 'Helvetica', 'Arial', 'sans-serif';
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 /*main{*/
@@ -285,7 +285,7 @@ section.features .feature-item i {
     background-repeat: no-repeat;
 }
 
-/*----------- bloc de droite -----------*/
+/*----------- FORMULAIRE -----------*/
 
 
 .form-v2-content .form-detail {
@@ -329,9 +329,30 @@ section.features .feature-item i {
     border-radius: 0px 5px 5px 0px;
     border: 1px solid #eee;
     height: 40px;
-    /* float: left; */
     padding: 0px 15px;
 }
+
+.form-v2-content .form-detail div.form-group .passConf{
+    margin-top: 50px;
+    background: #40cc00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*!*placeholders *!*/
 
@@ -600,14 +621,46 @@ section.features .feature-item i {
 /*    background: #F1F3FA;*/
 /*}*/
 
+
+.profil-card{
+    text-transform: uppercase;
+}
+
+.profil-card .btn-outline{
+    color: #fff;
+    border: 1px solid;
+    font-size: 11px;
+    padding: 15px 45px;
+    border-radius: 300px;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+header.masthead a.btn-outline.active,
+header.masthead a.btn-outline:active,
+header.masthead a.btn-outline:focus,
+header.masthead a.btn-outline:hover {
+    color: #fff;
+    border-color: #fdcc52;
+    background-color: #fdcc52;
+}
+
+.card-img-top {
+    margin: 0px;
+}
+
 .profile {
     margin: 50px 0;
 
 }
 
-/* Profile sidebar */
+/* Profile card */
 .profile-sidebar {
     padding: 20px 0 10px 0;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
 
 /*.decors{*/
@@ -651,10 +704,7 @@ section.features .feature-item i {
     padding: 10px 0px;
 }
 
-.profile-userbuttons .btn:last-child {
-}
 
-.
     /*-------------------------------------*/
 
 
