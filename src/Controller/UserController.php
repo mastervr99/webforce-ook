@@ -27,4 +27,28 @@ class UserController extends AbstractController
             'contacts' => $contacts
         ]);
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/compte/{id}", requirements={"id": "\d+"})
+     */
+    public function monCompte()
+    {
+
+
+//ALLER CHERCHER L ID DU USER DEJA CONNECTE  ok
+
+        //AFFICH UN FORM
+
+        //VALID FORM
+
+        //LE METTRE EN BDD
+
+//        AFFICH UN MESS DE CONFIRM
+
+//        return $this->render('user/compte.html.twig', [
+//            'form' => $form
+//        ]);
+    }
 }
