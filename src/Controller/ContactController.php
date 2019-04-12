@@ -16,11 +16,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/{id}", requirements={"id": "\d+"})
+     * @Route("/creation")
      */
-    public function index( )
+    public function create( )
     {
-        return $this->render('contact/index.html.twig');
+        $user = $this->getUser();
+
+        return $this->render('contact/create.html.twig');
     }
 
 }
