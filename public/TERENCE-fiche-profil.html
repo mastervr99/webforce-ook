@@ -47,9 +47,6 @@
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
 
-            {# SI LE USER ES CONNECTE#}
-            {% if app.user %}
-
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin" role="button"
                                                  data-toggle="dropdown">Mon compte</a>
@@ -57,9 +54,7 @@
                         <a class="dropdown-item" href="<?= URL . 'admin/contact-list.php' ?>">Mes contacts</a>
                         <a class="dropdown-item" href="<?= URL . 'admin/ajout-contact.php' ?>">Ajouter un contact</a>
                         <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
-                        {# AJOUTER LES LIENS ADMIN#}
 
-                        {# FIN LIENS ADMIN#}
                     </div>
                 </li>
             </ul>
@@ -81,9 +76,9 @@
 
 
 <div class="container">
-    <div class="row row profile justify-content-center">
-        <div class="col-md-8">
-            <div class="card profile-userpic col-md-4 profile-sidebar" style="width: 18rem;">
+    <div class="row profile ">
+        <div class="col-md-8 ">
+            <div class="card profile-userpic profile-sidebar" style="width: 18rem;">
                 <img class="profile-userpic text-center card-img-top" src="img/41.jpg" alt="Card image title">
                 <div class="card-body profile-usertitle">
                     <h5 class="card-title profile-usertitle-name">Harry Cover</h5>
@@ -137,8 +132,7 @@
 </div>
 
 
-</div>
-</div>
+
 
 
 <!--    <div class=""><p>Profession</p></div>-->
@@ -150,7 +144,7 @@
 <!--    <div class=""><p>Ville</p></div>-->
 <!--    <div class=""><p>Commentaires</p></div>-->
 <!--    <div class=""><p>Mots-clés</p></div>-->
-div id="profil-card">-->
+
 <!--<div class="container">-->
 <!--<div class="row profile justify-content-center">-->
 <!--<div class="col-md-3">-->

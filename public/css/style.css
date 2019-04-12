@@ -617,14 +617,14 @@ section.features .feature-item i {
 ======================================================================*/
 
 
-/*#fiche-profil {*/
-/*    background: #F1F3FA;*/
-/*}*/
-
+#fiche-profil {
+    background: #F1F3FA;
+}
 
 #profil-card{
     text-transform: uppercase;
 }
+
 #profil-card .profile-usertitle-name {
     font-size: 2rem;
     color: #5a7391;
@@ -632,9 +632,12 @@ section.features .feature-item i {
     margin-bottom: 7px;
 }
 
-
-
-
+.profile-usertitle-job {
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 12px;
+    font-weight: 600;
+}
 
 
 #profil-card .btn-outline{
@@ -656,7 +659,6 @@ header.masthead a.btn-outline:hover {
     border-color: #fdcc52;
     background-color: #fdcc52;
 }
-
 
 
 #profil-card .card-img-top {
@@ -697,12 +699,6 @@ header.masthead a.btn-outline:hover {
 
 
 
-.profile-usertitle-job {
-    text-transform: uppercase;
-    color: #5b9bd1;
-    font-size: 12px;
-    font-weight: 600;
-}
 
 
 .profile-userbuttons .btn {
