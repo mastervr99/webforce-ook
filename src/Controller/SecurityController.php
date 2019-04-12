@@ -9,7 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-use Symfony\Component\Security\Core\User\UserInterface;
+
+
+
 
 /**
  * Class SecurityController
@@ -44,7 +46,7 @@ class SecurityController extends AbstractController
 
                 $this->addFlash('success','Votre compte est créé');
 
-                return $this->redirectToRoute('app_index_index');
+                return $this->redirectToRoute('app_user_index');
             } else {
                 $this->addFlash('error', 'Le formulaire contient des erreurs');
             }
