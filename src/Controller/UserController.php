@@ -53,17 +53,19 @@ class UserController extends AbstractController
         //VALID FORM???
         if ($form->isSubmitted()){
 
+            //LE METTRE EN BDD
+            $form->handleRequest($request);
+
+            $em->persist($user);
+            $em->flush();
+
 //        AFFICH UN MESS DE CONFIRM
         $this->addFlash('success','Votre profil a été mis a jour');
 
-         return $this->redirectToRoute('app_user_index');
+         return $this->redirectToRoute('app_user_moncompte');
         }
 
-        //LE METTRE EN BDD
-        $form->handleRequest($request);
 
-        $em->persist($user);
-        $em->flush();
 
         return $this->render('user/compte.html.twig', [
             'form' => $form->createView()
