@@ -1,21 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Inscription</h1>
 
-    {{ form_start(form) }}
+<section class="form-v2" id="form-inscription">
+    <div class="page-content">
+        <div class="form-v2-content">
+            <div class="form-left ">
+                <img src="img/form-v2.jpg" alt="form" class="arrondisGauche">
+                <div class="text-1">
+                </div>
+            </div>
 
-    {{ form_row(form.lastname) }}
-    {{ form_row(form.firstname) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword) }}
+            {{ form_start(form) }}
 
-    <div class="text-right">
-        <button type="submit" class="btn btn-outline-success">
-            Inscription
-        </button>
+            {{ form_row(form.lastname) }}
+            {{ form_row(form.firstname) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.plainPassword) }}
+
+            <div class="form-row-last">
+                <input class="register" name="register" type="submit" value="Valider">
+            </div>
+
+
+            {{ form_end(form) }}
+
+        </div>
     </div>
 
-    {{ form_end(form) }}
-
-{% endblock %}
+    {% endblock %}
