@@ -25,9 +25,9 @@
             <div class="col-sm-12 col-md-4">
                 <a class="list-group-item ' . $activeall . '" href="?categ=*">Tous les contacts</a>
                 <div class ="form-group ">
-                     <select class="form-control"  id="exampleFormControlSelect 1"> : retiré de la page
+                    <select class="form-control"  id="exampleFormControlSelect 1"> : retiré de la page
                         <option value="'  . $activeall . ' href = "?categ =*">Tous les contacts</option>
-                     </select>
+                    </select>
                 </div>
             </div>
         </div>
@@ -43,23 +43,23 @@
                                 <div class="d-flex align-items-center">
                                     <div class="image">
                                         <a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '">
-                                            <img src="{{ asset('') }}" alt="{{ contact.nom }}" class="img-fluid rounded-circle">
+                                            <img src="https://via.placeholder.com/50" alt="" class="img-fluid rounded-circle">
                                         </a>
                                     </div>
                                     <div class="text">
-                                        <a href="{{ path('app_contact_index', {'id': contact.id }) }}"> {{ contact.nom }}  {{ contact.prenom }} </a>
+                                        {{ contact.nom }}  {{ contact.prenom }}
                                         <br>
-                                        <small>{{ contact.profession }}</small>
+                                        <small> {{ contact.profession }}</small>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="picto col-sm-4 col-md-3 d-flex align-items-center">
-                                <i class="fas fa-mobile-alt"></i>{{ contact.telephone }}
+                                <i class="fas fa-mobile-alt"></i> {{ contact.telephone }}
                             </div>
 
                             <div class="picto hidden-sm hidden-xs d-xs-none col-md-4 d-flex align-items-center">
-                                <i class="fas fa-envelope-square"></i>{{ contact.email }}
+                                <i class="fas fa-envelope-square"></i> {{ contact.email }}
                             </div>
                             <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
                                 <a class="btn btn-link btn-info nav-link mr-3" href=""><i class="fas fa-pen"></i></a>
@@ -76,3 +76,4 @@
     </div>
 
 {% endblock %}
+

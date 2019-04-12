@@ -19,14 +19,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/{id}", requirements={"id": "\d+"})
+     * @Route("/contact")
      */
-    public function index(User $user)
+    public function listContact()
     {
-        $repository = $this->getDoctrine()->getRepository(Contact::class);
-        $contacts = $repository->findBy([], ['nom' => 'ASC']);
+        $user = $this->getUser();
 
-        return $this->render('user/index.html.twig', [
+        $repository = $this->getDoctrine()->getRepository(Contact::class);
+        $contacts = $repository->findBy(['user' => $user], ['nom' => 'ASC']);
+
+        return $this->render('user/listContact.html.twig', [
             'contacts' => $contacts,
             'user' => $user
         ]);
@@ -35,14 +37,14 @@ class UserController extends AbstractController
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/compte/{id}", requirements={"id": "\d+"})
+     * @Route("/compte")
      */
-    public function monCompte(Request $request, $id, User $user)
+    public function monCompte(Request $request)
     {
+        $user = $this->getUser();
 
 //ALLER CHERCHER L ID DU USER DEJA CONNECTE
         $em = $this->getDoctrine()->getManager();
-        $user = $em->find(User::class, $id);
 
         //AFFICH UN FORM
 
