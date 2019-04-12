@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Entity\User;
+use App\Form\UserCompleteType;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -34,23 +37,35 @@ class UserController extends AbstractController
      *
      * @Route("/compte/{id}", requirements={"id": "\d+"})
      */
-    public function monCompte()
+    public function monCompte(Request $request, $id, User $user)
     {
 
-
-//ALLER CHERCHER L ID DU USER DEJA CONNECTE  ok
+//ALLER CHERCHER L ID DU USER DEJA CONNECTE
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->find(User::class, $id);
 
         //AFFICH UN FORM
 
-        //VALID FORM
+        $form =$this->createForm(UserCompleteType::class, $user);
 
-        //LE METTRE EN BDD
+        //VALID FORM???
+        if ($form->isSubmitted()){
 
 //        AFFICH UN MESS DE CONFIRM
+        $this->addFlash('success','Votre profil a été mis a jour');
 
-//        return $this->render('user/compte.html.twig', [
-//            'form' => $form
-//        ]);
+         return $this->redirectToRoute('app_user_index');
+        }
+
+        //LE METTRE EN BDD
+        $form->handleRequest($request);
+
+        $em->persist($user);
+        $em->flush();
+
+        return $this->render('user/compte.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
 
