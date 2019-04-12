@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,82 +21,54 @@ class UserCompleteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('lastname', TextType::class,
+
+            ->add('phone', TextType::class,
                 [
-                    'label' => 'Nom'
+                    'label' => 'Téléphone',
+                    'required' => false
                 ])
 
-            ->add('firstname', TextType::class,
+            ->add('postalCode', TextType::class,
                 [
-                    'label' => 'Prénom'
-                ])
-
-            ->add('email', EmailType::class,
-                [
-                    'label' => 'Email'
-                ])
-
-            ->add('phone', IntegerType::class,
-                [
-                    'label' => 'Téléphone'
-                ])
-
-            ->add('postalCode', IntegerType::class,
-                [
-                    'label' => 'Code postal'
+                    'label' => 'Code postal',
+                    'required' => false
                 ])
 
             ->add('adress',TextType::class,
                 [
-                    'label' => 'Adresse'
+                    'label' => 'Adresse',
+                    'required' => false
                 ])
 
             ->add('city', TextType::class,
                 [
-                    'label' => 'Ville'
+                    'label' => 'Ville',
+                    'required' => false
                 ])
 
             ->add('photo',FileType::class,
                 [
-                    'label' => 'Photo'
+                    'label' => 'Photo',
+                    'required' => false
                 ])
 
             ->add('emploi', TextType::class,
                 [
-                    'label' => 'Emploi'
+                    'label' => 'Emploi',
+                    'required' => false
+                ])
+            ->add('dateBirth',DateType::class,
+                [
+                    'label' => 'Date de naissance',
+                    'required' => false
                 ])
 
             ->add('notePerso', TextareaType::class,
                 [
-                    'label' => 'Note perso'
+                    'label' => 'Note perso',
+                    'required' => false
                 ])
-
-            ->add('dateBirth',DateType::class,
-                [
-                    'label' => 'Date de naissance'
-                ])
-
-            ->add('plainPassword',
-
-                // 2 champs qui doivent avoir la même valeur
-                RepeatedType::class,
-                [
-                    //... de type password
-                    'type' => PasswordType::class,
-                    // options du 1er des 2 champs
-                    'first_options' => [
-                        'label' => 'Mot de passe'
-                    ],
-                    // options du second champ
-                    'second_options' => [
-                        'label' => 'Confirmation du mot de passe'
-                    ],
-                    // message si les 2 champs n'ont pas la même valeur
-                    'invalid_message' => 'La confirmation ne correspond pas au mot de passe'
-                ]
-            )
-        ;
-        ;
+           ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
