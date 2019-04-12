@@ -32,7 +32,7 @@
                                                  data-toggle="dropdown">Mon compte</a>
                     <div class="dropdown-menu" aria-labelledby="menuadmin">
                         <a class="dropdown-item" href="<?= URL . 'admin/contact-list.php' ?>">Mes contacts</a>
-                        <a class="dropdown-item" href="<?= URL . 'admin/ajout-contact.php' ?>">Ajouter un contact</a>
+                        <a class="dropdown-item" href="<?= URL . 'admin/ajout-contact.php' ?>">Mon compte</a>
                         <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
                         {#                    AJOUTER LES LIENS ADMIN#}
 
@@ -53,6 +53,17 @@
         </div>
     </div>
 </nav>
+{% for type, messages in app.session.flashBag.all %}
+    {% for message in messages  %}
+        {# pour la classe alert-danger du bootstrap #}
+        {% if type == 'error' %}
+            {% set type = 'danger' %}
+        {% endif %}
+        <div class="alert alert-{{ type }} mt-2">
+            {{ message|raw }}
+        </div>
+    {% endfor %}
+{% endfor %}
 {% block body %}
 
 
