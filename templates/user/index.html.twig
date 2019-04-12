@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Bonjour {{ user.firstname }}{% endblock %}
 
 {% block body %}
 <div class="container" id="tools">
@@ -35,21 +35,21 @@
                                         <div class="row">
                                             <div class="col-sm-7 col-md-4  d-flex align-items-center">
                                                 <div class="d-flex align-items-center">
-                                                    <div class="image"><a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '"><img src="' . URL . 'photo/' . $prd['photo'] . '" alt="' . $prd['nom'] . '" class="img-fluid rounded-circle"></a></div>
+                                                    <div class="image"><a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '"><img src="{{ asset('') }}" alt="' . $prd['nom'] . '" class="img-fluid rounded-circle"></a></div>
                                                     <div class="text">
-                                                        <a href="fiche-profil.php"' . $prd['id_contact'] . '"> ' . $prd['nom'] . ' ' .  $prd['prenom'] . ' </a>
+                                                        <a href="{{ path('app_contact_index', {'id': contact.id }) }}"> {{ contact.nom }} ' .  $prd['prenom'] . ' </a>
                                                         <br>
-                                                        <small>' . $prd['profession'] . '</small>
+                                                        <small>{{ contact.profession }}</small>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="picto col-sm-4 col-md-3 d-flex align-items-center">
-                                                <i class="fas fa-mobile-alt"></i></i>06 01 02 03 04
+                                                <i class="fas fa-mobile-alt"></i>{{ contact.telephone }}
                                             </div>
 
                                             <div class="picto hidden-sm hidden-xs d-xs-none col-md-4 d-flex align-items-center">
-                                                <i class="fas fa-envelope-square"></i>gromit@gmail.com
+                                                <i class="fas fa-envelope-square"></i>{{ contact.email }}
                                             </div>
                                             <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
                                                 <a class="btn btn-link btn-info nav-link mr-3" href=""><i class="fas fa-pen"></i></a>

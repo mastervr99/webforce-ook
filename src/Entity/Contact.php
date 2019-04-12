@@ -68,6 +68,7 @@ class Contact
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="contacts")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
