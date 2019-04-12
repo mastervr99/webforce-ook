@@ -1,40 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="page-content">
-        <div class="form-v2-content">
-            <div class="row ">
-                <div class="col-md-6">
 
+    <div class="page-content">
+        <div class="container">
+            <div class="row form-v2-content mx-auto ">
+
+                <div class="col-md-6 photo ">
                     <div class="form-left">
-                        <img src="img/form-v2.jpg" alt="Créez votre compte" class="arrondisGauche">
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="form-detail">
                         <h2>Créer mon compte</h2>
-
-
                         {{ form_start(form) }}
-                        <div class="form-row">
+                        <div class="form-group">
                             {{ form_row(form.lastname) }}
                         </div>
-                        <div class="form-row">
+                        <div class="form-group">
                             {{ form_row(form.firstname) }}
                         </div>
-                        <div class="form-row">
+                        <div class="form-group">
                             {{ form_row(form.email) }}
                         </div>
-                        <div class="form-row">
+                        <div class="form-group">
                             {{ form_row(form.plainPassword) }}
                         </div>
 
-                        <div class="form-row">
-                            <button class="btn-valider" type="submit">Valider</button>
+                        <div class="form-group">
+                            <button class="btn-valider btn-block" type="submit">Valider</button>
                         </div>
-                        <a href="#" class="deja-compte">J'ai déjà un compte</a>
                         {{ form_end(form) }}
 
+
+                        <div class="sentence">
+                            <a href="#" >J'ai déjà un compte</a>
+                        </div>
                     </div>
                 </div>
             </div>
