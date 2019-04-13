@@ -214,12 +214,19 @@ class Contact
         return $this;
     }
 
-    public function getPhoto(): ?string
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
     {
         return $this->photo;
     }
 
-    public function setPhoto(?string $photo): self
+    /**
+     * @param $photo
+     * @return Contact
+     */
+    public function setPhoto($photo)
     {
         $this->photo = $photo;
 

@@ -30,8 +30,18 @@ class ContactController extends AbstractController
 
         $contact = new Contact();
 
-        //AFFICH UN FORM
+        if (!is_null($contact->getPhoto())) {
+            // nom du fichier venant de la bdd
+            $photo = $contact->getPhoto();
 
+            // on sette l'image avec un objet File sur l'emplacement de l'image
+            // pour le traitement par le formulaire
+            $contact->setPhoto(
+                new File($this->getParameter('upload_dir') . $photo)
+            );
+        }
+
+        //AFFICH UN FORM
         $form =$this->createForm(ContactType::class, $contact);
 
         $form->handleRequest($request);
@@ -42,6 +52,26 @@ class ContactController extends AbstractController
             $contact
                 ->setUser($this->getUser())
             ;
+
+            $photo = $contact->getPhoto();
+
+            if (!is_null($photo)) {
+                // nom sous lequel on va enregistrer l'image
+                $filename = uniqid() . '.' . $photo->guessExtension();
+
+                // déplace l'image uploadée
+                $photo->move(
+                // vers le répertoire /public/photo
+                // cf config/services.yaml
+                    $this->getParameter('upload_dir'),
+                    // nom du fichier
+                    $filename
+                );
+
+                // on sette l'attribut image de l'article avec son nom
+                // pour enregistrement en bdd
+                $contact->setPhoto($filename);
+            }
 
             //LE METTRE EN BDD
 
@@ -60,5 +90,6 @@ class ContactController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+    
 
 }
