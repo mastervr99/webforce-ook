@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -36,9 +37,10 @@ class ContactType extends AbstractType
                 ]
             )
             ->add('dateDeNaissance',
-                    DateType::class,
+                    BirthdayType::class,
                 [
                     'label' => 'Date de naissance',
+                    'format' => 'dd MM yyyy',
                     'required' => false
                 ]
             )
