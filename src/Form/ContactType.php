@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Contact;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -32,15 +34,61 @@ class ContactType extends AbstractType
                 [
                     'label' => 'Email'
                 ]
-                )
-            ->add('dateDeNaissance')
-            ->add('telephone')
-            ->add('profession')
-            ->add('adresse')
-            ->add('notePersonnelle')
-            ->add('codePostal')
-            ->add('ville')
-            ->add('user')
+            )
+            ->add('dateDeNaissance',
+                    DateType::class,
+                [
+                    'label' => 'Date de naissance',
+                    'required' => false
+                ]
+            )
+            ->add('telephone',
+                TextType::class,
+                [
+                    'label' => 'Téléphone',
+                    'required' => false
+                ]
+
+            )
+            ->add('profession',
+                TextType::class,
+                [
+                    'label' => 'Profession',
+                    'required' => false
+                ]
+
+            )
+            ->add('adresse',
+                TextType::class,
+                [
+                    'label' => 'Adresse',
+                    'required' => false
+                ]
+
+            )
+            ->add('notePersonnelle',
+                TextareaType::class,
+                [
+                    'label' => 'Note Personnelle',
+                    'required' => false
+                ]
+            )
+            ->add('codePostal',
+                TextType::class,
+                [
+                    'label' => 'Code postal',
+                    'required' => false
+                ]
+
+            )
+            ->add('ville',
+                TextType::class,
+                [
+                    'label' => 'Ville',
+                    'required' => false
+                ]
+
+            )
         ;
     }
 
