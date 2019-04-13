@@ -34,144 +34,114 @@
 </head>
 
 
-
 <!------------------DEBUT NAV---------------------->
 
+<body id="body-profile-page">
 
+<main id="main-profile-page">>
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand" href="<?= URL ?>">WebForce_ook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="<?= URL ?>">WebForce_ook</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin" role="button"
-                                                 data-toggle="dropdown">Mon compte</a>
-                    <div class="dropdown-menu" aria-labelledby="menuadmin">
-                        <a class="dropdown-item" href="<?= URL . 'admin/contact-list.php' ?>">Mes contacts</a>
-                        <a class="dropdown-item" href="<?= URL . 'admin/ajout-contact.php' ?>">Ajouter un contact</a>
-                        <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin"
+                                                     role="button"
+                                                     data-toggle="dropdown">Mon compte</a>
+                        <div class="dropdown-menu" aria-labelledby="menuadmin">
+                            <a class="dropdown-item" href="<?= URL . 'admin/contact-list.php' ?>">Mes contacts</a>
+                            <a class="dropdown-item" href="<?= URL . 'admin/ajout-contact.php' ?>">Ajouter un
+                                contact</a>
+                            <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
 
-                    </div>
-                </li>
-            </ul>
-            {% else %}
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">M'inscrire</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="<?= URL . 'faq.php' ?>">FAQ</a></li>
-            </ul>
-            {% endif %}
+                        </div>
+                    </li>
+                </ul>
+                {% else %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">M'inscrire</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="<?= URL . 'faq.php' ?>">FAQ</a></li>
+                </ul>
+                {% endif %}
 
-        </div>
-    </div>
-</nav>
-
-<!------------------FIN NAV---------------------->
-
-
-<div class="container">
-    <div class="row profile ">
-        <div class="col-md-8 ">
-            <div class="card profile-userpic profile-sidebar" style="width: 18rem;">
-                <img class="profile-userpic text-center card-img-top" src="img/41.jpg" alt="Card image title">
-                <div class="card-body profile-usertitle">
-                    <h5 class="card-title profile-usertitle-name">Harry Cover</h5>
-                    <p class="card-text profile-usertitle-job">Musicien</p>
-                    <a href="#d" class="btn btn-info btn-outline btn-block">Ajouter à mes contacts</a>
-                </div>
             </div>
         </div>
-        <!--<div class="row justify-content-center">-->
-        <div class="col-md-4">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item infos text-left mt-2">
-                    <span><i class="icon-case fa fa-phone icon-case"></i></span>
-                    <p>06 02 45 23 54</p>
-                </li>
+    </nav>
 
-                <li class="list-group-item infos">
-                    <i class="icon-case fa fa-envelope icon-case"></i>
-                    <p>jlimousin@gmail.com</p>
-                </li>
+    <!------------------FIN NAV---------------------->
 
-                <li class="list-group-item infos">
-                    <i class="icon-case far fa-building"></i>
-                    <p>Webforce 3</p>
-                </li>
 
-                <li class="list-group-item infos">
-                    <i class="icon-case fa fa-home adresse"></i>
-                    <span>25 rue de la Grande Rue</span>
-                    <span>75008</span>
-                    <span>Paris</span>
-                </li>
-            </ul>
+    <div class="container">
+        <div class="row justify-content-md-center">
 
-            <ul class="mt-5 list-group">
-                <li class="list-group-item infos">
-                    <i class="icon-case fa fa-info"></i>
-                    <p class="text-center">Commentaires</p>
-                    <span>Rencontrée à la soirée apéro de Roger</span>
-                </li>
+                <section class="col-md-3" id="profil-left">
+                    <div class="card profile-userpic">
+                        <img class="user-photo card-img-top" src="img/41.jpg" alt="Card image title">
+                        <div class="card-body">
+                            <h5 class="card-title user-name">Harry Cover</h5>
+                            <p class="card-text user-job">Musicien</p>
+                            <a href="#d" class="btn btn-info btn-block user-btn">Ajouter à mes contacts</a>
+                        </div>
+                    </div>
+                </section>
 
-                <li class="list-group-item infos">
-                    <i class="icon-case far fa-smile"></i>
-                    <p class="text-center">Mots clés</p>
+                <section class="col-md-4" id="profil-right">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item infos text-left mt-2">
+                            <span><i class="icon-case fa fa-phone"></i></span>
+                            <p>06 02 45 23 54</p>
+                        </li>
 
-                    <span>#copine, #Travail, #chat</span>
-                </li>
-            </ul>
+                        <li class="list-group-item infos">
+                            <div><i class="icon-case fa fa-envelope icon-case"></i></div>
+                            <div><p>h.cover@gmail.com</p></div>
+
+                        </li>
+
+                        <li class="list-group-item infos">
+                            <i class="icon-case far fa-building"></i>
+                            <p>25 rue de la Grande Rue</p>
+
+                        </li>
+
+                        <li class="list-group-item infos">
+                            <i class="icon-case fa fa-home adresse"></i>
+                            <p>25 rue de la Grande Rue</p>
+                            <span>75008</span>
+                            <span>Paris</span>
+                        </li>
+                    </ul>
+                </section>
         </div>
+
+        <section id="profil-bottom">
+            <div class="row justify-content-md-center"">
+                <div class="col-md-8">
+                    <ul class="mt-5 list-group">
+                        <li class="list-group-item infos">
+                            <i class="icon-case fa fa-info"></i>
+                            <p class="text-center">Commentaires</p>
+                            <span>Rencontrée à la soirée apéro de Roger</span>
+                        </li>
+
+                        <li class="list-group-item infos">
+                            <i class="icon-case far fa-smile"></i>
+                            <p class="text-center">Mots clés</p>
+                            <span>#copine, #Travail, #chat</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
-</div>
 
-
-
-
-
-<!--    <div class=""><p>Profession</p></div>-->
-<!--    <div class=""><p>Entreprise</p></div>-->
-<!--    <div class=""><p>Téléphone</p></div>-->
-<!--    <div class=""><p>E-mail</p></div>-->
-<!--    <div class=""><p>Adresse</p></div>-->
-<!--    <div class=""><p>Code postal</p></div>-->
-<!--    <div class=""><p>Ville</p></div>-->
-<!--    <div class=""><p>Commentaires</p></div>-->
-<!--    <div class=""><p>Mots-clés</p></div>-->
-
-<!--<div class="container">-->
-<!--<div class="row profile justify-content-center">-->
-<!--<div class="col-md-3">-->
-<!--<div class="profile-sidebar">-->
-<!--<div class="profile-userpic text-center">-->
-<!--<img src="img/41.jpg" alt="">-->
-<!--</div>-->
-
-<!--<div class="profile-usertitle">-->
-<!--<div class="profile-usertitle-name">Harry Cover</div>-->
-<!--<div class="profile-usertitle-job">Musicien</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="profile-userbuttons">-->
-<!--<div class="row  justify-content-center">-->
-<!--<div class="col-md-2">-->
-<!--<button type="button" class="btn btn-info btn-sm btn-block">Modifier</button>-->
-<!--</div>-->
-<!--<div class="col-md-2">-->
-<!--<button type="button" class="btn btn-secondary btn-sm btn-block">Supprimer</button>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>
 </main>
 
 
