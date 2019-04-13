@@ -21,33 +21,42 @@ class ContactController extends AbstractController
      * @Route("/creation")
      *
      */
-    public function create(Request $request, $contact)
+    public function createContact(Request $request)
     {
         /** Vérifie si l'utilisateur est authentifié */
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $em = $this->getDoctrine()->getManager();
 
+        $contact = new Contact();
+
         //AFFICH UN FORM
 
         $form =$this->createForm(ContactType::class, $contact);
 
+        $form->handleRequest($request);
+
         //VALID FORM???
         if ($form->isSubmitted()){
 
-//        AFFICH UN MESS DE CONFIRM
-            $this->addFlash('success','Votre profil a été mis a jour');
+            $contact
+                ->setUser($this->getUser())
+            ;
 
-            return $this->redirectToRoute('app_user_index');
+            //LE METTRE EN BDD
+
+            $em->persist($contact);
+            $em->flush();
+
+//        AFFICH UN MESS DE CONFIRM
+            $this->addFlash('success','Votre contact a été créé !');
+
+            return $this->redirectToRoute('app_user_listcontact');
         }
 
-        //LE METTRE EN BDD
-        $form->handleRequest($request);
 
-        $em->persist($user);
-        $em->flush();
 
-        return $this->render('contact/create.html.twig', [
+        return $this->render('contact/createContact.html.twig', [
             'form' => $form->createView()
         ]);
     }
