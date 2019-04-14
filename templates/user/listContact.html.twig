@@ -48,8 +48,8 @@
                             <div class="col-sm-7 col-md-4  d-flex align-items-center">
                                 <div class="d-flex align-items-center">
                                     <div class="image">
-                                        <a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '">
-                                            <img src="https://via.placeholder.com/50" alt="" class="img-fluid rounded-circle">
+                                        <a href="">
+                                            <img src="{{ asset('photo/' ~ contact.photo)}}" alt="" class="img-fluid rounded-circle">
                                         </a>
                                     </div>
                                     <div class="text">
@@ -68,8 +68,8 @@
                                 <i class="fas fa-envelope-square"></i> {{ contact.email }}
                             </div>
                             <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
-                                <a class="btn btn-link btn-info nav-link mr-3" href=""><i class="fas fa-pen"></i></a>
-                                <a class="btn btn-link btn-info nav-link" href=""><i class="fas fa-trash"></i></a>
+                                <a class="btn btn-link btn-info nav-link mr-3" href="{{ path('app_contact_editcontact', {'id': contact.id}) }}"><i class="fas fa-pen"></i></a>
+                                <a class="btn btn-link btn-info nav-link" href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}"><i class="fas fa-trash"></i></a>
                             </div>
 
                         </div>

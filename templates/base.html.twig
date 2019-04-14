@@ -23,10 +23,22 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"></span></button>
+
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
 
-        {#                SI LE USER ES CONNECTE#}
+        {#                SI LE USER EST CONNECTE#}
         {% if app.user %}
+            <div class="col-sm-12 col-md-4" id="recherche">
+                <form id="search-form" class="form-inline" role="form" method="post" action="{{ path('app_searchuser_searchuser') }}" target="_blank">
+                    <div class="input-group">
+                        <input type="text" class="form-control search-form" placeholder="Rechercher un utilisateur">
+                        <span class="input-group-btn">
+                                <button type="submit" class="btn search-btn" data-target="#search-form" name="searchUser"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin" role="button"

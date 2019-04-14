@@ -72,6 +72,11 @@ class Contact
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -205,6 +210,25 @@ class Contact
     public function setUser(?user $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param $photo
+     * @return Contact
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
 
         return $this;
     }

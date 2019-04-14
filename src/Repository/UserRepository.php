@@ -19,6 +19,65 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    public function search(array $filters = [])
+    {
+        // constructeur de requête SQL
+        // le 'u' est l'alias de la table article dans la requête
+        $qb = $this->createQueryBuilder('u');
+
+        // tri par date de publication décroissante
+        $qb->orderBy('u.lastname', 'ASC');
+
+        if (!empty($filters['lastname'])) {
+            $qb
+                ->andWhere('u.lastname LIKE :lastname')
+                ->setParameter('lastname', '%' . $filters['lastname'] . '%')
+            ;
+        }
+
+        if (!empty($filters['firstname'])) {
+            $qb
+                ->andWhere('u.firstname LIKE :firstname')
+                ->setParameter('firstname', '%' . $filters['firstname'] . '%')
+            ;
+        }
+
+        if (!empty($filters['email'])) {
+            $qb
+                ->andWhere('u.email LIKE :email')
+                ->setParameter('email', '%' . $filters['email'] . '%')
+            ;
+        }
+
+        if (!empty($filters['city'])) {
+            $qb
+                ->andWhere('u.city LIKE :city')
+                ->setParameter('city', '%' . $filters['city'] . '%')
+            ;
+        }
+
+        if (!empty($filters['postalCode'])) {
+            $qb
+                ->andWhere('u.postalCode LIKE :postalCode')
+                ->setParameter('postalCode', '%' . $filters['postalCode'] . '%')
+            ;
+        }
+
+        if (!empty($filters['emploi'])) {
+            $qb
+                ->andWhere('u.emploi LIKE :emploi')
+                ->setParameter('emploi', '%' . $filters['emploi'] . '%')
+            ;
+        }
+
+
+        // la requête générée
+        $query = $qb->getQuery();
+
+        // on retourne le résultat de la requête
+        return $query->getResult();
+    }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

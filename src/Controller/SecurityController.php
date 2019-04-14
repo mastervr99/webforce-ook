@@ -46,7 +46,7 @@ class SecurityController extends AbstractController
 
                 $this->addFlash('success','Votre compte est créé');
 
-                return $this->redirectToRoute('app_user_listcontact');
+                return $this->redirectToRoute('app_security_login');
             } else {
                 $this->addFlash('error', 'Le formulaire contient des erreurs');
             }
