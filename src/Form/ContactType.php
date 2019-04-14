@@ -93,7 +93,6 @@ class ContactType extends AbstractType
             )
             ->add('photo',
                 FileType::class,
-                /**array('data_class' => null),*/
                 [
                     'label' => 'Photo',
                     'required' => false,
