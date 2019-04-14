@@ -24,15 +24,17 @@ class SearchUserController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $repository = $this->getDoctrine()->getRepository(User::class);
-        $user = $repository->findBy([], ['lastname' => 'ASC']);
 
-        $form =$this->createForm(SearchUserType::class, $user);
+        // formulaire de recherche
+        $searchForm = $this->createForm(SearchUserType::class);
 
-        $form->handleRequest($request);
+        $searchForm->handleRequest($request);
+
+        $user = $repository->search((array)$searchForm->getData());
 
         return $this->render('search_user/searchUser.html.twig',
         [
-            'form' => $form->createView(),
+            'search_form' => $searchForm->createView(),
             'users' => $user
         ]);
     }
