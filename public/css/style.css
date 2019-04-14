@@ -5,38 +5,38 @@
 
 body {
     /* background: #eaeaea; */
-    font-family: 'Open Sans', 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+    font-family: 'Roboto', 'Catamaran', 'Open Sans', 'Muli', 'Helvetica', 'Arial', 'sans-serif';
     width: 100%;
     height: 100vh;
 }
 
-/*main{*/
-/*    margin-top: 100px;*/
-/*}*/
+body#bodycolor {
+    background: #f5f5f5;
+}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
-    font-weight: 200;
-    letter-spacing: 1px;
+main{
+    margin-top: 70px;
 }
 
 
-hr {
+hr.light {
     max-width: 100px;
     margin: 50px auto;
     border-width: 1px;
     border-color: rgba(34, 34, 34, 0.1);
 }
 
-hr.light {
-    border-color: white;
+.hr-title {
+    border-bottom: 3px solid #5cd3b4;
+    max-width: 250px;
+    margin: 10px auto 40px auto;
 }
 
+ion-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #FFFFFF;
+}
 
 /*======================================================================
                             NAVBAR
@@ -45,7 +45,7 @@ hr.light {
 
 #mainNav {
     border-color: rgba(34, 34, 34, 0.05);
-    background-color: rgba(1, 34, 51, 0.843);
+    background-color: rgb(0, 0, 0);
     font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
     font-weight: 200;
     letter-spacing: 1px;
@@ -64,7 +64,7 @@ hr.light {
 
 #mainNav .navbar-nav > li > a {
     font-size: 11px;
-    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    font-family: 'roboto', 'Lato', 'Helvetica', 'Arial', 'sans-serif';
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -84,6 +84,10 @@ hr.light {
     background-color: transparent;
 }
 
+/*NOTIFICATIONS*/
+#mainNav .btn-notifications{
+    color: #FFFFFF;
+}
 
 /* ===================  TOGGLE ===================*/
 
@@ -126,6 +130,9 @@ header.masthead .text {
 
 header.masthead .text h1 {
     font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: 100;
+
 }
 
 header.masthead .iphone {
@@ -273,7 +280,7 @@ section.features .feature-item i {
 /*----------- bloc gauche -----------*/
 
 .page-content .form-v2-content .photo {
-    padding: 0px;
+    padding: 0;
 }
 
 .form-v2-content .form-left {
@@ -284,30 +291,27 @@ section.features .feature-item i {
     background-repeat: no-repeat;
 }
 
+
 /*----------- FORMULAIRE -----------*/
 
 
 .form-v2-content .form-detail {
-    padding: 20px 0px;
+    padding: 20px 0;
 }
 
 .form-v2-content .form-detail .form-group {
-    padding: 0px 20px;
+    padding: 0 20px;
 }
 
 .form-v2-content .form-detail h2 {
-    font-family: 'Catamaran',
-    'Helvetica',
-    'Arial',
-    'sans-serif';
-    font-weight: bolder;
+    font-weight: 900;
     color: rgb(47, 47, 47);
     font-size: 28px;
-    padding: 0px 20px;
-    margin: 10px 0px 20px 0px;
+    padding: 0 20px;
+    margin: 10px 0 20px 0;
     text-align: center;
-
 }
+
 
 /*.form-v2-content .form-row {*/
 /*    width: 100%;*/
@@ -317,18 +321,21 @@ section.features .feature-item i {
 .form-v2-content .form-detail label {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.8rem;
+    color: #898989;
     display: block;
     margin-bottom: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .form-v2-content .form-detail input {
     width: 100% !important;
-    border-radius: 0px 5px 5px 0px;
-    border: 1px solid #eee;
+    border-radius: 2rem;
+    border: 1px solid #dcdcdc;
     height: 40px;
-    padding: 0px 15px;
+    padding: 0 15px;
 }
 
 .form-v2-content .form-detail div.form-group .passConf {
@@ -350,7 +357,7 @@ section.features .feature-item i {
     color: #fff;
     font-size: 0.9rem;
     padding: 10px;
-    margin: 40px 0px 20px 0px;
+    margin: 40px 0 20px 0;
 }
 
 .form-v2-content .form-detail .btn-valider:hover {
@@ -412,11 +419,7 @@ section.features .feature-item i {
 ======================================================================*/
 
 
-.form-v2-content .form-right img {
-    width: 100%;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-}
+/*NOTHING*/
 
 
 /*======================================================================
@@ -425,107 +428,356 @@ section.features .feature-item i {
 
 /*----------- BOUTONS  -----------*/
 
-#tools {
-    margin-top: 90px;
+
+#contact-list #buttons-options .has-search .form-control {
+    padding-left: 2.375rem;
 }
 
-/* BTN AJOUTER */
-.bt-ajouter i.fa-plus-circle {
-    color: white;
+#contact-list #buttons-options .input-group input.form-control {
+    border-radius:3rem 0 0 3rem;
 }
 
-/* BTN RECHERCHE */
-#recherche .search-form {
-    border-radius: 30px 0px 0px 30px;
-    /*border-radius:Top-left, Top-right, Bottom-right, Bottom-left;*/
+#contact-list #buttons-options .input-group > .input-group-append > .btn{
+
+    border-top-right-radius:3rem;
+    border-bottom-right-radius: 3rem;
+    z-index:4;
+}
+#contact-list #buttons-options .form-control::placeholder{
+    font-size: 0.9rem;
+    color: #a6a6a6;
 }
 
-#recherche button.search-btn {
-    border-radius: 0px 30px 30px 0px;
-    cursor: pointer;
-    background: #0f95aa;
+/*----------- LEGEND  -----------*/
+
+#contact-list #legend {
+    background: #1d1d1d;
+    padding: 10px;
+    margin-bottom: 15px;
+    vertical-align: middle;
+    text-align: center;
 }
 
-#recherche i.fa {
-    color: white;
+#contact-list #legend p {
+    color: #FFFFFF;
+    text-align: center;
+    margin: auto;
+    padding-right: 30px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
 }
+
+#contact-list #add-contact{
+    background-color: #FFFFFF;
+}
+
+
+/*----------- LISTE  -----------*/
+
+
+#contact-list #list .list-group {
+    background-color: #FFFFFF;
+}
+
+#contact-list #list .list-group-item {
+    border: none;
+    background-color: #f5f5f5;
+    margin-bottom: 5px;
+}
+
+#contact-list #list .list-group-item .btn-add-contact {
+    border: none;
+    margin: 10px;
+    color: #FFFFFF;
+    padding: 20px;
+}
+
+/* photo*/
+#contact-list .image {
+    width: 80px;
+    margin-right: 2rem;
+    border: 3px solid rgb(214, 214, 214);
+    border-radius: 50px 50px 50px 50px;
+}
+
+/* nom prenom*/
+#contact-list .text a {
+    margin-bottom: 0;
+    color: #17a2b8;
+}
+
+#contact-list .text small {
+    color: rgb(119, 119, 119);
+    font-size: 0.75em;
+}
+
+/* pictos phone mail*/
+
+#contact-list .picto{
+    font-size: 0.9rem;
+    color: #1d1d1d;
+    vertical-align: middle;
+}
+#contact-list .picto i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: #1d1d1d;
+}
+
+/* pictos bt modif suppr*/
+
+#contact-list .btn-user {
+border: none;
+color: white;
+padding: 12px 16px;
+font-size: 1rem;
+    margin-left: 20px;
+}
+/*#contact-list #list button i{*/
+/*    margin:auto;*/
+/*}*/
+
+
+/*PAGINATION*/
+#contact-list #pagination{
+    margin-top: 50px;
+}
+
+
+
+
+
 
 /*======================================================================
-                        FICHE-PROFIL.php
+                        CREATION FICHE-PROFIL.php
 ======================================================================*/
 
 
-body#body-profile-page {
-    color: #566787;
-    background: #f5f5f5;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 13px;
+#my-profile {
+    width: 70%;
+    /*margin: 0 auto;*/
+    /*padding: 30px 0;*/
 }
 
-main#main-profile-page {
-    margin-top: 100px;
+#my-profile form {
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 30px;
 }
+
+#my-profile .form-group {
+    margin-bottom: 20px;
+    color: #999;
+}
+
+#my-profile label {
+    font-weight: normal;
+    font-size: 14px;
+    text-align: right;
+}
+
+#my-profile .form-control {
+    border-color: #eee;
+    min-height: 40px;
+}
+
+#my-profile .form-control::placeholder {
+    color: #dcdcdc;
+}
+
+#my-profile .form-separator {
+    margin-bottom: 50px;
+}
+
+#my-profile .btn-validate {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+
+/*======================================================================
+                        FICHE USER-PROFIL.php
+======================================================================*/
+
 
 /*----------- profil-left---------*/
-#profil-left .card {
+
+#user-profile-left .card {
     background-color: #ffff;
+    border: none;
 }
 
-#profil-left .user-name {
+#user-profile-left .card-title {
+    margin-bottom: 5px;
+}
+
+#user-profile-left .user-lastname {
     font-size: 2rem;
     color: #252a31;
     font-weight: 600;
-    text-align: center;
-    margin-top: 10px;
 }
 
-#profil-left .user-job {
-    text-transform: uppercase;
-    color: #7a7a7a;
-    font-size: 12px;
+#user-profile-left .user-firstname {
+    font-size: 1rem;
+    color: #252a31;
     font-weight: 600;
-    text-align: center;
-    letter-spacing: 1px;
     margin-bottom: 30px;
 
 }
 
-#profil-left .user-btn {
+#user-profile-left .user-job {
+    text-transform: uppercase;
+    color: #7a7a7a;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+#user-profile-left .user-btn{
     color: #fff;
-    font-size: 1rem;
-    padding: 20px;
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 10px 20px;
+}
+#user-profile-left .user-btn span, #contact-list #list .list-group-item .btn-add-contact span{
+    margin-left:10px;
+}
+#user-profile-left .user-btn:last-child{
+    margin-top:15px;
 }
 
-/*#profile-left user-photo{*/
-/*    width: 50%;*/
-/*    height: 50%;*/
-/*    -webkit-border-radius: 50% !important;*/
-/*    -moz-border-radius: 50% !important;*/
-/*    border-radius: 50% !important;*/
-/*    border: 5px solid #d2d2d2;*/
-/*}*/
-
-/*---------  profil-right  -------------*/
 
 
-#profil-right .list-group-item {
+/*---------  #user-profile-right  -------------*/
+
+
+#user-profile-right .list-group {
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+#user-profile-right .list-group .title, #user-profile-commentaires .list-group .title {
+    background: #000000;
+}
+
+#user-profile-commentaires .card-header {
+    padding: 0;
+    background: #000000;
+    color: #ffffff;
+}
+
+#user-profile-right .list-group-item {
     height: 50px;
-    padding: 0px;
-
+    padding: 0;
+    /*background-color: transparent;*/
 }
 
-#profil-right .infos i {
+#user-profile-right .list-group-item i.pictos-title, #user-profile-commentaires .card-header i.pictos-title {
     font-size: 1.4rem;
-    margin-right: 20px;
     color: #ffffff;
     width: 50px;
     height: 50px;
     text-align: center;
-    background: #252a31;
+    background: #000000;
     line-height: 2.1;
+    float: left;
+    margin-right: 10px;
 }
 
-#profil-right li p, #profil-right .list-group-item.infos span {
+#user-profile-right .list-group h5.card-title, #user-profile-commentaires .card-header h5.card-title {
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    padding-top: 16px;
+
+}
+
+#user-profile-right .list-group-item i.pictos {
+    font-size: 1.3rem;
+    color: #08a2b8;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 2.1;
+    float: left;
+    margin-right: 20px;
+    margin-left: 50px;
+}
+
+#user-profile-right .list-group-item:last-child {
+    height: 100px;
+}
+
+#user-profile-right .list-group-item:last-child .card {
+    background-color: transparent;
+    border: none;
+}
+
+#user-profile-right .list-group-item:last-child .card .card-body {
+    margin-top: 15px;
+    padding: 0;
+}
+
+#user-profile-right .list-group-item:last-child .card .card-body .infos {
+    margin: 0;
+}
+
+#user-profile-right .list-group-flush .list-group-item p.infos, #user-profile-right li span {
     font-size: 1rem;
-    color: #f14500;
+    color: #000000;
+    margin-top: 13px;
+}
+
+/*------ user-profile-suggestions ------*/
+
+#user-profile-suggestions img {
+    width: 70%;
+    margin: 20px auto 10px auto;
+}
+
+#user-profile-suggestions #user-profile-left .user-name {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+#user-profile-suggestions #user-profile-left .user-job {
+    margin-bottom: 30px;
+}
+
+#user-profile-suggestions .card-body {
+    padding: 0;
+}
+
+#user-profile-suggestions #user-profile-left .user-btn {
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+#user-profile-suggestions #user-profile-left .btn {
+    border-radius: 0;
+}
+
+#user-profile-suggestions i {
+    font-size: 1.2rem;
+}
+
+
+/*======================================================================
+                        modification-contact
+======================================================================*/
+
+#modify-profil .user-btn-suppr {
+    color: #fff;
+    font-size: 1rem;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 20px 0;
+}
+
+#modify-profil .date-ajout {
+    color: #4e4e4e;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    text-align: right;
 }

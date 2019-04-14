@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta firstname="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PROJET</title>
+
+    <!-- intégration bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- intégration Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- feuille de style perso -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- intégration JS -->
+    <script src=" https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+    </script><!-- utilisation de la version "minified" (pas la slim) ici : https://code.jquery.com/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <!-- ionicons.com -->
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    <!-- feuille de style et script  perso -->
+    <script src="<?= URL . 'inc/js/functions.js' ?>"></script>
+</head>
+
+
+<!------------------DEBUT NAV---------------------->
+
+<body>
+<main id="main-profile-page">>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="<?= URL ?>">WebForce_ook</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+
+                <div class="input-group col-md-6 ml-auto">
+                    <input type="text" class="form-control" placeholder="Rechercher un nom">
+                    <div class="input-group-append">
+                        <button class="btn btn-info" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-notifications">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                    <span class="badge badge-danger">9</span>
+                    <span class="sr-only">unread messages</span>
+                </button>
+
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">M'inscrire</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="<?= URL . 'faq.php' ?>">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!------------------FIN NAV---------------------->
+    <div id="contact-list">
+
+        <secton class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-5">
+                    <h3 class="text-center mb-4">Vos contacts</h3>
+                    <hr class="hr-title">
+                </div>
+            </div>
+        </secton>
+
+
+        <section class="container" id="buttons-options">
+            <div class="row ">
+                <div class="col-md-5 mr-auto">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Rechercher dans mes contacts">
+                        <div class="input-group-append">
+                            <button class="btn btn-info" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group ">
+                        <select id="" class="form-control btnFilterBy">
+                            <option selected>Filtrer par</option>
+                            <option>Professionel</option>
+                            <option>Famille</option>
+                            <option>Autres</option>
+                            <option>Ajouter un filtre</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <select id="" class="form-control btnSortBy">
+                            <option selected>Trier par</option>
+                            <option>Ordre alphabétique A-z</option>
+                            <option>Ordre alphabétique z-A</option>
+                            <option>Ajouts récents d'abord</option>
+                            <option>Ajouts anciens d'abord</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+<!--        <div class="btn-group">-->
+<!--            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"-->
+<!--                    aria-expanded="false">-->
+<!--                Right-aligned menu-->
+<!--            </button>-->
+<!--            <div class="dropdown-menu dropdown-menu-right">-->
+<!--                <button class="dropdown-item" type="button">Action</button>-->
+<!--                <button class="dropdown-item" type="button">Another action</button>-->
+<!--                <button class="dropdown-item" type="button">Something else here</button>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <section class="container">
+            <div id="legend">
+                <div class="row">
+                    <div class="col-md-4"><p>Photo</p></div>
+                    <div class="col-md-3 align-items-center"><p>Téléphone</p></div>
+                    <div class="col-md-3 align-items-center"><p>Mail</p></div>
+                    <div class="col-md-2 align-items-center"><p>Action</p></div>
+                </div>
+            </div>
+
+            <div class="row" id="list">
+                <div class="col">
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item ">
+                            <div class="row justify-content-md-center">
+                                <div class="col-auto ">
+                                    <button type="button" class="btn btn-link btn-info btn-add-contact ">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                        <span class="align-middle">Ajouter un nouveau contact</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-4 d-flex align-items-center">
+                                    <div class="image">
+                                        <a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '">
+                                            <img src="img/05.jpg" alt="" class="img-fluid rounded-circle">
+                                        </a>
+                                    </div>
+                                    <div class="text">
+                                        <a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '">{{ contact.nom
+                                            }} {{ contact.prenom }}</a>
+                                        <br>
+                                        <small> {{ contact.profession }}</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 d-flex align-items-center picto ">
+                                    <i class="fas fa-mobile-alt"></i>{{ contact.telephone }}
+                                </div>
+                                <div class="col-md-3 d-flex align-items-center picto ">
+                                    <i class="fa fa-envelope"></i>{{ contact.email }}
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-end m-auto">
+                                    <button type="button" class="btn btn-link btn-info btn-user ">
+                                        <i class="fa fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-link btn-secondary btn-user">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-4 d-flex align-items-center">
+                                    <div class="image">
+                                        <a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '">
+                                            <img src="img/05.jpg" alt="" class="img-fluid rounded-circle">
+                                        </a>
+                                    </div>
+                                    <div class="text">
+                                        <a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '">{{ contact.nom
+                                            }} {{ contact.prenom }}</a>
+                                        <br>
+                                        <small> {{ contact.profession }}</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 d-flex align-items-center picto ">
+                                    <i class="fas fa-mobile-alt"></i>{{ contact.telephone }}
+                                </div>
+                                <div class="col-md-3 d-flex align-items-center picto ">
+                                    <i class="fa fa-envelope"></i>{{ contact.email }}
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-end m-auto">
+                                    <button type="button" class="btn btn-link btn-info btn-user ">
+                                        <i class="fa fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-link btn-secondary btn-user">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                    <!--PAGINATION-->
+                    <div id="pagination">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Précédent</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Suivant</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    </div><!-- END CONTACT-LIST -->
+
+
+</main>
+
+</body>
+
+</html>
