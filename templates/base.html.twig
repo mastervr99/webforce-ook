@@ -25,12 +25,13 @@
                 </div>
 
                 <ul class="navbar-nav ml-auto">
-                    <li class="dropdown-item" href="{{ path('app_user_listcontact') }}">Mes contacts</li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_user_listcontact') }}">Mes contacts</a></li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin" role="button"
                                                      data-toggle="dropdown">Mon compte</a>
                         <div class="dropdown-menu" aria-labelledby="menuadmin">
                             <a class="dropdown-item" href="{{ path('app_user_moncompte') }}">Mon compte</a>
                             <a class="dropdown-item" href="{{ path('app_contact_createcontact') }}">Ajouter un contact</a>
+                            <hr>
                             <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
                             {#                    AJOUTER LES LIENS ADMIN#}
 
@@ -40,10 +41,8 @@
                 </ul>
             {% else %}
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">M'inscrire</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">M'inscrire</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= URL . 'faq.php' ?>">FAQ</a></li>
                 </ul>
             {% endif %}
