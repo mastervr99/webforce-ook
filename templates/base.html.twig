@@ -50,7 +50,8 @@
         </div>
     </div>
 </nav>
-<div class="container">
+
+<main>
 
     {#AFFICHER LES MESSAGES FLASH#}
     {% for type, messages in app.session.flashBag.all %}
@@ -64,14 +65,17 @@
             </div>
         {% endfor %}
     {% endfor %}
-</div>
 
 {% block body %}
 
+
+
+
+
 {% endblock %}
+</main>
 
-
-<footer class="row bg-dark text-light text-center py-3">
+<footer class="fixed-bottom row bg-dark text-light text-center py-3">
     <div class="col-12">
         &copy; {{ "now" |date("Y") }} - WebForce_ook - Tous droits réservés
     </div>

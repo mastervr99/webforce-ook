@@ -4,7 +4,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         $.post(
-            'ajout-message.php',
+            '/ajout-message',
             $(this).serialize(),
             function () {
 
@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     function getMessage(){
         $.get(
-            'messages.php',
+            '/chat-messages',
             function(response){
                 $('#message-container').append(response);
             }
