@@ -1,13 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-    {% if app.user %}
-        Bonjour {{ user.firstname }}
-    {% else %}
-        Bonjour
-    {% endif %}
-{% endblock %}
-
 {% block body %}
     <main>
         <div class="container" id="tools">
@@ -19,17 +11,16 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-4" id="recherche">
-                    <form id="search-form" class="form-inline" role="form" method="post" action="#" target="_blank">
-                        <div class="input-group">
-                            <input type="text" class="form-control search-form" placeholder="Rechercher un contact">
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn search-btn" data-target="#search-form" name="q"><i
-                                            class="fa fa-search"></i></button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
+                    <div class="col-sm-12 col-md-4" id="recherche">
+                        <form id="search-form" class="form-inline" role="form" action="{{ path('app_user_listcontact') }}">
+                            <div class="input-group">
+                                <input type="text" class="form-control search-form" name="search"  placeholder="Rechercher un contact">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn search-btn" data-target="#search-form"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
 
                 <div class="col-sm-12 col-md-4">
                     <a class="list-group-item ' . $activeall . '" href="?categ=*">Tous les contacts</a>
@@ -44,45 +35,45 @@
 
         <div class="container">
             <ul class="list-group list-group-flush">
-                {% for contact in contacts %}
-                    <li class="list-group-item">
-                        <div class="contact" id="contact">
-                            <div class="row">
-                                <div class="col-sm-7 col-md-4  d-flex align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <div class="image">
-                                            <a href="">
-                                                <img src="{{ asset('photo/' ~ contact.photo) }}" alt=""
-                                                     class="img-fluid rounded-circle">
-                                            </a>
-                                        </div>
-                                        <div class="text">
-                                            {{ contact.nom }}  {{ contact.prenom }}
-                                            <br>
-                                            <small> {{ contact.profession }}</small>
+                    {% for contact in contacts %}
+                        <li class="list-group-item">
+                            <div class="contact" id="contact">
+                                <div class="row">
+                                    <div class="col-sm-7 col-md-4  d-flex align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <div class="image">
+                                                <a href="">
+                                                    <img src="{{ asset('photo/' ~ contact.photo) }}" alt=""
+                                                         class="img-fluid rounded-circle">
+                                                </a>
+                                            </div>
+                                            <div class="text">
+                                                {{ contact.nom }}  {{ contact.prenom }}
+                                                <br>
+                                                <small> {{ contact.profession }}</small>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <div class="picto col-sm-4 col-md-3 d-flex align-items-center">
+                                        <i class="fas fa-mobile-alt"></i> {{ contact.telephone }}
+                                    </div>
+
+                                    <div class="picto hidden-sm hidden-xs d-xs-none col-md-4 d-flex align-items-center">
+                                        <i class="fas fa-envelope-square"></i> {{ contact.email }}
+                                    </div>
+                                    <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
+                                        <a class="btn btn-link btn-info nav-link mr-3" href="{{ path('app_contact_editcontact', {'id': contact.id}) }}"><i class="fas fa-pen"></i></a>
+                                        <a class="btn btn-link btn-info nav-link" href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}"><i class="fas fa-trash"></i></a>
+                                        <a class="btn-valider btn-block" href="{{ path('app_index_chat', {'id': contact.id}) }}" type="submit">Chatter</a>
+                                    </div>
+
                                 </div>
-
-                                <div class="picto col-sm-4 col-md-3 d-flex align-items-center">
-                                    <i class="fas fa-mobile-alt"></i> {{ contact.telephone }}
-                                </div>
-
-                            <div class="picto hidden-sm hidden-xs d-xs-none col-md-4 d-flex align-items-center">
-                                <i class="fas fa-envelope-square"></i> {{ contact.email }}
                             </div>
-                            <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
-                                <a class="btn btn-link btn-info nav-link mr-3" href="{{ path('app_contact_editcontact', {'id': contact.id}) }}"><i class="fas fa-pen"></i></a>
-                                <a class="btn btn-link btn-info nav-link" href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}"><i class="fas fa-trash"></i></a>
-                                <a class="btn-valider btn-block" href="{{ path('app_index_chat', {'id': contact.id}) }}" type="submit">Chatter</a>
-                            </div>
-
-                            </div>
-                        </div>
-                    </li>
-                {% else %}
-                    <div class="alert alert-info mt-5">Vous n'avez pas encore enregistré de contact</div>
-                {% endfor %}
+                        </li>
+                    {% else %}
+                        <div class="alert alert-info mt-5">Vous n'avez pas encore enregistré de contact</div>
+                    {% endfor %}
             </ul>
         </div>
     </main>

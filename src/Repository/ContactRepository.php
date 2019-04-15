@@ -47,4 +47,29 @@ class ContactRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function globalSearch($search)
+    {
+        $qb = $this->createQueryBuilder('c');
+
+        // tri par date de publication décroissante
+        $qb->orderBy('c.nom', 'ASC');
+
+        $qb
+            ->orWhere('c.nom LIKE :search')
+            ->orWhere('c.prenom LIKE :search')
+            ->orWhere('c.adresse LIKE :search')
+            ->orWhere('c.ville LIKE :search')
+            ->orWhere('c.codePostal LIKE :search')
+            ->orWhere('c.profession LIKE :search')
+            ->orWhere('c.email LIKE :search')
+            ->orWhere('c.telephone LIKE :search')
+            ->setParameter('search', '%' . $search . '%')
+        ;
+
+        $query = $qb->getQuery();
+
+        // on retourne le résultat de la requête
+        return $query->getResult();
+    }
 }
