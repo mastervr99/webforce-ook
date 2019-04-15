@@ -286,7 +286,7 @@ section.features .feature-item i {
 .form-v2-content .form-left {
     width: 100%;
     height: 100%;
-    background-image: url("../img/form-v2.jpg");
+    background-image: url(https://source.unsplash.com/random);
     background-size: cover;
     background-repeat: no-repeat;
 }
