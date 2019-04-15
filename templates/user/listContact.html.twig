@@ -70,6 +70,7 @@
                             <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
                                 <a class="btn btn-link btn-info nav-link mr-3" href="{{ path('app_contact_editcontact', {'id': contact.id}) }}"><i class="fas fa-pen"></i></a>
                                 <a class="btn btn-link btn-info nav-link" href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}"><i class="fas fa-trash"></i></a>
+                                <a class="btn-valider btn-block" href="{{ path('app_index_chat', {'id': contact.id}) }}" type="submit">Chatter</a>
                             </div>
 
                         </div>
