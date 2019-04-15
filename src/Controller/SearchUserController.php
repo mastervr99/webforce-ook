@@ -30,7 +30,13 @@ class SearchUserController extends AbstractController
 
         $searchForm->handleRequest($request);
 
-        $user = $repository->search((array)$searchForm->getData());
+        if ($searchForm->isSubmitted()) {
+
+            $user = $repository->search((array)$searchForm->getData());
+        }elseif ($request->query->has('search')) {
+            $search = $request->query->get('search');
+            $user = $repository->globalSearch($search);
+        }
 
         return $this->render('search_user/searchUser.html.twig',
         [

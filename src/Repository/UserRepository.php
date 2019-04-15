@@ -42,12 +42,6 @@ class UserRepository extends ServiceEntityRepository
             ;
         }
 
-        if (!empty($filters['email'])) {
-            $qb
-                ->andWhere('u.email LIKE :email')
-                ->setParameter('email', '%' . $filters['email'] . '%')
-            ;
-        }
 
         if (!empty($filters['city'])) {
             $qb
@@ -106,4 +100,23 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function globalSearch($search)
+    {
+        $qb = $this->createQueryBuilder('u');
+
+        // tri par date de publication décroissante
+        $qb->orderBy('u.lastname', 'ASC');
+
+        $qb
+            ->orWhere('u.lastname LIKE :search')
+            ->orWhere('u.firstname LIKE :search')
+            ->setParameter('search', '%' . $search . '%')
+        ;
+
+        $query = $qb->getQuery();
+
+        // on retourne le résultat de la requête
+        return $query->getResult();
+    }
 }
