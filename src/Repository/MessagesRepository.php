@@ -47,4 +47,25 @@ class MessagesRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getLastMessages(User $user1, User $user2, $minId)
+    {
+        $qb = $this->createQueryBuilder('m');
+
+        $qb
+            ->orWhere('m.user_envoi = :user1')
+            ->andWhere('m.user_recoit = :user2')
+            ->orWhere('m.user_envoi = :user2')
+            ->andWhere('m.user_recoit = :user1')
+            ->setParameter('user1', $user1)
+            ->setParameter('user2', $user2)
+            ->andWhere('m.id > :minId')
+            ->setParameter('minId', $minId)
+        ;
+
+        $query = $qb->getQuery();
+
+        return $query->getResult();
+
+    }
 }
