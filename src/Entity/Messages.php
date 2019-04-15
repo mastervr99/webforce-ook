@@ -16,15 +16,6 @@ class Messages
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $User_envoi;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $User_recoit;
 
     /**
      * @ORM\Column(type="text")
@@ -36,34 +27,23 @@ class Messages
      */
     private $datePublication;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="messages_envoyes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user_envoi;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="messages_recu")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user_recoit;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUserEnvoi(): ?int
-    {
-        return $this->User_envoi;
-    }
-
-    public function setUserEnvoi(int $User_envoi): self
-    {
-        $this->User_envoi = $User_envoi;
-
-        return $this;
-    }
-
-    public function getUserRecoit(): ?int
-    {
-        return $this->User_recoit;
-    }
-
-    public function setUserRecoit(int $User_recoit): self
-    {
-        $this->User_recoit = $User_recoit;
-
-        return $this;
-    }
 
     public function getContent(): ?string
     {
@@ -85,6 +65,30 @@ class Messages
     public function setDatePublication(\DateTimeInterface $datePublication): self
     {
         $this->datePublication = $datePublication;
+
+        return $this;
+    }
+
+    public function getUserEnvoi(): ?User
+    {
+        return $this->user_envoi;
+    }
+
+    public function setUserEnvoi(?User $user_envoi): self
+    {
+        $this->user_envoi = $user_envoi;
+
+        return $this;
+    }
+
+    public function getUserRecoit(): ?User
+    {
+        return $this->user_recoit;
+    }
+
+    public function setUserRecoit(?User $user_recoit): self
+    {
+        $this->user_recoit = $user_recoit;
 
         return $this;
     }
