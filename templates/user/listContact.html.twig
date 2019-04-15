@@ -10,81 +10,169 @@
 
 {% block body %}
     <main>
-        <div class="container" id="tools">
-            <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <div class="bt-ajouter btn btn-link btn-block mb-4 ">
-                        <a class="btn btn-info nav-link" href="{{ path('app_contact_createcontact') }}"><i
-                                    class="fas fa-plus-circle mr-2"></i>Ajouter un contact</a>
+        <div id="contact-list">
+
+            <secton class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-5">
+                        <h3 class="text-center mb-4">Vos contacts</h3>
+                        <hr class="hr-title">
                     </div>
                 </div>
+            </secton>
 
-                <div class="col-sm-12 col-md-4" id="recherche">
-                    <form id="search-form" class="form-inline" role="form" method="post" action="#" target="_blank">
+
+            <section class="container" id="buttons-options">
+                <div class="row ">
+                    <div class="col-md-5 mr-auto">
                         <div class="input-group">
-                            <input type="text" class="form-control search-form" placeholder="Rechercher un contact">
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn search-btn" data-target="#search-form" name="q"><i
-                                            class="fa fa-search"></i></button>
-                            </span>
+                            <input type="text" class="form-control" placeholder="Rechercher dans mes contacts">
+                            <div class="input-group-append">
+                                <button class="btn btn-info" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
 
-                <div class="col-sm-12 col-md-4">
-                    <a class="list-group-item ' . $activeall . '" href="?categ=*">Tous les contacts</a>
-                    <div class="form-group ">
-                        <select class="form-control" id="exampleFormControlSelect 1"> : retiré de la page
-                            <option value="'  . $activeall . ' href = " ?categ=*">Tous les contacts</option>
-                        </select>
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                            <select id="" class="form-control btnFilterBy">
+                                <option selected>Filtrer par</option>
+                                <option>Professionel</option>
+                                <option>Famille</option>
+                                <option>Autres</option>
+                                <option>Ajouter un filtre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <select id="" class="form-control btnSortBy">
+                                <option selected>Trier par</option>
+                                <option>Ordre alphabétique A-z</option>
+                                <option>Ordre alphabétique z-A</option>
+                                <option>Ajouts récents d'abord</option>
+                                <option>Ajouts anciens d'abord</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div class="container">
-            <ul class="list-group list-group-flush">
-                {% for contact in contacts %}
-                    <li class="list-group-item">
-                        <div class="contact" id="contact">
-                            <div class="row">
-                                <div class="col-sm-7 col-md-4  d-flex align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <div class="image">
-                                            <a href="">
-                                                <img src="{{ asset('photo/' ~ contact.photo) }}" alt=""
-                                                     class="img-fluid rounded-circle">
-                                            </a>
-                                        </div>
-                                        <div class="text">
-                                            {{ contact.nom }}  {{ contact.prenom }}
-                                            <br>
-                                            <small> {{ contact.profession }}</small>
-                                        </div>
+
+            <!--        <div class="btn-group">-->
+            <!--            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"-->
+            <!--                    aria-expanded="false">-->
+            <!--                Right-aligned menu-->
+            <!--            </button>-->
+            <!--            <div class="dropdown-menu dropdown-menu-right">-->
+            <!--                <button class="dropdown-item" type="button">Action</button>-->
+            <!--                <button class="dropdown-item" type="button">Another action</button>-->
+            <!--                <button class="dropdown-item" type="button">Something else here</button>-->
+            <!--            </div>-->
+            <!--        </div>-->
+
+            <section class="container">
+
+                <section id="legend">
+                    <div class="row">
+                        <div class="col-md-4"><p>Photo</p></div>
+                        <div class="col-md-3 align-items-center"><p>Téléphone</p></div>
+                        <div class="col-md-3 align-items-center"><p>Mail</p></div>
+                        <div class="col-md-2 align-items-center"><p>Action</p></div>
+                    </div>
+                </section>
+
+                <section class="row" id="list">
+                    <div class="col">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item ">
+                                <div class="row justify-content-md-center">
+                                    <div class="col-auto ">
+                                        <button type="button" class="btn btn-link btn-info btn-add-contact ">
+                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                            <span href="{{ path('app_contact_createcontact') }}"
+                                                  class="align-middle">Ajouter un nouveau contact</span>
+                                        </button>
                                     </div>
                                 </div>
+                            </li>
 
-                                <div class="picto col-sm-4 col-md-3 d-flex align-items-center">
-                                    <i class="fas fa-mobile-alt"></i> {{ contact.telephone }}
-                                </div>
+                            {% for contact in contacts %}
 
-                            <div class="picto hidden-sm hidden-xs d-xs-none col-md-4 d-flex align-items-center">
-                                <i class="fas fa-envelope-square"></i> {{ contact.email }}
-                            </div>
-                            <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
-                                <a class="btn btn-link btn-info nav-link mr-3" href="{{ path('app_contact_editcontact', {'id': contact.id}) }}"><i class="fas fa-pen"></i></a>
-                                <a class="btn btn-link btn-info nav-link" href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}"><i class="fas fa-trash"></i></a>
-                                <a class="btn-valider btn-block" href="{{ path('app_index_chat', {'id': contact.id}) }}" type="submit">Chatter</a>
-                            </div>
 
-                            </div>
-                        </div>
-                    </li>
-                {% else %}
-                    <div class="alert alert-info mt-5">Vous n'avez pas encore enregistré de contact</div>
-                {% endfor %}
-            </ul>
-        </div>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 d-flex align-items-center">
+                                            <div class="image">
+                                                <a href=<img src="{{ asset('photo/' ~ contact.photo) }}" alt=""
+                                                   class="img-fluid rounded-circle">
+                                                </a>
+                                            </div>
+                                            <div class="text">
+
+                                                <a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '">{{ contact.nom }} {{ contact.prenom }}</a>
+                                                <br>
+                                                <small> {{ contact.profession }}</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-flex align-items-center picto ">
+                                            <i class="fas fa-mobile-alt"></i>{{ contact.telephone }}
+                                        </div>
+                                        <div class="col-md-3 d-flex align-items-center picto ">
+                                            <i class="fa fa-envelope"></i>{{ contact.email }}
+                                        </div>
+                                        <div class="col-md-2 d-flex justify-content-end m-auto">
+                                            <button type="button"
+                                                    href="{{ path('app_contact_editcontact', {'id': contact.id}) }}"
+                                                    class="btn btn-link btn-info btn-user ">
+                                                <i class="fa fa-pen"></i>
+                                            </button>
+                                            <button type="button"
+                                                    href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}"
+                                                    class="btn btn-link btn-secondary btn-user">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                            <button type="button"
+                                                    href="{{ path('app_index_chat', {'id': contact.id}) }}"
+                                                    type="submit" class="btn btn-link btn-secondary btn-user">
+                                                >Chatter</a>
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% else %}
+                                <div class="alert alert-info mt-5">Vous n'avez pas encore enregistré de contact.</div>
+                            {% endfor %}
+                        </ul>
+
+
+                        <!--PAGINATION-->
+                        <section id="pagination">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Précédent</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Suivant</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </section>
+
+                    </div>
+                </section>
+
+            </section>
+        </div><!-- END CONTACT-LIST -->
+
+
     </main>
 {% endblock %}
-
