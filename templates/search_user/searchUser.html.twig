@@ -29,7 +29,7 @@
 
     <div class="container">
         <ul class="list-group list-group-flush">
-            {% for user  in users %}
+            {% for user in users %}
                 <li class="list-group-item">
                     <div class="contact" id="contact">
                         <div class="row">
@@ -44,7 +44,7 @@
                             </div>
 
                             <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
-                                <a class="btn btn-link btn-info nav-link mr-3" href=""><i class="far fa-comments"></i></a>
+                                <a class="btn btn-link btn-info nav-link mr-3" href="{{ path('app_index_chat', {'id': user.id}) }}"><i class="far fa-comments"></i></a>
                             </div>
 
                         </div>

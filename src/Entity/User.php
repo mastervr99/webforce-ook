@@ -96,9 +96,21 @@ class User implements UserInterface
      */
     private $contacts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Messages", mappedBy="user_envoi")
+     */
+    private $messages_envoyes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Messages", mappedBy="user_recoit")
+     */
+    private $messages_recu;
+
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
+        $this->messages_envoyes = new ArrayCollection();
+        $this->messages_recu = new ArrayCollection();
     }
 
 
@@ -377,5 +389,67 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * @return Collection|Messages[]
+     */
+    public function getMessagesEnvoyes(): Collection
+    {
+        return $this->messages_envoyes;
+    }
+
+    public function addMessagesEnvoye(Messages $messagesEnvoye): self
+    {
+        if (!$this->messages_envoyes->contains($messagesEnvoye)) {
+            $this->messages_envoyes[] = $messagesEnvoye;
+            $messagesEnvoye->setUserEnvoi($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessagesEnvoye(Messages $messagesEnvoye): self
+    {
+        if ($this->messages_envoyes->contains($messagesEnvoye)) {
+            $this->messages_envoyes->removeElement($messagesEnvoye);
+            // set the owning side to null (unless already changed)
+            if ($messagesEnvoye->getUserEnvoi() === $this) {
+                $messagesEnvoye->setUserEnvoi(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Messages[]
+     */
+    public function getMessagesRecu(): Collection
+    {
+        return $this->messages_recu;
+    }
+
+    public function addMessagesRecu(Messages $messagesRecu): self
+    {
+        if (!$this->messages_recu->contains($messagesRecu)) {
+            $this->messages_recu[] = $messagesRecu;
+            $messagesRecu->setUserRecoit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessagesRecu(Messages $messagesRecu): self
+    {
+        if ($this->messages_recu->contains($messagesRecu)) {
+            $this->messages_recu->removeElement($messagesRecu);
+            // set the owning side to null (unless already changed)
+            if ($messagesRecu->getUserRecoit() === $this) {
+                $messagesRecu->setUserRecoit(null);
+            }
+        }
+
+        return $this;
     }
 }
