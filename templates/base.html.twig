@@ -14,12 +14,12 @@
             {#                SI LE USER EST CONNECTE#}
             {% if app.user %}
                 <div class="col-sm-12 col-md-4" id="recherche">
-                    <form id="search-form" class="form-inline" role="form" method="post" action="{{ path('app_searchuser_searchuser') }}" target="_blank">
+                    <form id="search-form" class="form-inline" role="form" action="{{ path('app_searchuser_searchuser') }}">
                         <div class="input-group">
-                            <input type="text" class="form-control search-form" placeholder="Rechercher un utilisateur">
+                            <input type="text" name="search" class="form-control search-form" placeholder="Rechercher un utilisateur">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn search-btn" data-target="#search-form" name="searchUser"><i class="fa fa-search"></i></button>
-                        </span>
+                                <button type="submit" class="btn search-btn" data-target="#search-form"><i class="fa fa-search"></i></button>
+                            </span>
                         </div>
                     </form>
                 </div>
