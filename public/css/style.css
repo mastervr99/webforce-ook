@@ -62,7 +62,6 @@ ion-icon {
     color: #ffc402;
 }
 
-#mainNav .navbar-nav > li,
 #mainNav .navbar-nav > li > a {
     font-size: 11px;
     font-family: 'roboto', 'Lato', 'Helvetica', 'Arial', 'sans-serif';
@@ -70,7 +69,6 @@ ion-icon {
     text-transform: uppercase;
 }
 
-#mainNav .navbar-nav > li,
 #mainNav .navbar-nav > li > a,
 #mainNav .navbar-nav > li > a:focus {
     color: #ffc402;
