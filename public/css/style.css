@@ -15,7 +15,7 @@ body#bodycolor {
 }
 
 main{
-    margin-top: 70px;
+    margin-top: 80px;
 }
 
 
@@ -45,7 +45,7 @@ ion-icon {
 
 #mainNav {
     border-color: rgba(34, 34, 34, 0.05);
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.64);
     font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
     font-weight: 200;
     letter-spacing: 1px;
@@ -62,6 +62,7 @@ ion-icon {
     color: #ffc402;
 }
 
+#mainNav .navbar-nav > li,
 #mainNav .navbar-nav > li > a {
     font-size: 11px;
     font-family: 'roboto', 'Lato', 'Helvetica', 'Arial', 'sans-serif';
@@ -69,6 +70,7 @@ ion-icon {
     text-transform: uppercase;
 }
 
+#mainNav .navbar-nav > li,
 #mainNav .navbar-nav > li > a,
 #mainNav .navbar-nav > li > a:focus {
     color: #ffc402;
