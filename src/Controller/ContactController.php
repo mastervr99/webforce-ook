@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
-use App\Entity\User;
 use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\File;
@@ -197,6 +196,27 @@ class ContactController extends AbstractController
         $this->addFlash('success', "Le contact est supprimé !");
 
         return $this->redirectToRoute('app_user_listcontact');
+    }
+
+    /**
+     * @Route("/")
+     */
+    public function searchContact(Request $request)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $repository = $this->getDoctrine()->getRepository(Contact::class);
+
+        $search = $request->query->get('search');
+
+        $contact = $repository->globalSearch($search);
+
+        return $this->render('user/listContact.html.twig',
+            [
+                'contactsFilter' => $contact
+            ]
+        );
+
     }
 
 }

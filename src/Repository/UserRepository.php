@@ -111,6 +111,9 @@ class UserRepository extends ServiceEntityRepository
         $qb
             ->orWhere('u.lastname LIKE :search')
             ->orWhere('u.firstname LIKE :search')
+            ->orWhere('u.city LIKE :search')
+            ->orWhere('u.postalCode LIKE :search')
+            ->orWhere('u.emploi LIKE :search')
             ->setParameter('search', '%' . $search . '%')
         ;
 
