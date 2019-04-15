@@ -20,12 +20,11 @@
                 </div>
 
                 <div class="col-sm-12 col-md-4" id="recherche">
-                    <form id="search-form" class="form-inline" role="form" method="post" action="#" target="_blank">
+                    <form id="search-form" class="form-inline" role="form" action="{{ path('app_user_listcontact') }}">
                         <div class="input-group">
-                            <input type="text" class="form-control search-form" placeholder="Rechercher un contact">
+                            <input type="text" class="form-control search-form" name="search"  placeholder="Rechercher un contact">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn search-btn" data-target="#search-form" name="q"><i
-                                            class="fa fa-search"></i></button>
+                                <button type="submit" class="btn search-btn" data-target="#search-form"><i class="fa fa-search"></i></button>
                             </span>
                         </div>
                     </form>
