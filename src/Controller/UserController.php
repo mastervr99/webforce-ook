@@ -21,18 +21,28 @@ class UserController extends AbstractController
     /**
      * @Route("/contact")
      */
-    public function listContact()
+    public function listContact(Request $request)
     {
         $user = $this->getUser();
 
         $repository = $this->getDoctrine()->getRepository(Contact::class);
-        $contacts = $repository->findBy(['user' => $user], ['nom' => 'ASC']);
+
+        $search = $request->query->get('search');
+
+        if($search){
+            $contacts = $repository->globalSearch($search);
+        } else
+        {
+            $contacts = $repository->findBy(['user' => $user], ['nom' => 'ASC']);
+        }
 
         return $this->render('user/listContact.html.twig', [
             'contacts' => $contacts,
             'user' => $user
+
         ]);
     }
+
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
