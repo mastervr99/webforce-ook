@@ -1,5 +1,27 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>
+        {% block title %}
+            {% if app.user %}
+                Bonjour {{ user.firstname }}
+            {% else %}
+                Webforce Ook
+            {% endif %}
+        {% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('lib/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+              integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+              crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    {% endblock %}
+</head>
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
@@ -12,6 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
 
             {#                SI LE USER EST CONNECTE#}
+
             {% if app.user %}
                 <div class="col-sm-12 col-md-4" id="recherche">
                     <form id="search-form" class="form-inline" role="form" action="{{ path('app_searchuser_searchuser') }}">
@@ -92,18 +115,4 @@
 </body>
 
 
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Webforce Ook{% endblock %}</title>
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('lib/bootstrap/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/delestage.css') }}">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-              integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-              crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Catamaran:300,400" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-    {% endblock %}
-</head>
 </html>

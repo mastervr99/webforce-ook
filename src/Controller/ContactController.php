@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
-use App\Entity\User;
 use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\File;
@@ -208,14 +207,13 @@ class ContactController extends AbstractController
 
         $repository = $this->getDoctrine()->getRepository(Contact::class);
 
-        if ($request->query->has('search')) {
-            $search = $request->query->get('search');
-            $contact = $repository->globalSearch($search);
-        }
+        $search = $request->query->get('search');
+
+        $contact = $repository->globalSearch($search);
 
         return $this->render('user/listContact.html.twig',
             [
-                'contacts' => $contact
+                'contactsFilter' => $contact
             ]
         );
 
