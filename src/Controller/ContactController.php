@@ -198,10 +198,11 @@ class ContactController extends AbstractController
         return $this->redirectToRoute('app_user_listcontact');
     }
 
+
     /**
      * @Route("/")
      */
-    public function searchContact(Request $request)
+   /** public function searchContact(Request $request)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
@@ -218,5 +219,6 @@ class ContactController extends AbstractController
         );
 
     }
+    */
 
 }
