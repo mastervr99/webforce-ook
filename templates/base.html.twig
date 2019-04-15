@@ -1,27 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>
-        {% block title %}
-            {% if app.user %}
-                Bonjour {{ user.firstname }}
-            {% else %}
-                Webforce Ook
-            {% endif %}
-        {% endblock %}
-    </title>
-    <meta charset="UTF-8">
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('lib/bootstrap/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-              integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-              crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Catamaran:300,400" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-    {% endblock %}
-</head>
-
 <body>
 <head>
     <meta charset="UTF-8">
