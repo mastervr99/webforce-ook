@@ -34,6 +34,7 @@
                     <!------- profile-right--------->
 
                     <section class="col-md-7" id="my-profile">
+                        <form>
                             <h3 class="text-center mb-4">Mon compte</h3>
                             <hr class="hr-title">
 
@@ -91,21 +92,22 @@
                                 <div class="col-sm-7">{{ form_widget(form.city) }}</div>
                             </div>
 
-
-                            <div class="row form-group form-separator">
-                                <div class="col-sm-3 col-form-label">{{ form_label(form.notePerso) }}</div>
-                                <div class="col-sm-7">{{ form_widget(form.notePerso) }}</div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-labeled btn-info user-btn btn-validate">
+                                        <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
+                                        <span class="align-middle">Enregistrer</span>
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-labeled btn-secondary user-btn btn-validate">
+                                        <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
+                                        <span class="align-middle">Annuler</span>
+                                    </button>
+                                </div>
                             </div>
 
-
-                            <button type="submit" class="btn btn-labeled btn-info user-btn btn-validate">
-                                <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
-                                <span class="align-middle">Valider les modifications</span>
-                            </button>
-
-                        {# A CHACKER ATTENTION RETRAIT DE LA BALISE PHOTOS
-                        du coup le mot photos apparait tt en bas#}
-
+                        </form>
                         {{ form_end(form) }}
                     </section>
                 </div>

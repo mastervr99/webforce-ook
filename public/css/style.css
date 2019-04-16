@@ -577,12 +577,13 @@ font-size: 1rem;
 #my-profile label {
     font-weight: normal;
     font-size: 14px;
-    text-align: right;
+    text-align: right!important;
 }
 
 #my-profile .form-control {
-    border-color: #eee;
+    background-color: #ececec;
     min-height: 40px;
+    border: none;
 }
 
 #my-profile .form-control::placeholder {
