@@ -92,7 +92,7 @@
                                         </div>
                                         <div class="text">
 
-                                            <a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '">{{ contact.nom }} {{ contact.prenom }}</a>
+                                            <a href="{{ path('app_contact_fichecontact', {'id': contact.id}) }}">{{ contact.nom }} {{ contact.prenom }}</a>
                                             <br>
                                             <small> {{ contact.profession }}</small>
                                         </div>

@@ -179,7 +179,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/suppression/{id}")
+     * @Route("/suppression/{id}", requirements={"id": "\d+"})
      */
     public function deleteContact(Contact $contact)
     {
@@ -198,6 +198,22 @@ class ContactController extends AbstractController
         return $this->redirectToRoute('app_user_listcontact');
     }
 
+    /**
+     * @Route("/{id}", requirements={"id": "\d+"})
+     */
+    public function ficheContact(Request $request, $id)
+    {
+
+        $repository = $this->getDoctrine()->getRepository(Contact::class);
+
+        $contact = $repository->findBy(['id' => $id]);
+
+        return $this->render('contact/ficheContact.html.twig',
+            [
+                'contact' => $contact
+            ]
+        );
+    }
 
     /**
      * @Route("/")
