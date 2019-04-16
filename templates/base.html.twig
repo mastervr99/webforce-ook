@@ -3,11 +3,11 @@
 <head>
     <title>
         {% block title %}
-{#          {% if app.user %}
-                Bonjour {{ user.firstname }}
-            {% else %}
-                Webforce Ook
-            {% endif %} #}
+            {#{% if app.user %}#}
+                {#Bonjour {{ user.firstname }}#}
+            {#{% else %}#}
+                {#Webforce Ook#}
+            {#{% endif %}#}
         {% endblock %}
     </title>
     <meta charset="UTF-8">
@@ -101,7 +101,7 @@
     </div>
 </nav>
 
-<main>
+{#<main>#}
 
     {#AFFICHER LES MESSAGES FLASH#}
     {% for type, messages in app.session.flashBag.all %}
@@ -123,12 +123,12 @@
 
 
 {% endblock %}
-</main>
+{#</main>#}
 
 
 <footer class="row bg-dark text-light text-center fixed-bottom py-3">
     <div class="col-12">
-        &copy; {{ "now" |date("Y") }} - WebForce_ook - Tous droits réservés
+        &copy; {{ "now" |date("Y") }} - WebForce Ook - Tous droits réservés
     </div>
 </footer>
 
