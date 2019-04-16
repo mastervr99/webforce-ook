@@ -17,9 +17,13 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
               integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
               crossorigin="anonymous">
+        <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Catamaran:300,400" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+        <!-- ionicons.com -->
+        <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     {% endblock %}
+
 </head>
 
 <body>
@@ -39,7 +43,7 @@
                 <div class="col-sm-12 col-md-4" id="recherche">
                     <form id="search-form" class="form-inline" role="form" action="{{ path('app_searchuser_searchuser') }}">
                         <div class="input-group">
-                            <input type="text" name="search" class="form-control search-form" placeholder="Rechercher un utilisateur">
+                            <input type="text" name="search" class="form-control search-form" placeholder="Rechercher un nom">
                             <span class="input-group-btn">
                                 <button type="submit" class="btn search-btn" data-target="#search-form"><i class="fa fa-search"></i></button>
                             </span>
@@ -47,10 +51,33 @@
                     </form>
                 </div>
 
+                {#<div class="input-group col-md-6 ml-auto">#}
+                    {#<input type="text" class="form-control" placeholder="Rechercher un nom">#}
+                    {#<div class="input-group-append">#}
+                        {#<button class="btn btn-info" type="button">#}
+                            {#<i class="fa fa-search"></i>#}
+                        {#</button>#}
+                    {#</div>#}
+                {#</div>#}
+
+
+
                 <ul class="navbar-nav ml-auto">
+
+                    {#notifcations#}
+                    <li class="nav-item"><button type="button" class="btn btn-notifications">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                        <span class="badge badge-danger">9</span>
+                        <span class="sr-only">unread messages</span>
+                    </button></li>
+
+                    {#DEBUT MENU#}
                     <li class="nav-item"><a class="nav-link" href="{{ path('app_user_listcontact') }}">Mes contacts</a></li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin" role="button"
                                                      data-toggle="dropdown">Mon compte</a>
+
+
+                        {#menu deroulant#}
                         <div class="dropdown-menu" aria-labelledby="menuadmin">
                             <a class="dropdown-item" href="{{ path('app_user_moncompte') }}">Mon compte</a>
                             <a class="dropdown-item" href="{{ path('app_contact_createcontact') }}">Ajouter un contact</a>
@@ -73,7 +100,8 @@
         </div>
     </div>
 </nav>
-<div class="container">
+
+<main>
 
     {#AFFICHER LES MESSAGES FLASH#}
     {% for type, messages in app.session.flashBag.all %}
@@ -87,14 +115,18 @@
             </div>
         {% endfor %}
     {% endfor %}
-</div>
 
 {% block body %}
 
+
+
+
+
 {% endblock %}
+</main>
 
 
-<footer class="row bg-dark text-light text-center py-3">
+<footer class="row bg-dark text-light text-center fixed-bottom py-3">
     <div class="col-12">
         &copy; {{ "now" |date("Y") }} - WebForce_ook - Tous droits réservés
     </div>
