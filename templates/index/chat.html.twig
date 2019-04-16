@@ -12,7 +12,11 @@
                         <form>
                             {{ form_start(form) }}
                             <div class="card mt-3">
-                                <div id='message-container' class="card-body" style="height:300px; overflow: auto"></div>
+                                <div id='message-container' class="card-body" style="height:300px; overflow: auto">
+{#                                    {% for message in content %}#}
+{#                                        {{ message.content }}#}
+{#                                    {% endfor %}#}
+                                </div>
                             </div>
                             <form id="form-message" class="form-inline mt-2">
                                 <div class="row">
@@ -21,7 +25,8 @@
                                         {{ form_row(form.user_envoi) }}
                                     </div>
                                     <div class="form-group col-lg-10">
-                                        <button class=" btn btn-outline-primary">Envoyer</button>
+                                        <button class=" btn btn-outline-primary" type="submit">Envoyer</button>
+                                        {#   PAS DE TYPE SUBMIT ????  thusy        #}
                                     </div>
                                 </div>
                                 {{ form_end(form) }}
