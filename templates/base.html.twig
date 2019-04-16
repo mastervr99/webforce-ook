@@ -80,6 +80,7 @@
                         {#menu deroulant#}
                         <div class="dropdown-menu" aria-labelledby="menuadmin">
                             <a class="dropdown-item" href="{{ path('app_user_moncompte') }}">Mon compte</a>
+                            <a class="dropdown-item" href="{{ path('app_user_profiluser', {'id': app.user.id}) }}">Mon profil</a>
                             <a class="dropdown-item" href="{{ path('app_contact_createcontact') }}">Ajouter un contact</a>
                             <hr>
                             <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>

@@ -6,11 +6,11 @@
         <div class="row justify-content-md-center">
             <section class="col-md-3" id="user-profile-left">
                 <div class="card">
-                    <img class="user-photo card-img-top" src="img/02.jpg" alt="Card image title">
+                    <img class="user-photo card-img-top" src="{{ user.photo }}" alt="Card image title">
                     <div class="card-body text-center">
-                        <h5 class="card-title user-lastname text-fluid">Saint-Clair</h5>
-                        <h5 class="card-title user-firstname text-fluid">Jennyfer</h5>
-                        <p class="card-text user-job">Directrice Artistique</p>
+                        <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>
+                        <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>
+                        <p class="card-text user-job">{{ user.emploi }}</p>
                         <button type="button" class="btn btn-labeled btn-info user-btn">
                             <i class="fa fa-user-plus" aria-hidden="true"></i>
                             <span class="align-middle">Ajouter</span>
@@ -31,54 +31,24 @@
                         </li>
                         <li class="list-group-item">
                             <i class="pictos fas fa-phone"></i>
-                            <p class="infos">06 02 45 23 54</p>
+                            <p class="infos">{{ user.phone }}</p>
                         </li>
                         <li class="list-group-item">
                             <div><i class="pictos fa fa-envelope "></i></div>
-                            <div><p class="infos">h.cover@gmail.com</p></div>
+                            <div><p class="infos">{{ user.email }}</p></div>
 
-                        </li>
-                        <li class="list-group-item">
-                            <i class="pictos far fa-building"></i>
-                            <p class="infos">The Big Company</p>
                         </li>
                         <li class="list-group-item">
                             <i class="pictos fa fa-home"></i>
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="card-text infos">25 rue de la Grande Rue
-                                    <p class="card-text infos">75008</p>
-                                    <p class="card-text infos">Paris</p>
+                                    <p class="card-text infos">{{ user.adress }}</p>
+                                    <p class="card-text infos">{{ user.city }}</p>
+                                    <p class="card-text infos">{{ user.postalCode }}</p>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                </section>
-
-                <!------- profil-commentaires--------->
-
-                <section id="user-profile-commentaires">
-
-                    <div class="card mt-3">
-                        <div class="card-header">
-                            <i class="pictos-title fa fa-paperclip" aria-hidden="true"></i>
-                            <h5 class="card-title ">Commentaires</h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text infos">25 rue de la Grande Rue Rencontrée à la soirée apéro
-                                de Roger</p>
-                        </div>
-                    </div>
-
-                    <div class="card mt-3">
-                        <div class="card-header">
-                            <i class="pictos-title fas fa-hashtag"></i>
-                            <h5 class="card-title">Mot-clés</h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text infos">#copine #Travail #chat</p>
-                        </div>
-                    </div>
                 </section>
             </div>
         </div>

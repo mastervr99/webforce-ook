@@ -83,11 +83,19 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/profil")
+     * @Route("/profil/{id}", requirements={"id" = "\d+"})
      */
-    public function profilUser()
+    public function profilUser(Request $request, User $user)
     {
-        return $this->render('user/profil.html.twig');
+        $repository = $this->getDoctrine()->getRepository(User::class);
+
+        $contacts = $repository->findBy(['id' => $user]);
+
+        return $this->render('user/profil.html.twig',
+            [
+                'user' => $user
+            ]
+        );
     }
 
 }
