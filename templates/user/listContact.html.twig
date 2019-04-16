@@ -2,7 +2,9 @@
 
 {% block body %}
 
-    <div id="contact-list">
+{#    <body class="body-bg">#}
+{#    <main>#}
+    <div class="container" id="contact-list">
 
         <secton class="container">
             <div class="row justify-content-md-center">
@@ -15,13 +17,13 @@
 
 
         <section class="container" id="buttons-options">
-            <div class="row ">
-                <div class="col-sm-12 col-md-4" id="recherche">
+            <div class="row">
+                <div class="col-md-5 mr-auto" id="recherche">
                     <form id="search-form" class="form-inline" role="form" action="{{ path('app_user_listcontact') }}">
                         <div class="input-group">
                             <input type="text" class="form-control search-form" name="search"  placeholder="Rechercher un contact">
-                            <span class="input-group-btn">
-                                    <button type="submit" class="btn search-btn" data-target="#search-form"><i class="fa fa-search"></i></button>
+                            <span class="input-group-btn input-group-append">
+                                    <button type="submit" class="btn btn-info search-btn" data-target="#search-form"><i class="fa fa-search"></i></button>
                                 </span>
                         </div>
                     </form>
@@ -79,6 +81,10 @@
                                 </div>
                             </div>
                         </li>
+
+
+
+
 
                         {% for contact in contacts %}
 
@@ -149,6 +155,8 @@
 
         </section>
     </div><!-- END CONTACT-LIST -->
+{#    </main>#}
+{#    </body>#}
 
 {% endblock %}
 
