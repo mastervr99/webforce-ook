@@ -7,6 +7,7 @@ body {
     /* background: #eaeaea; */
     font-family: 'Roboto', 'Catamaran', 'Open Sans', 'Muli', 'Helvetica', 'Arial', 'sans-serif';
     width: 100%;
+    height: 100vh;
 }
 
 body#bodycolor {
@@ -14,7 +15,7 @@ body#bodycolor {
 }
 
 main{
-    margin-top: 55px;
+    margin-top: 80px;
 }
 
 
