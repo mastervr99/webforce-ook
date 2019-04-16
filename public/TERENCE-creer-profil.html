@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta firstname="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PROJET</title>
+
+    <!-- intégration bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- intégration Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- feuille de style perso -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- intégration JS -->
+    <script src=" https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+    </script><!-- utilisation de la version "minified" (pas la slim) ici : https://code.jquery.com/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <!-- ionicons.com -->
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    <!-- feuille de style et script  perso -->
+    <script src="<?= URL . 'inc/js/functions.js' ?>"></script>
+</head>
+
+
+<!------------------DEBUT NAV---------------------->
+
+<body id="bodycolor">
+<main id="main-profile-page">>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="<?= URL ?>">WebForce_ook</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin"
+                                                     role="button"
+                                                     data-toggle="dropdown">Mon compte</a>
+                        <div class="dropdown-menu" aria-labelledby="menuadmin">
+                            <a class="dropdown-item" href="<?= URL . 'admin/contact-list.php' ?>">Mes contacts</a>
+                            <a class="dropdown-item" href="<?= URL . 'admin/ajout-contact.php' ?>">Ajouter un
+                                contact</a>
+                            <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
+
+                        </div>
+                    </li>
+                </ul>
+                {% else %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">M'inscrire</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="<?= URL . 'faq.php' ?>">FAQ</a></li>
+                </ul>
+                {% endif %}
+
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!------------------FIN NAV---------------------->
+
+
+
+
+    <div class="form-container">
+
+
+        <!------- profile-left--------->
+        <div class="container">
+            <div class="row justify-content-md-center">
+
+                <section class="col-md-3" id="user-profile-left">
+                    <div class="card">
+                        <img class="user-photo card-img-top" src="img/07.jpg" alt="Card image title">
+                        <div class="card-body text-center">
+                            <h5 class="card-title user-lastname text-fluid">DeLaFontainebleue</h5>
+                            <h5 class="card-title user-firstname text-fluid">Jean-Marc</h5>
+                            <p class="card-text user-job">Développeur intégrateur-web</p>
+                            <button type="button" class="btn btn-labeled btn-info user-btn">
+                                <ion-icon class="align-middle" name="camera"></ion-icon>
+                                <span class="align-middle">Modifier ma photo</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!------- profile-right--------->
+
+                <section class="col-md-7" id="my-profile">
+                    <form>
+                        <h3 class="text-center mb-4">Modifier votre profile</h3>
+                        <hr class="hr-title">
+                        <div class="row form-group">
+                            <label for="inputName" class="col-sm-3 col-form-label">Nom</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="inputName" placeholder="Nom">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label for="inputFirstname" class="col-sm-3 col-form-label">Prénom</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="inputFirstname" placeholder="Prénom">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label for="inputPhone" class="col-sm-3 col-form-label">Téléphone</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="inputPhone" placeholder="Téléphone">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label for="inputMail" class="col-sm-3 col-form-label">Mail</label>
+                            <div class="col-sm-7">
+                                <input type="mail" class="form-control" id="inputMail" placeholder="Votre e-mail">
+                            </div>
+                        </div>
+                        <div class="row form-group form-separator">
+                            <label for="inputBirthdate" class="col-sm-3 col-form-label">Date de naissance</label>
+                            <div class="col-sm-7">
+                                <input type="int" class="form-control" id="inputBirthdate" placeholder="dd/mm/yyyy">
+                            </div>
+                        </div>
+
+
+                        <div class="row form-group separateur">
+                            <label for="inputJob" class="col-sm-3 col-form-label">Profession</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="inputJob" placeholder="Profession">
+                            </div>
+                        </div>
+                        <div class="row form-group  form-separator">
+                            <label for="inputCompany" class="col-sm-3 col-form-label">Entreprise</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="inputCompany" placeholder="Entreprise">
+                            </div>
+
+
+                        </div>
+                        <div class="row form-group">
+                            <label for="inputAdress" class="col-sm-3 col-form-label">Adresse</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="inputAdress" placeholder="Rue">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label for="inputCodePostal" class="col-sm-3 col-form-label">Code Postal</label>
+                            <div class="col-sm-7">
+                                <input type="int" class="form-control" id="inputCodePostal" placeholder="Code Postal">
+                            </div>
+                        </div>
+                        <div class="row form-group  form-separator">
+                            <label for="inputcity" class="col-sm-3 col-form-label">Ville</label>
+                            <div class="col-sm-7">
+                                <input type="int" class="form-control" id="inputCity" placeholder="Ville">
+                            </div>
+                        </div>
+
+
+                        <div class="row form-group">
+                            <label for="commentaires" class="col-md-3 col-form-label">Commentaires personnels :</label>
+                            <div class="col-md-7">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label for="mots-cles" class="col-md-3 col-form-label">Mots-clés :</label>
+                            <div class="col-md-7">
+                                <textarea class="form-control" rows="1"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rechercher</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choisissez votre photo</label>
+                            </div>
+                        </div>
+
+
+                        <button type="button" class="btn btn-labeled btn-info user-btn btn-validate">
+                            <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
+                            <span class="align-middle">Valider les changements</span>
+                        </button>
+
+                    </form>
+                </section>
+
+
+                <!--                <div class="row form-group">-->
+                <!--                    <div class="custom-file">-->
+                <!--                        <label for="inputcity" class="col-sm-3 col-form-label">Photo</label>-->
+                <!--                        <div class="col-sm-7">-->
+                <!--                            <label class="custom-file-label " for="validatedCustomFile">Sélectionnez une photo</label>-->
+                <!--                            <input type="file" class="custom-file-input" id="validatedCustomFile"-->
+                <!--                                   accept=".jpg,.jpeg,.gif,.png" required>-->
+                <!--                            <div class="invalid-feedback">Format non accepté</div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+            </div>
+        </div><!-- END CONTAINER -->
+
+
+</main>
+
+</body>
+
+</html>
