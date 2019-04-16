@@ -92,15 +92,22 @@
                                 <div class="col-sm-7">{{ form_widget(form.city) }}</div>
                             </div>
 
-                            <div class="row form-group form-separator">
-                            <button type="submit" class="btn btn-labeled btn-info user-btn btn-validate">
-                                <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
-                                <span class="align-middle">Valider les modifications</span>
-                            </button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-labeled btn-info user-btn btn-validate">
+                                        <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
+                                        <span class="align-middle">Enregistrer</span>
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-labeled btn-secondary user-btn btn-validate">
+                                        <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
+                                        <span class="align-middle">Annuler</span>
+                                    </button>
+                                </div>
+                            </div>
 
-                        {# A CHACKER ATTENTION RETRAIT DE LA BALISE PHOTOS
-                        du coup le mot photos apparait tt en bas#}
-                            <form>
+                        </form>
                         {{ form_end(form) }}
                     </section>
                 </div>
