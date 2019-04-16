@@ -16,15 +16,15 @@
 
         <section class="container" id="buttons-options">
             <div class="row ">
-                <div class="col-md-5 mr-auto">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Rechercher dans mes contacts">
-                        <div class="input-group-append">
-                            <button class="btn btn-info" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
+                <div class="col-sm-12 col-md-4" id="recherche">
+                    <form id="search-form" class="form-inline" role="form" action="{{ path('app_user_listcontact') }}">
+                        <div class="input-group">
+                            <input type="text" class="form-control search-form" name="search"  placeholder="Rechercher un contact">
+                            <span class="input-group-btn">
+                                    <button type="submit" class="btn search-btn" data-target="#search-form"><i class="fa fa-search"></i></button>
+                                </span>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
                 <div class="col-md-2">
@@ -68,18 +68,19 @@
                 <div class="col">
                     <ul class="list-group list-group-flush">
 
-                        {% for contact in contacts %}
 
-                            <li class="list-group-item ">
-                                <div class="row justify-content-md-center">
-                                    <div class="col-auto ">
-                                        <button type="button" class="btn btn-link btn-info btn-add-contact ">
-                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                            <span href="{{ path('app_contact_createcontact') }}" class="align-middle">Ajouter un nouveau contact</span>
-                                        </button>
-                                    </div>
+                        <li class="list-group-item ">
+                            <div class="row justify-content-md-center">
+                                <div class="col-auto ">
+                                    <button type="button" class="btn btn-link btn-info btn-add-contact ">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                        <span href="{{ path('app_contact_createcontact') }}" class="align-middle">Ajouter un nouveau contact</span>
+                                    </button>
                                 </div>
-                            </li>
+                            </div>
+                        </li>
+
+                        {% for contact in contacts %}
 
                             <li class="list-group-item">
                                 <div class="row">
@@ -91,7 +92,7 @@
                                         </div>
                                         <div class="text">
 
-                                            <a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '">{{ contact.nom }} {{ contact.prenom }}</a>
+                                            <a href="{{ path('app_contact_fichecontact', {'id': contact.id}) }}">{{ contact.nom }} {{ contact.prenom }}</a>
                                             <br>
                                             <small> {{ contact.profession }}</small>
                                         </div>
