@@ -75,6 +75,11 @@ class IndexController extends AbstractController
         $user2 = $request->query->get('user_reçoit');
 
         // find sur les 2 users
+
+        $repository = $this->getDoctrine()->getRepository(User::class);
+
+        $sender = $repository->
+
         // appel à la méthode getLastMessages() de messageRepository
         // en lui passant les 2 user
 
