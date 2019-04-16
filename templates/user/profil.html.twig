@@ -1,89 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html.twig' %}
 
-<html lang="fr" xmlns="http://www.w3.org/1999/html">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PROJET</title>
-
-    <!-- intégration bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- intégration Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <!-- feuille de style perso -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- intégration JS -->
-    <script src=" https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
-    </script><!-- utilisation de la version "minified" (pas la slim) ici : https://code.jquery.com/ -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:300,400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-    <!-- ionicons.com -->
-    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
-    <!-- feuille de style et script  perso -->
-    <script src="<?= URL . 'inc/js/functions.js' ?>"></script>
-</head>
-
-
-<!------------------DEBUT NAV---------------------->
-
-<body id="bodycolor">
-
-<main id="main-profile-page">
-
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="<?= URL ?>">WebForce_ook</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin"
-                                                     role="button"
-                                                     data-toggle="dropdown">Mon compte</a>
-                        <div class="dropdown-menu" aria-labelledby="menuadmin">
-                            <a class="dropdown-item" href="<?= URL . 'admin/contact-list.php' ?>">Mes contacts</a>
-                            <a class="dropdown-item" href="<?= URL . 'admin/ajout-contact.php' ?>">Ajouter un
-                                contact</a>
-                            <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
-
-                        </div>
-                    </li>
-                </ul>
-                {% else %}
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">M'inscrire</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="<?= URL . 'faq.php' ?>">FAQ</a></li>
-                </ul>
-                {% endif %}
-
-            </div>
-        </div>
-    </nav>
-
-    <!------------------FIN NAV---------------------->
-
-
-    <!------- profile-left--------->
-// Thusy : debut
-
+{% block body %}
     <div class="container">
 
         <div class="row justify-content-md-center">
@@ -188,7 +105,7 @@
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
 
                                 <span class="align-middle">Ajouter</span>
                             </button>
@@ -203,7 +120,7 @@
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
 
                                 <span class="align-middle">Ajouter</span>
                             </button>
@@ -218,7 +135,7 @@
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
 
                                 <span class="align-middle">Ajouter</span>
                             </button>
@@ -233,7 +150,7 @@
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
 
                                 <span class="align-middle">Ajouter</span>
                             </button>
@@ -254,7 +171,7 @@
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
 
                                 <span class="align-middle">Ajouter</span>
                             </button>
@@ -269,7 +186,7 @@
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
 
                                 <span class="align-middle">Ajouter</span>
                             </button>
@@ -284,7 +201,7 @@
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
 
                                 <span class="align-middle">Ajouter</span>
                             </button>
@@ -299,7 +216,7 @@
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
 
                                 <span class="align-middle">Ajouter</span>
                             </button>
@@ -311,10 +228,5 @@
 
 
     </div> <!-- END CONTAINER -->
+{% endblock %}
 
-
-</main>
-
-</body>
-
-</html>

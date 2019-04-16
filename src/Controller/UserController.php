@@ -82,5 +82,12 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/profil")
+     */
+    public function profilUser()
+    {
+        return $this->render('user/profil.html.twig');
+    }
 
 }
