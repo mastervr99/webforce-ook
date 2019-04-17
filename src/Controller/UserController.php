@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\UserCompleteType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -56,6 +57,17 @@ class UserController extends AbstractController
 //ALLER CHERCHER L ID DU USER DEJA CONNECTE
         $em = $this->getDoctrine()->getManager();
 
+        if (!is_null($user->getPhoto())) {
+            // nom du fichier venant de la bdd
+            $originalPhoto = $user->getPhoto();
+
+            // on sette l'image avec un objet File sur l'emplacement de l'image
+            // pour le traitement par le formulaire
+            $user->setPhoto(
+                new File($this->getParameter('upload_dir') . $originalPhoto)
+            );
+        }
+
         //AFFICH UN FORM
 
         $form =$this->createForm(UserCompleteType::class, $user);
@@ -66,19 +78,51 @@ class UserController extends AbstractController
             //LE METTRE EN BDD
             $form->handleRequest($request);
 
+            $photo = $user->getPhoto();
+
+            if (!is_null($photo)) {
+                // nom sous lequel on va enregistrer l'image
+                $filename = uniqid() . '.' . $photo->guessExtension();
+
+                // déplace l'image uploadée
+                $photo->move(
+                // vers le répertoire /public/photo
+                // cf config/services.yaml
+                    $this->getParameter('upload_dir'),
+                    // nom du fichier
+                    $filename
+                );
+
+                // on sette l'attribut image de l'article avec son nom
+                // pour enregistrement en bdd
+                $user->setPhoto($filename);
+            }
+
+            // en modification on supprime l'ancienne image
+            // s'il y en a une
+            if (!is_null($originalPhoto)) {
+                unlink($this->getParameter('upload_dir') . $originalPhoto);
+
+            } else {
+                // en modification, sans upload, on sette l'attribut image
+                // avec le nom de l'ancienne image
+                $user->setPhoto($originalPhoto);
+            }
+
             $em->persist($user);
             $em->flush();
 
-//        AFFICH UN MESS DE CONFIRM
-        $this->addFlash('success','Votre profil a été mis a jour');
+    //        AFFICH UN MESS DE CONFIRM
+            $this->addFlash('success','Votre profil a été mis a jour');
 
-         return $this->redirectToRoute('app_user_moncompte');
+             return $this->redirectToRoute('app_user_moncompte');
         }
 
 
 
         return $this->render('user/compte.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 

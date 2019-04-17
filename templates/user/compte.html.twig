@@ -17,7 +17,7 @@
 
                     <section class="col-md-3" id="user-profile-left">
                         <div class="card">
-                            <img class="user-photo card-img-top" src="/public/img/04.jpg" alt="Card image title">
+                            <img class="user-photo card-img-top" src="{{ asset('photo/' ~ user.photo) }}" alt="Card image title">
                             <div class="card-body text-center">
                                 {{ form_start(form) }}
                                 {{ form_row(form.photo) }}
