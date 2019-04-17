@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>
-        {% block title %}
-            {% if app.user %}
-                Bonjour {{ user.firstname }}
-            {% else %}
-                Webforce Ook
-            {% endif %}
-        {% endblock %}
-    </title>
     <meta charset="UTF-8">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('lib/bootstrap/bootstrap.min.css') }}">

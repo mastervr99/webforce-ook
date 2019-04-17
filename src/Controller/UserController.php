@@ -82,5 +82,17 @@ class UserController extends AbstractController
         ]);
     }
 
+    public function ajoutContact()
+    {
+//        UN USER QD IL EST AJT VA DS MES CONTACTS
+//        si mon contact accept ma demande que je lui envoi alors
+
+//        qd on click sur btn ajouter get sa fiche de renseignements
+
+
+
+//QD UN USER EST ACCEPT UN ECHANGE DE FICHE DE RENS SI LA FICHE CONTACT EXISTAIT DEJA ELLE ES MODIFIE
+        //        SI UN CONTACT  S INSCRIT IL DEVIENT UN USER  ON DOIT RECEVOIR UNE ALERT OU NOTIF
+    }
 
 }
