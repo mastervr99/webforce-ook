@@ -232,3 +232,217 @@
     </div> <!-- END CONTAINER -->
 {% endblock %}
 
+{% extends 'base.html.twig' %}
+
+
+
+
+
+
+
+
+
+
+{#{% block body %}#}
+{#    <div class="container">#}
+
+{#        <div class="row justify-content-md-center">#}
+{#            <div class="col-md-8 d-flex" id="visit-card">#}
+{#                <section class="col-md-4" id="user-profile-left">#}
+{#                    <div class="card">#}
+{#                        <img class="user-photo card-img-top" src="{{ user.photo }}" alt="Card image title">#}
+{#                        <div class="card-body text-center">#}
+{#                            <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>#}
+{#                            <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>#}
+{#                            <p class="card-text user-job">{{ user.emploi }}</p>#}
+{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
+{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+{#                                <span class="align-middle">Ajouter</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </section>#}
+
+{#                <!------- profil-right--------->#}
+
+{#                <div class="col-md-8">#}
+{#                    <section id="user-profile-right">#}
+{#                        <ul class="list-group list-group-flush">#}
+{#                            <li class="list-group-item title">#}
+{#                                <i class="pictos-title fas fa-user"></i>#}
+{#                                <h5 class="card-title">A propos</h5>#}
+
+{#                            </li>#}
+{#                            <li class="list-group-item">#}
+{#                                <i class="pictos fas fa-phone"></i>#}
+{#                                <p class="infos">{{ user.phone }}</p>#}
+{#                            </li>#}
+{#                            <li class="list-group-item">#}
+{#                                <div><i class="pictos fa fa-envelope "></i></div>#}
+{#                                <div><p class="infos">{{ user.email }}</p></div>#}
+
+{#                            </li>#}
+{#                            <li class="list-group-item">#}
+{#                                <i class="pictos fa fa-home"></i>#}
+{#                                <div class="card">#}
+{#                                    <div class="card-body">#}
+{#                                        <p class="card-text infos">{{ user.adress }}</p>#}
+{#                                        <p class="card-text infos">{{ user.city }}</p>#}
+{#                                        <p class="card-text infos">{{ user.postalCode }}</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </section>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+
+{#    <!------- profil-suggestions--------->#}
+
+{#    <section id="user-profile-suggestions">#}
+{#        <div class="container">#}
+{#            <div class="row justify-content-md-center">#}
+{#                <div class="col-5">#}
+{#                    <h3 class="text-center mb-4">Vous les connaissez peut-être</h3>#}
+{#                    <hr class="hr-title">#}
+{#                </div>#}
+{#            </div>#}
+
+{#            <div class="row text-center" id="user-profile-left">#}
+
+{#                <div class="col-md-3">#}
+{#                    <div class="card profile-userpic">#}
+{#                        <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
+{#                            <p class="card-text user-job">Musicien</p>#}
+{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
+{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+{#                                <span class="align-middle">Ajouter</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+{#                <div class="col-md-3">#}
+{#                    <div class="card profile-userpic">#}
+{#                        <img class="user-photo card-img-top rounded-circle" src="img/07.jpg" alt="Card image title">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
+{#                            <p class="card-text user-job">Musicien</p>#}
+{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
+{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+{#                                <span class="align-middle">Ajouter</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+{#                <div class="col-md-3">#}
+{#                    <div class="card profile-userpic">#}
+{#                        <img class="user-photo card-img-top rounded-circle" src="img/06.jpg" alt="Card image title">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
+{#                            <p class="card-text user-job">Musicien</p>#}
+{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
+{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+{#                                <span class="align-middle">Ajouter</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+{#                <div class="col-md-3">#}
+{#                    <div class="card profile-userpic">#}
+{#                        <img class="user-photo card-img-top rounded-circle" src="img/05.jpg" alt="Card image title">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
+{#                            <p class="card-text user-job">Musicien</p>#}
+{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
+{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+{#                                <span class="align-middle">Ajouter</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+
+{#            <!------- profile-suggestions ROW2--------->#}
+
+
+{#            <div class="row text-center" id="user-profile-left">#}
+
+{#                <div class="col-md-3">#}
+{#                    <div class="card profile-userpic">#}
+{#                        <img class="user-photo card-img-top rounded-circle" src="img/01.jpg" alt="Card image title">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
+{#                            <p class="card-text user-job">Musicien</p>#}
+{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
+{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+{#                                <span class="align-middle">Ajouter</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+{#                <div class="col-md-3">#}
+{#                    <div class="card profile-userpic">#}
+{#                        <img class="user-photo card-img-top rounded-circle" src="img/02.jpg" alt="Card image title">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
+{#                            <p class="card-text user-job">Musicien</p>#}
+{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
+{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+{#                                <span class="align-middle">Ajouter</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+{#                <div class="col-md-3">#}
+{#                    <div class="card profile-userpic">#}
+{#                        <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
+{#                            <p class="card-text user-job">Musicien</p>#}
+{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
+{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+{#                                <span class="align-middle">Ajouter</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+{#                <div class="col-md-3">#}
+{#                    <div class="card profile-userpic">#}
+{#                        <img class="user-photo card-img-top rounded-circle" src="img/04.jpg" alt="Card image title">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
+{#                            <p class="card-text user-job">Musicien</p>#}
+{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
+{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+{#                                <span class="align-middle">Ajouter</span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+
+
+{#    </div> <!-- END CONTAINER -->#}
+{#{% endblock %}#}
+

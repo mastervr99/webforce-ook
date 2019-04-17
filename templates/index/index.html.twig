@@ -1,72 +1,80 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <header class="masthead">
-        <div class="container h-100">
-            <div class="row  h-100">
-                <div class="col-lg-7 my-auto">
-                    <div class="text mx-auto">
-                        <h1 class="mb-5">WebForceContact la nouvelle application de gestion de contacts. simple, efficace, flexible retrouvez tous vos contacts partout tout le temps !
-                        </h1>
-                        <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Télécharger</a>
-                    </div>
-                </div>
-                <div class="col-lg-5 my-auto">
-                    <div class="iphone">
-                        <img src="img/iphone_6_plus_white_port.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-------------- FEATURES ---------------->
-
-
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-heading text-center">
-                <h2>Des Fonctionnalités de ouf !</h2>
-                <p class="text-muted">Voici ce que cette application va vous apporter ! </p>
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 my-auto">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="feature-item">
-                                    <i class="fas fa-award text-info"></i>
-                                    <h3>Simplicité extreme !</h3>
-                                    <p class="text-muted">En deux clics retrouvez toutes les informations de vos contacts</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="feature-item">
-                                    <i class="fas fa-fighter-jet text-info"></i>
-                                    <h3>Rapide</h3>
-                                    <p class="text-muted">Une gestion optimisée et qualitative pour une efficacité maximale !</p>
-                                </div>
-                            </div>
+        <header class="masthead">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="text mx-auto">
+                            <h1 class="mb-5">WebForceContact la nouvelle application de gestion de contacts. simple,
+                                efficace, flexible retrouvez tous vos contacts partout tout le temps !
+                            </h1>
+                            <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Télécharger</a>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="feature-item">
-                                    <i class="fas fa-gift text-info"></i>
-                                    <h3>Gratuit</h3>
-                                    <p class="text-muted">L'ensemble des fonctionnalités proposées sont gratuites et ça c'est top !</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="feature-item">
-                                    <i class="fas fa-bullhorn text-info"></i>
-                                    <h3>Des questions ? </h3>
-                                    <p class="text-muted">Une équipe géniale à votre écoute<br> (sauf Dany qui s'étale quand je ne suis pas là) !</p>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="col-lg-5 mx-auto">
+                        <div class="iphone">
+                            <img src="img/iphone_6_plus_white_port.png" class="img-fluid" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>{% endblock %}
+        </header>
+
+        <!-------------- FEATURES ---------------->
+
+
+        <section class="features ft-background" id="features">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <h2>Des Fonctionnalités de ouf !</h2>
+                    <p class="text-muted">Voici ce que cette application va vous apporter ! </p>
+                    <hr class="light">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 my-auto">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="feature-item">
+                                        <i class="fas fa-award text-info"></i>
+                                        <h3>Simplicité extreme !</h3>
+                                        <p class="text-muted">En deux clics retrouvez toutes les informations de vos
+                                            contacts</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="feature-item">
+                                        <i class="fas fa-fighter-jet text-info"></i>
+                                        <h3>Rapide</h3>
+                                        <p class="text-muted">Une gestion optimisée et qualitative pour une efficacité
+                                            maximale !</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="feature-item">
+                                        <i class="fas fa-gift text-info"></i>
+                                        <h3>Gratuit</h3>
+                                        <p class="text-muted">L'ensemble des fonctionnalités proposées sont gratuites et
+                                            ça
+                                            c'est top !</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="feature-item">
+                                        <i class="fas fa-bullhorn text-info"></i>
+                                        <h3>Des questions ? </h3>
+                                        <p class="text-muted">Une équipe géniale à votre écoute<br> (sauf Dany qui
+                                            s'étale
+                                            quand je ne suis pas là) !</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

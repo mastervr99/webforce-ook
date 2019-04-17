@@ -2,12 +2,23 @@
                             GENERAL
 ======================================================================*/
 
+/*Footer en bas de page*/
+* {-o-box-sizing: border-box; box-sizing: border-box;}
+* {-ms-box-sizing: border-box; box-sizing: border-box;}
+* {-moz-box-sizing: border-box; box-sizing: border-box;}
+* {-webkit-box-sizing: border-box; box-sizing: border-box;}
+
+html{
+height: 100% !important;
+}
 
 body {
-    /* background: #eaeaea; */
+    background: #eaeaea;
     font-family: 'Roboto', 'Catamaran', 'Open Sans', 'Muli', 'Helvetica', 'Arial', 'sans-serif';
-    width: 100%;
-    height: 100vh;
+    /*width: 100%;*/
+    /*min-height: 100%;*/
+    /*margin : 0 auto;*/
+    /*position: relative;*/
 }
 
 body#bodycolor {
@@ -15,9 +26,12 @@ body#bodycolor {
 }
 
 main{
-    margin-top: 80px;
+    margin-top:130px;
 }
 
+h2, h3{
+    font-family: 'Roboto', 'Catamaran', 'Open Sans', 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+}
 
 hr.light {
     max-width: 100px;
@@ -27,15 +41,19 @@ hr.light {
 }
 
 .hr-title {
-    border-bottom: 3px solid #5cd3b4;
-    max-width: 250px;
-    margin: 10px auto 40px auto;
+    border: 1px solid rgb(230, 230, 230);
+    max-width: 300px;
+    margin: 0px auto 40px auto;
 }
 
 ion-icon {
     font-size: 1.5rem;
     margin-right: 10px;
     color: #FFFFFF;
+}
+
+.body-bg{
+    background: url("../img/bg-pattern-light.png"), linear-gradient(to right, #091822, #194f5f);
 }
 
 /*======================================================================
@@ -45,7 +63,7 @@ ion-icon {
 
 #mainNav {
     border-color: rgba(34, 34, 34, 0.05);
-    background-color: rgba(0, 0, 0, 0.64);
+    background-color: rgba(0, 0, 0, 0.3);
     font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
     font-weight: 200;
     letter-spacing: 1px;
@@ -59,23 +77,28 @@ ion-icon {
 
 #mainNav a.navbar-brand:hover,
 #mainNav a.navbar-brand:focus {
-    color: #ffc402;
+    color: #48e4ff;
 }
+
+#mainNav .navbar-nav > li{
+    margin-left : 30px;
+}
+
 
 #mainNav .navbar-nav > li > a {
     font-size: 11px;
-    font-family: 'roboto', 'Lato', 'Helvetica', 'Arial', 'sans-serif';
-    letter-spacing: 2px;
+    font-family: 'Roboto', 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
 #mainNav .navbar-nav > li > a,
 #mainNav .navbar-nav > li > a:focus {
-    color: #ffc402;
+    color: #ffffff;
 }
 
 #mainNav ul.navbar-nav li.nav-item a.nav-link:hover {
-    color: #ffffff;;
+    color: #3fd8ff;;
 }
 
 /* A CORRIGER classe active */
@@ -113,32 +136,31 @@ ion-icon {
 
 /* ===================  HEADER ===================*/
 
-
 header.masthead {
     width: 100%;
-    /*padding-top: 150px;*/
-    padding-bottom: 100px;
     color: white;
-    background: url("../img/bg-pattern.png"), linear-gradient(to right, #003c46, #00c0a3);
+    /*background: url("../img/bg-pattern.png"), linear-gradient(to right, #003c46, #00c0a3);*/
+    padding-bottom: 50px;
+    margin-bottom:90px;
 }
 
 header.masthead .text {
     max-width: 500px;
-    margin-bottom: 100px;
-    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.74);
 }
 
 header.masthead .text h1 {
-    font-size: 30px;
-    letter-spacing: 2px;
-    font-weight: 100;
-
+    font-weight: 400;
+    margin-top:90px;
 }
 
 header.masthead .iphone {
     margin-right: auto;
     margin-left: auto;
-    max-width: 300px;
+    max-width: 280px;
+    margin-top:50px;
 }
 
 
@@ -166,7 +188,7 @@ header.masthead a.btn-outline:hover {
 
 @media (min-width: 992px) {
     header.masthead {
-        height: 100vh;
+        /*height: 100vh;*/
         /* min-height: 775px; */
         padding-top: 0;
         padding-bottom: 0;
@@ -179,24 +201,27 @@ header.masthead a.btn-outline:hover {
     }
 
     header.masthead .text h1 {
-        font-size: 50px;
+        font-size: 40px;
     }
 
     header.masthead .iphone {
-        max-width: 325px;
+        max-width: 300px;
     }
 }
+
+
 
 
 /* ===================  FEATURES ===================*/
 
-
-section.features {
-    margin-top: 100px;
+section.ft-background {
+    background: #ffffff;
+    width: 100%;
 }
 
-section.features h2 {
+section.features h2  {
     font-size: 50px;
+    padding-top:50px;
 }
 
 section.features .feature-item {
@@ -247,7 +272,6 @@ section.features .feature-item i {
 
 .page-content {
     height: 100%;
-    background: url("../img/bg-pattern.png"), linear-gradient(to right, #003c46, #00c0a3);
     display: flex;
     display: -webkit-flex;
     justify-content: center;
@@ -428,7 +452,9 @@ section.features .feature-item i {
 
 /*----------- BOUTONS  -----------*/
 
-
+#contact-list{
+    background: #ffffff;
+}
 #contact-list #buttons-options .has-search .form-control {
     padding-left: 2.375rem;
 }
@@ -442,6 +468,8 @@ section.features .feature-item i {
     border-top-right-radius:3rem;
     border-bottom-right-radius: 3rem;
     z-index:4;
+    background: #17a2b8;
+
 }
 #contact-list #buttons-options .form-control::placeholder{
     font-size: 0.9rem;
@@ -605,12 +633,26 @@ font-size: 1rem;
                         FICHE USER-PROFIL.php
 ======================================================================*/
 
+/*#visit-card{*/
+/*    !*background: #FFFFFF;*!*/
+/*    padding:40px;*/
+/*    -webkit-border-radius: 15px 15px 0 0;*/
+/*    -moz-border-radius: 15px 15px 0 0;*/
+/*    border-radius: 15px 15px 0 0;*/
+/*}*/
+
+
+#visit-card{
+margin-bottom: 70px;
+}
+
 
 /*----------- profil-left---------*/
 
 #user-profile-left .card {
     background-color: #ffff;
     border: none;
+    border: 1px solid #dfdfdf;
 }
 
 #user-profile-left .card-title {
@@ -675,7 +717,6 @@ font-size: 1rem;
 #user-profile-right .list-group-item {
     height: 50px;
     padding: 0;
-    /*background-color: transparent;*/
 }
 
 #user-profile-right .list-group-item i.pictos-title, #user-profile-commentaires .card-header i.pictos-title {
@@ -735,6 +776,23 @@ font-size: 1rem;
 
 /*------ user-profile-suggestions ------*/
 
+#user-profile-suggestions {
+    background: #ffffff;
+    width: 100%;
+    padding-bottom: 80px;
+}
+
+#user-profile-suggestions h3  {
+    padding-top:60px;
+}
+
+#user-profile-suggestions .profile-userpic  {
+    border:1px solid #ececec;
+    box-shadow: -1px 1px 12px #e6e6e6;
+    margin-top:20px;
+}
+
+
 #user-profile-suggestions img {
     width: 70%;
     margin: 20px auto 10px auto;
@@ -767,6 +825,14 @@ font-size: 1rem;
     font-size: 1.2rem;
 }
 
+#user-profile-suggestions #user-profile-left {
+    padding-bottom: 2rem;
+}
+
+
+
+
+
 
 /*======================================================================
                         modification-contact
@@ -785,4 +851,114 @@ font-size: 1rem;
     font-size: 0.8rem;
     margin-bottom: 20px;
     text-align: right;
+}
+
+/*======================================================================
+                        FOOTER
+======================================================================*/
+
+
+#myFooter {
+    background-color: #3c3d41;
+    color: white;
+    padding-top: 30px;
+    margin-top: 100px;
+}
+
+#myFooter .footer-copyright {
+    background-color: #333333;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+#myFooter .row {
+    margin-bottom: 60px;
+}
+
+#myFooter .navbar-brand {
+    margin-top: 45px;
+    height: 65px;
+}
+
+#myFooter .footer-copyright p {
+    margin: 10px;
+    color: #ccc;
+}
+
+#myFooter ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
+
+#myFooter h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#myFooter h2 a{
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+#myFooter a {
+    color: #d2d1d1;
+    text-decoration: none;
+}
+
+#myFooter a:hover,
+#myFooter a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+#myFooter .social-networks {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 16px;
+}
+
+#myFooter .social-networks a {
+    font-size: 32px;
+    color: #f9f9f9;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+#myFooter .social-networks a:hover {
+    text-decoration: none;
+}
+
+#myFooter .facebook:hover {
+    color: #0077e2;
+}
+
+#myFooter .google:hover {
+    color: #ef1a1a;
+}
+
+#myFooter .twitter:hover {
+    color: #00aced;
+}
+
+#myFooter .btn {
+    color: white;
+    background-color: #17a2b8;
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    line-height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    #myFooter {
+        text-align: center;
+    }
 }

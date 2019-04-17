@@ -29,7 +29,7 @@ class UserCompleteType extends AbstractType
                             'class' => 'form-control'
                         ],
                     'label_attr' =>[
-                        'class' => 'bg-dark text-right'
+                        'class' => ''
                     ]
                 ])
             ->add('postalCode', TextType::class,
