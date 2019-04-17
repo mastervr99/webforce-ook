@@ -24,7 +24,7 @@ class IndexController extends AbstractController
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("chat/{id}")
+     * @Route("/chat/{id}")
      */
     public function chat( Request $request, User $userRecoit)
     {
@@ -72,32 +72,15 @@ class IndexController extends AbstractController
      */
     public function chatMessages(Request $request)
     {
-        $user1 = $request->query->get('user_envoi');
-        $user2 = $request->query->get('user_reçoit');
 
-        //* find sur les 2 users
+            $user1 = $request->query->get('user_envoi');
+            $user2 = $request->query->get('user_reçoit');
 
-//        $repository = $this->getDoctrine()->getRepository(User::class);
-//
-//
-//        $sender = $repository->findBy(['id' => $this->getId()]);
-//
-//        $receiver = $repository->findBy(['id' => ])
-
-//        $sender = $repository->findOneBy(['user_envoi' => $user1]);
-//
-//        $receiver = $repository->findOneBy(['user_recoit' => $user2]);
+            //* find sur les 2 users
 
 
-        //* appel à la méthode getLastMessages() de messageRepository
-        //* en lui passant les 2 user
-//        $content = $repository->getLastMessages($sender,$receiver);
-//
-//        return $this->render('index/chat.html.twig',
-//            [
-//                'content' => $content
-//            ]
-//        );
+            //* appel à la méthode getLastMessages() de messageRepository
+            //* en lui passant les 2 user
 
     }
 }
