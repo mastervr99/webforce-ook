@@ -19,56 +19,92 @@ class UserCompleteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
             ->add('phone', TextType::class,
                 [
                     'label' => 'Téléphone',
-                    'required' => false
-                ])
 
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ],
+                    'label_attr' =>[
+                        'class' => ''
+                    ]
+                ])
             ->add('postalCode', TextType::class,
                 [
                     'label' => 'Code postal',
-                    'required' => false
-                ])
 
-            ->add('adress',TextType::class,
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
+                ])
+            ->add('adress', TextType::class,
                 [
                     'label' => 'Adresse',
-                    'required' => false
-                ])
 
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
+                ])
             ->add('city', TextType::class,
                 [
                     'label' => 'Ville',
-                    'required' => false
-                ])
 
-            ->add('photo',FileType::class,
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
+                ])
+            ->add('photo', FileType::class,
                 [
                     'label' => 'Photo',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ])
-
             ->add('emploi', TextType::class,
                 [
                     'label' => 'Emploi',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ])
-            ->add('dateBirth',DateType::class,
+            ->add('dateBirth', DateType::class,
                 [
                     'label' => 'Date de naissance',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ])
-
             ->add('notePerso', TextareaType::class,
                 [
                     'label' => 'Note perso',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ])
             ->add('email', EmailType::class,
                 [
-                    'label' => 'Email '
+                    'label' => 'Email ',
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]);
 
     }

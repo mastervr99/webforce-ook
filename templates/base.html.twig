@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>
+        {% block title %}
+            {#{% if app.user %}#}
+            {#Bonjour {{ user.firstname }}#}
+            {#{% else %}#}
+            {#Webforce Ook#}
+            {#{% endif %}#}
+        {% endblock %}
+    </title>
     <meta charset="UTF-8">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('lib/bootstrap/bootstrap.min.css') }}">
@@ -8,15 +17,19 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
               integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
               crossorigin="anonymous">
+        <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Catamaran:300,400" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+        <!-- ionicons.com -->
+        <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     {% endblock %}
+
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="{{ path('app_index_index') }}">WebForce_ook</a>
+        <a class="navbar-brand" href="{{ path('app_index_index') }}">WebForce Ook</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"></span></button>
@@ -28,23 +41,56 @@
 
             {% if app.user %}
                 <div class="col-sm-12 col-md-4" id="recherche">
-                    <form id="search-form" class="form-inline" role="form" action="{{ path('app_searchuser_searchuser') }}">
+                    <form id="search-form" class="form-inline" role="form"
+                          action="{{ path('app_searchuser_searchuser') }}">
                         <div class="input-group">
-                            <input type="text" name="search" class="form-control search-form" placeholder="Rechercher un utilisateur">
+                            <input type="text" name="search" class="form-control search-form"
+                                   placeholder="Rechercher un nom">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn search-btn" data-target="#search-form"><i class="fa fa-search"></i></button>
+                                <button type="submit" class="btn search-btn" data-target="#search-form"><i
+                                            class="fa fa-search"></i></button>
                             </span>
                         </div>
                     </form>
                 </div>
 
+                {#<div class="input-group col-md-6 ml-auto">#}
+                {#<input type="text" class="form-control" placeholder="Rechercher un nom">#}
+                {#<div class="input-group-append">#}
+                {#<button class="btn btn-info" type="button">#}
+                {#<i class="fa fa-search"></i>#}
+                {#</button>#}
+                {#</div>#}
+                {#</div>#}
+
+
+
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ path('app_user_listcontact') }}">Mes contacts</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin" role="button"
+
+                    {#notifcations#}
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-notifications">
+                            <i class="fa fa-bell" aria-hidden="true"></i>
+                            <span class="badge badge-danger">9</span>
+                            <span class="sr-only">unread messages</span>
+                        </button>
+                    </li>
+
+                    {#DEBUT MENU#}
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_user_listcontact') }}">Mes contacts</a>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin"
+                                                     role="button"
                                                      data-toggle="dropdown">Mon compte</a>
-                        <div class="dropdown-menu" aria-labelledby="menuadmin">
+
+
+                        {#menu deroulant#}
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuadmin">
                             <a class="dropdown-item" href="{{ path('app_user_moncompte') }}">Mon compte</a>
-                            <a class="dropdown-item" href="{{ path('app_contact_createcontact') }}">Ajouter un contact</a>
+                            <a class="dropdown-item" href="{{ path('app_user_profiluser', {'id': app.user.id}) }}">Mon
+                                profil</a>
+                            <a class="dropdown-item" href="{{ path('app_contact_createcontact') }}">Ajouter un
+                                contact</a>
                             <hr>
                             <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
                             {#                    AJOUTER LES LIENS ADMIN#}
@@ -55,8 +101,10 @@
                 </ul>
             {% else %}
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">M'inscrire</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_register') }}">Créer un compte</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_security_login') }}">Me connecter</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="<?= URL . 'faq.php' ?>">FAQ</a></li>
                 </ul>
             {% endif %}
@@ -65,35 +113,74 @@
     </div>
 </nav>
 
-<main>
+{#<main>#}
 
-    {#AFFICHER LES MESSAGES FLASH#}
-    {% for type, messages in app.session.flashBag.all %}
-        {% for message in messages  %}
-            {# pour la classe alert-danger du bootstrap #}
-            {% if type == 'error' %}
-                {% set type = 'danger' %}
-            {% endif %}
-            <div class="alert alert-{{ type }} mt-2">
-                {{ message|raw }}
-            </div>
-        {% endfor %}
+{#AFFICHER LES MESSAGES FLASH#}
+{% for type, messages in app.session.flashBag.all %}
+    {% for message in messages %}
+        {# pour la classe alert-danger du bootstrap #}
+        {% if type == 'error' %}
+            {% set type = 'danger' %}
+        {% endif %}
+        <div class="alert alert-{{ type }} mt-2">
+            {{ message|raw }}
+        </div>
     {% endfor %}
-
-{% block body %}
-
+{% endfor %}
 
 
+<body class="body-bg">
+<main>
+    {% block body %}
 
 
-{% endblock %}
+
+
+
+
+    {% endblock %}
 </main>
+</body>
 
-<footer class="fixed-bottom row bg-dark text-light text-center py-3">
-    <div class="col-12">
-        &copy; {{ "now" |date("Y") }} - WebForce_ook - Tous droits réservés
+
+{#<footer class="row bg-dark text-light text-center py-3">#}
+<footer id="myFooter">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <h2 class="logo"><a href="#"> WebForce Ook </a></h2>
+            </div>
+            <div class="col-sm-2">
+                <h5>A propos</h5>
+                <ul>
+                    <li><a href="#">L'équipe</a></li>
+                    <li><a href="#">Le projet</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <h5>Aide</h5>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Plan du site</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <div class="social-networks justify-content-between">
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+                <button type="button" class="btn btn-default">FAQ</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>&copy; {{ "now" |date("Y") }} - WebForce Ook - Tous droits réservés</p>
     </div>
 </footer>
+
+
+
 
 {#---------------------   BANDEAU COOKIES---------------------------- #}
 

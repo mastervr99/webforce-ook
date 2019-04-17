@@ -36,12 +36,11 @@
     <script src="<?= URL . 'inc/js/functions.js' ?>"></script>
 </head>
 
-
 <!------------------DEBUT NAV---------------------->
 
 <body id="bodycolor">
 
-<main id="main-profile-page">
+<main id="main-profile-page">>
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
@@ -82,27 +81,46 @@
 
 
     <!------- profile-left--------->
-// Thusy : debut
 
-    <div class="container">
+
+    <div class="container" id="modify-profil">
 
         <div class="row justify-content-md-center">
+            <div class="col-5">
+                <h3 class="text-center mb-4">Fiche contact</h3>
+                <hr class="hr-title">
+            </div>
+        </div>
+
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <p class="date-ajout">Contact ajouté le 28 avril 2017</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+
             <section class="col-md-3" id="user-profile-left">
                 <div class="card">
-                    <img class="user-photo card-img-top" src="img/02.jpg" alt="Card image title">
+                    <img class="user-photo card-img-top" src="img/06.jpg" alt="Card image title">
                     <div class="card-body text-center">
-                        <h5 class="card-title user-lastname text-fluid">Saint-Clair</h5>
-                        <h5 class="card-title user-firstname text-fluid">Jennyfer</h5>
-                        <p class="card-text user-job">Directrice Artistique</p>
+                        <h5 class="card-title user-lastname text-fluid">Roselina</h5>
+                        <h5 class="card-title user-firstname text-fluid">Catherine</h5>
+                        <p class="card-text user-job">Ingénieure en bâtiment et hautes-technologies</p>
                         <button type="button" class="btn btn-labeled btn-info user-btn">
-                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-                            <span class="align-middle">Ajouter</span>
+                            <i class="fa fa-pen"></i>
+                            <span class="align-middle">Modifier</span>
+                        </button>
+                        <button type="button" class="btn btn-labeled btn-secondary user-btn">
+                            <i class="fa fa-trash"></i>
+                            <span class="align-middle">Supprimer</span>
                         </button>
                     </div>
                 </div>
             </section>
 
-            <!------- profil-right--------->
+            <!------- profile-right--------->
 
             <div class="col-md-5">
                 <section id="user-profile-right">
@@ -141,7 +159,6 @@
                 <!------- profil-commentaires--------->
 
                 <section id="user-profile-commentaires">
-
                     <div class="card mt-3">
                         <div class="card-header">
                             <i class="pictos-title fa fa-paperclip" aria-hidden="true"></i>
@@ -152,6 +169,7 @@
                                 de Roger</p>
                         </div>
                     </div>
+
 
                     <div class="card mt-3">
                         <div class="card-header">
@@ -165,8 +183,8 @@
                 </section>
             </div>
         </div>
-        <hr class="light">
 
+        <hr class="light">
 
         <!------- profil-suggestions--------->
 
@@ -174,7 +192,7 @@
 
             <div class="row justify-content-md-center">
                 <div class="col-5">
-                    <h3 class="text-center mb-4">Vous les connaissez peut-être</h3>
+                    <h3 class="text-center mb-4">D'autres de vos contacts</h3>
                     <hr class="hr-title">
                 </div>
             </div>
@@ -182,14 +200,13 @@
             <div class="row text-center mb-5" id="user-profile-left">
 
                 <div class="col-md-3">
-                    <div class="card profile-userpic">
+                    <div class="card ">
                         <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-
+                                <ion-icon class="align-middle" name="add"></ion-icon>
                                 <span class="align-middle">Ajouter</span>
                             </button>
                         </div>
@@ -197,65 +214,58 @@
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card profile-userpic">
+                    <div class="card ">
                         <img class="user-photo card-img-top rounded-circle" src="img/07.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-
+                                <ion-icon class="align-middle" name="add"></ion-icon>
                                 <span class="align-middle">Ajouter</span>
-                            </button>
-                        </div>
+                            </button>                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card profile-userpic">
+                    <div class="card ">
                         <img class="user-photo card-img-top rounded-circle" src="img/06.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-
+                                <ion-icon class="align-middle" name="add"></ion-icon>
                                 <span class="align-middle">Ajouter</span>
-                            </button>
-                        </div>
+                            </button>                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card profile-userpic">
+                    <div class="card ">
                         <img class="user-photo card-img-top rounded-circle" src="img/05.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-
+                                <ion-icon class="align-middle" name="add"></ion-icon>
                                 <span class="align-middle">Ajouter</span>
-                            </button>
-                        </div>
+                            </button>                        </div>
                     </div>
                 </div>
             </div>
 
-            <!------- profile-suggestions ROW2--------->
+            <!------- profil-suggestions ROW2--------->
 
 
             <div class="row text-center mb-5" id="user-profile-left">
 
                 <div class="col-md-3">
-                    <div class="card profile-userpic">
+                    <div class="card ">
                         <img class="user-photo card-img-top rounded-circle" src="img/01.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-
+                                <ion-icon class="align-middle" name="add"></ion-icon>
                                 <span class="align-middle">Ajouter</span>
                             </button>
                         </div>
@@ -263,47 +273,41 @@
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card profile-userpic">
+                    <div class="card ">
                         <img class="user-photo card-img-top rounded-circle" src="img/02.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-
+                                <ion-icon class="align-middle" name="add"></ion-icon>
                                 <span class="align-middle">Ajouter</span>
-                            </button>
-                        </div>
+                            </button>                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card profile-userpic">
+                    <div class="card ">
                         <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-
+                                <ion-icon class="align-middle" name="add"></ion-icon>
                                 <span class="align-middle">Ajouter</span>
-                            </button>
-                        </div>
+                            </button>                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card profile-userpic">
+                    <div class="card ">
                         <img class="user-photo card-img-top rounded-circle" src="img/04.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-
+                                <ion-icon class="align-middle" name="add"></ion-icon>
                                 <span class="align-middle">Ajouter</span>
-                            </button>
-                        </div>
+                            </button>                        </div>
                     </div>
                 </div>
             </div>

@@ -3,73 +3,146 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-<main>
-    <div class="container" id="tools">
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div class="bt-ajouter btn btn-link btn-block mb-4 ">
-                    <a class="btn btn-info nav-link" href="' . URL . 'admin/ajout-contact.php"><i class="fas fa-plus-circle mr-2"></i>Ajouter un contact</a>
+
+<!------- profil-suggestions--------->
+
+<section id="user-profile-suggestions">
+
+    <div class="row justify-content-md-center">
+        <div class="col-5">
+            <h3 class="text-center mb-4">Vous les connaissez peut-être</h3>
+            <hr class="hr-title">
+        </div>
+    </div>
+
+    <div class="row text-center mb-5" id="user-profile-left">
+
+        <div class="col-md-3">
+            <div class="card profile-userpic">
+                <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">
+                <div class="card-body">
+                    <h5 class="card-title user-name">Harry Cover</h5>
+                    <p class="card-text user-job">Musicien</p>
+                    <button type="button" class="btn btn-labeled btn-info user-btn">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                        <span class="align-middle">Ajouter</span>
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <div class="col-sm-12 col-md-4" id="recherche">
-                <form id="search-form" class="form-inline" role="form" method="post" action="#" target="_blank">
-                    <div class="input-group">
-                        <input type="text" class="form-control search-form" placeholder="Rechercher un contact">
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn search-btn" data-target="#search-form" name="q"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div>
-                </form>
+        <div class="col-md-3">
+            <div class="card profile-userpic">
+                <img class="user-photo card-img-top rounded-circle" src="img/07.jpg" alt="Card image title">
+                <div class="card-body">
+                    <h5 class="card-title user-name">Harry Cover</h5>
+                    <p class="card-text user-job">Musicien</p>
+                    <button type="button" class="btn btn-labeled btn-info user-btn">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                        <span class="align-middle">Ajouter</span>
+                    </button>
+                </div>
             </div>
+        </div>
 
-            <div class="col-sm-12 col-md-4">
-                <a class="list-group-item ' . $activeall . '" href="?categ=*">Tous les contacts</a>
-                <div class ="form-group ">
-                    <select class="form-control"  id="exampleFormControlSelect 1">
-                        <option value="'  . $activeall . ' href = "?categ =*">Tous les contacts</option>
-                        <div class="container">
-                            <ul class="list-group list-group-flush">
-                                {% for contact in contacts %}
-                                <li class="list-group-item">
-                                    <div class="contact" id="contact">
-                                        <div class="row">
-                                            <div class="col-sm-7 col-md-4  d-flex align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="image"><a href="fiche_contact.php?id_contact=' . $prd['id_contact'] . '"><img src="' . URL . 'photo/' . $prd['photo'] . '" alt="' . $prd['nom'] . '" class="img-fluid rounded-circle"></a></div>
-                                                    <div class="text">
-                                                        <a href="fiche-profil.php"' . $prd['id_contact'] . '"> ' . $prd['nom'] . ' ' .  $prd['prenom'] . ' </a>
-                                                        <br>
-                                                        <small>' . $prd['profession'] . '</small>
-                                                    </div>
-                                                </div>
-                                            </div>
+        <div class="col-md-3">
+            <div class="card profile-userpic">
+                <img class="user-photo card-img-top rounded-circle" src="img/06.jpg" alt="Card image title">
+                <div class="card-body">
+                    <h5 class="card-title user-name">Harry Cover</h5>
+                    <p class="card-text user-job">Musicien</p>
+                    <button type="button" class="btn btn-labeled btn-info user-btn">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
 
-                                            <div class="picto col-sm-4 col-md-3 d-flex align-items-center">
-                                                <i class="fas fa-mobile-alt"></i></i>06 01 02 03 04
-                                            </div>
+                        <span class="align-middle">Ajouter</span>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-                                            <div class="picto hidden-sm hidden-xs d-xs-none col-md-4 d-flex align-items-center">
-                                                <i class="fas fa-envelope-square"></i>gromit@gmail.com
-                                            </div>
-                                            <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
-                                                <a class="btn btn-link btn-info nav-link mr-3" href=""><i class="fas fa-pen"></i></a>
-                                                <a class="btn btn-link btn-info nav-link" href=""><i class="fas fa-trash"></i></a>
-                                            </div>
+        <div class="col-md-3">
+            <div class="card profile-userpic">
+                <img class="user-photo card-img-top rounded-circle" src="img/05.jpg" alt="Card image title">
+                <div class="card-body">
+                    <h5 class="card-title user-name">Harry Cover</h5>
+                    <p class="card-text user-job">Musicien</p>
+                    <button type="button" class="btn btn-labeled btn-info user-btn">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
 
-                                        </div>
-                                    </div>
-                                </li>
-                                {% else %}
-                                <div class="alert alert-info mt-5">Désolé aucun contact ne correspond</div>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </select>
+                        <span class="align-middle">Ajouter</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-</main>
+
+    <!------- profile-suggestions ROW2--------->
+
+
+    <div class="row text-center mb-5" id="user-profile-left">
+
+        <div class="col-md-3">
+            <div class="card profile-userpic">
+                <img class="user-photo card-img-top rounded-circle" src="img/01.jpg" alt="Card image title">
+                <div class="card-body">
+                    <h5 class="card-title user-name">Harry Cover</h5>
+                    <p class="card-text user-job">Musicien</p>
+                    <button type="button" class="btn btn-labeled btn-info user-btn">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                        <span class="align-middle">Ajouter</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card profile-userpic">
+                <img class="user-photo card-img-top rounded-circle" src="img/02.jpg" alt="Card image title">
+                <div class="card-body">
+                    <h5 class="card-title user-name">Harry Cover</h5>
+                    <p class="card-text user-job">Musicien</p>
+                    <button type="button" class="btn btn-labeled btn-info user-btn">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                        <span class="align-middle">Ajouter</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card profile-userpic">
+                <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">
+                <div class="card-body">
+                    <h5 class="card-title user-name">Harry Cover</h5>
+                    <p class="card-text user-job">Musicien</p>
+                    <button type="button" class="btn btn-labeled btn-info user-btn">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                        <span class="align-middle">Ajouter</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card profile-userpic">
+                <img class="user-photo card-img-top rounded-circle" src="img/04.jpg" alt="Card image title">
+                <div class="card-body">
+                    <h5 class="card-title user-name">Harry Cover</h5>
+                    <p class="card-text user-job">Musicien</p>
+                    <button type="button" class="btn btn-labeled btn-info user-btn">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                        <span class="align-middle">Ajouter</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

@@ -21,20 +21,32 @@ class ContactType extends AbstractType
             ->add('nom',
                 TextType::class,
                 [
-                    'label' => 'Nom'
+                    'label' => 'Nom',
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
 
             )
             ->add('prenom',
                 TextType::class,
                 [
-                    'label' => 'Prénom'
+                    'label' => 'Prénom',
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
             )
             ->add('email',
                 EmailType::class,
                 [
-                    'label' => 'Email'
+                    'label' => 'Email',
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
             )
             ->add('dateDeNaissance',
@@ -42,14 +54,22 @@ class ContactType extends AbstractType
                 [
                     'label' => 'Date de naissance',
                     'format' => 'dd MM yyyy',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
             )
             ->add('telephone',
                 TextType::class,
                 [
                     'label' => 'Téléphone',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
 
             )
@@ -57,7 +77,11 @@ class ContactType extends AbstractType
                 TextType::class,
                 [
                     'label' => 'Profession',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
 
             )
@@ -65,7 +89,11 @@ class ContactType extends AbstractType
                 TextType::class,
                 [
                     'label' => 'Adresse',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
 
             )
@@ -73,14 +101,22 @@ class ContactType extends AbstractType
                 TextareaType::class,
                 [
                     'label' => 'Note Personnelle',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
             )
             ->add('codePostal',
                 TextType::class,
                 [
                     'label' => 'Code postal',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
 
             )
@@ -88,7 +124,11 @@ class ContactType extends AbstractType
                 TextType::class,
                 [
                     'label' => 'Ville',
-                    'required' => false
+                    'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
             )
             ->add('photo',
@@ -96,6 +136,10 @@ class ContactType extends AbstractType
                 [
                     'label' => 'Photo',
                     'required' => false,
+                    'attr' =>
+                        [
+                            'class' => 'form-control'
+                        ]
                 ]
 
             )

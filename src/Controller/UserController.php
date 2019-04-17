@@ -82,17 +82,20 @@ class UserController extends AbstractController
         ]);
     }
 
-    public function ajoutContact()
+    /**
+     * @Route("/profil/{id}", requirements={"id" = "\d+"})
+     */
+    public function profilUser(Request $request, User $user)
     {
-//        UN USER QD IL EST AJT VA DS MES CONTACTS
-//        si mon contact accept ma demande que je lui envoi alors
+        $repository = $this->getDoctrine()->getRepository(User::class);
 
-//        qd on click sur btn ajouter get sa fiche de renseignements
+        $contacts = $repository->findBy(['id' => $user]);
 
-
-
-//QD UN USER EST ACCEPT UN ECHANGE DE FICHE DE RENS SI LA FICHE CONTACT EXISTAIT DEJA ELLE ES MODIFIE
-        //        SI UN CONTACT  S INSCRIT IL DEVIENT UN USER  ON DOIT RECEVOIR UNE ALERT OU NOTIF
+        return $this->render('user/profil.html.twig',
+            [
+                'user' => $user
+            ]
+        );
     }
 
 }
