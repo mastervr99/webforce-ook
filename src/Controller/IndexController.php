@@ -75,14 +75,29 @@ class IndexController extends AbstractController
         $user1 = $request->query->get('user_envoi');
         $user2 = $request->query->get('user_reçoit');
 
-        // find sur les 2 users
+        //* find sur les 2 users
 
-        $repository = $this->getDoctrine()->getRepository(MessagesRepository::class);
+//        $repository = $this->getDoctrine()->getRepository(User::class);
+//
+//
+//        $sender = $repository->findBy(['id' => $this->getId()]);
+//
+//        $receiver = $repository->findBy(['id' => ])
 
-        $sender = $repository->
+//        $sender = $repository->findOneBy(['user_envoi' => $user1]);
+//
+//        $receiver = $repository->findOneBy(['user_recoit' => $user2]);
 
-        // appel à la méthode getLastMessages() de messageRepository
-        // en lui passant les 2 user
+
+        //* appel à la méthode getLastMessages() de messageRepository
+        //* en lui passant les 2 user
+//        $content = $repository->getLastMessages($sender,$receiver);
+//
+//        return $this->render('index/chat.html.twig',
+//            [
+//                'content' => $content
+//            ]
+//        );
 
     }
 }
