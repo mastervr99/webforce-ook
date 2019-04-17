@@ -1,26 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container" id="modify-profil">
+
+
+    <div class="container">
 
         <div class="row justify-content-md-center">
-            <div class="col-5">
-                <h3 class="text-center mb-4">Fiche contact</h3>
-                <hr class="hr-title">
-            </div>
-        </div>
+            <div class="col-md-8 d-flex" id="visit-card">
 
-        {% for contact in contact  %}
-
-            <div class="row justify-content-md-center">
-                <div class="col-md-8">
-                    <p class="date-ajout">Contact ajouté le 28 avril 2017</p>
-                </div>
-            </div>
-
-            <div class="row justify-content-md-center">
-
-                <section class="col-md-3" id="user-profile-left">
+                <section class="col-md-4" id="user-profile-left">
                     <div class="card">
                         <img class="user-photo card-img-top" src="{{ contact.photo }}" alt="Card image title">
                         <div class="card-body text-center">
@@ -39,9 +27,10 @@
                     </div>
                 </section>
 
-                <!------- profile-right--------->
+                <div class="col-md-8">
 
-                <div class="col-md-5">
+                    <!------- profil-right--------->
+
                     <section id="user-profile-right">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item title">
@@ -57,6 +46,7 @@
                                 <div><i class="pictos fa fa-envelope "></i></div>
                                 <div><p class="infos">{{ contact.email }}</p></div>
 
+                            </li>
                             <li class="list-group-item">
                                 <i class="pictos fa fa-home"></i>
                                 <div class="card">
@@ -96,32 +86,32 @@
                     </section>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <hr class="light">
-        {% endfor %}
 
+    <!------- profil-suggestions--------->
 
-        <!------- profil-suggestions--------->
-
-        <section id="user-profile-suggestions">
-
+    <section id="user-profile-suggestions">
+        <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-5">
-                    <h3 class="text-center mb-4">D'autres de vos contacts</h3>
+                    <h3 class="text-center mb-4">Vous les connaissez peut-être</h3>
                     <hr class="hr-title">
                 </div>
             </div>
 
-            <div class="row text-center mb-5" id="user-profile-left">
+            <div class="row text-center" id="user-profile-left">
 
                 <div class="col-md-3">
-                    <div class="card ">
+                    <div class="card profile-userpic">
                         <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="add"></ion-icon>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+
                                 <span class="align-middle">Ajouter</span>
                             </button>
                         </div>
@@ -129,58 +119,14 @@
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card ">
+                    <div class="card profile-userpic">
                         <img class="user-photo card-img-top rounded-circle" src="img/07.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="add"></ion-icon>
-                                <span class="align-middle">Ajouter</span>
-                            </button>                        </div>
-                    </div>
-                </div>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
 
-                <div class="col-md-3">
-                    <div class="card ">
-                        <img class="user-photo card-img-top rounded-circle" src="img/06.jpg" alt="Card image title">
-                        <div class="card-body">
-                            <h5 class="card-title user-name">Harry Cover</h5>
-                            <p class="card-text user-job">Musicien</p>
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="add"></ion-icon>
-                                <span class="align-middle">Ajouter</span>
-                            </button>                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card ">
-                        <img class="user-photo card-img-top rounded-circle" src="img/05.jpg" alt="Card image title">
-                        <div class="card-body">
-                            <h5 class="card-title user-name">Harry Cover</h5>
-                            <p class="card-text user-job">Musicien</p>
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="add"></ion-icon>
-                                <span class="align-middle">Ajouter</span>
-                            </button>                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!------- profil-suggestions ROW2--------->
-
-
-            <div class="row text-center mb-5" id="user-profile-left">
-
-                <div class="col-md-3">
-                    <div class="card ">
-                        <img class="user-photo card-img-top rounded-circle" src="img/01.jpg" alt="Card image title">
-                        <div class="card-body">
-                            <h5 class="card-title user-name">Harry Cover</h5>
-                            <p class="card-text user-job">Musicien</p>
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="add"></ion-icon>
                                 <span class="align-middle">Ajouter</span>
                             </button>
                         </div>
@@ -188,51 +134,108 @@
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card ">
+                    <div class="card profile-userpic">
+                        <img class="user-photo card-img-top rounded-circle" src="img/06.jpg" alt="Card image title">
+                        <div class="card-body">
+                            <h5 class="card-title user-name">Harry Cover</h5>
+                            <p class="card-text user-job">Musicien</p>
+                            <button type="button" class="btn btn-labeled btn-info user-btn">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                                <span class="align-middle">Ajouter</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card profile-userpic">
+                        <img class="user-photo card-img-top rounded-circle" src="img/05.jpg" alt="Card image title">
+                        <div class="card-body">
+                            <h5 class="card-title user-name">Harry Cover</h5>
+                            <p class="card-text user-job">Musicien</p>
+                            <button type="button" class="btn btn-labeled btn-info user-btn">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                                <span class="align-middle">Ajouter</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!------- profile-suggestions ROW2--------->
+
+
+            <div class="row text-center" id="user-profile-left">
+
+                <div class="col-md-3">
+                    <div class="card profile-userpic">
+                        <img class="user-photo card-img-top rounded-circle" src="img/01.jpg" alt="Card image title">
+                        <div class="card-body">
+                            <h5 class="card-title user-name">Harry Cover</h5>
+                            <p class="card-text user-job">Musicien</p>
+                            <button type="button" class="btn btn-labeled btn-info user-btn">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                                <span class="align-middle">Ajouter</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card profile-userpic">
                         <img class="user-photo card-img-top rounded-circle" src="img/02.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="add"></ion-icon>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+
                                 <span class="align-middle">Ajouter</span>
-                            </button>                        </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card ">
+                    <div class="card profile-userpic">
                         <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="add"></ion-icon>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+
                                 <span class="align-middle">Ajouter</span>
-                            </button>                        </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <div class="card ">
+                    <div class="card profile-userpic">
                         <img class="user-photo card-img-top rounded-circle" src="img/04.jpg" alt="Card image title">
                         <div class="card-body">
                             <h5 class="card-title user-name">Harry Cover</h5>
                             <p class="card-text user-job">Musicien</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="add"></ion-icon>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+
                                 <span class="align-middle">Ajouter</span>
-                            </button>                        </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
 
     </div> <!-- END CONTAINER -->
 {% endblock %}
 
-{% extends 'base.html.twig' %}
 
 
 
@@ -240,209 +243,443 @@
 
 
 
+
+
+    {#<div class="container" id="modify-profil">#}
+
+        {#<div class="row justify-content-md-center">#}
+            {#<div class="col-5">#}
+                {#<h3 class="text-center mb-4">Fiche contact</h3>#}
+                {#<hr class="hr-title">#}
+            {#</div>#}
+        {#</div>#}
+
+        {#{% for contact in contact  %}#}
+
+            {#<div class="row justify-content-md-center">#}
+                {#<div class="col-md-8">#}
+                    {#<p class="date-ajout">Contact ajouté le 28 avril 2017</p>#}
+                {#</div>#}
+            {#</div>#}
+
+            {#<div class="row justify-content-md-center">#}
+
+                {#<section class="col-md-3" id="user-profile-left">#}
+                    {#<div class="card">#}
+                        {#<img class="user-photo card-img-top" src="{{ contact.photo }}" alt="Card image title">#}
+                        {#<div class="card-body text-center">#}
+                            {#<h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>#}
+                            {#<h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>#}
+                            {#<p class="card-text user-job">{{ contact.profession }}</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-pen"></i>#}
+                                {#<span class="align-middle">Modifier</span>#}
+                            {#</button>#}
+                            {#<button type="button" class="btn btn-labeled btn-secondary user-btn">#}
+                                {#<i class="fa fa-trash"></i>#}
+                                {#<span class="align-middle">Supprimer</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</section>#}
+
+                {#<!------- profile-right--------->#}
+
+                {#<div class="col-md-5">#}
+                    {#<section id="user-profile-right">#}
+                        {#<ul class="list-group list-group-flush">#}
+                            {#<li class="list-group-item title">#}
+                                {#<i class="pictos-title fas fa-user"></i>#}
+                                {#<h5 class="card-title">A propos</h5>#}
+
+                            {#</li>#}
+                            {#<li class="list-group-item">#}
+                                {#<i class="pictos fas fa-phone"></i>#}
+                                {#<p class="infos">{{ contact.telephone }}</p>#}
+                            {#</li>#}
+                            {#<li class="list-group-item">#}
+                                {#<div><i class="pictos fa fa-envelope "></i></div>#}
+                                {#<div><p class="infos">{{ contact.email }}</p></div>#}
+
+                            {#<li class="list-group-item">#}
+                                {#<i class="pictos fa fa-home"></i>#}
+                                {#<div class="card">#}
+                                    {#<div class="card-body">#}
+                                        {#<p class="card-text infos">{{ contact.adresse }}</p>#}
+                                        {#<p class="card-text infos">{{ contact.codePostal }}</p>#}
+                                        {#<p class="card-text infos">{{ contact.ville }}</p>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</section>#}
+
+                    {#<!------- profil-commentaires--------->#}
+
+                    {#<section id="user-profile-commentaires">#}
+                        {#<div class="card mt-3">#}
+                            {#<div class="card-header">#}
+                                {#<i class="pictos-title fa fa-paperclip" aria-hidden="true"></i>#}
+                                {#<h5 class="card-title ">Commentaires</h5>#}
+                            {#</div>#}
+                            {#<div class="card-body">#}
+                                {#<p class="card-text infos">{{ contact.notePersonnelle }}</p>#}
+                            {#</div>#}
+                        {#</div>#}
+
+
+                        {#<div class="card mt-3">#}
+                            {#<div class="card-header">#}
+                                {#<i class="pictos-title fas fa-hashtag"></i>#}
+                                {#<h5 class="card-title">Mot-clés</h5>#}
+                            {#</div>#}
+                            {#<div class="card-body">#}
+                                {#<p class="card-text infos">#copine #Travail #chat</p>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</section>#}
+                {#</div>#}
+            {#</div>#}
+
+            {#<hr class="light">#}
+        {#{% endfor %}#}
+
+
+        {#<!------- profil-suggestions--------->#}
+
+        {#<section id="user-profile-suggestions">#}
+
+            {#<div class="row justify-content-md-center">#}
+                {#<div class="col-5">#}
+                    {#<h3 class="text-center mb-4">D'autres de vos contacts</h3>#}
+                    {#<hr class="hr-title">#}
+                {#</div>#}
+            {#</div>#}
+
+            {#<div class="row text-center mb-5" id="user-profile-left">#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card ">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<ion-icon class="align-middle" name="add"></ion-icon>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card ">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/07.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<ion-icon class="align-middle" name="add"></ion-icon>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>                        </div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card ">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/06.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<ion-icon class="align-middle" name="add"></ion-icon>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>                        </div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card ">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/05.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<ion-icon class="align-middle" name="add"></ion-icon>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>                        </div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+
+            {#<!------- profil-suggestions ROW2--------->#}
+
+
+            {#<div class="row text-center mb-5" id="user-profile-left">#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card ">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/01.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<ion-icon class="align-middle" name="add"></ion-icon>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card ">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/02.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<ion-icon class="align-middle" name="add"></ion-icon>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>                        </div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card ">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<ion-icon class="align-middle" name="add"></ion-icon>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>                        </div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card ">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/04.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<ion-icon class="align-middle" name="add"></ion-icon>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>                        </div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</section>#}
+
+
+    {#</div> <!-- END CONTAINER -->#}
+{#{% endblock %}#}
+
+{#{% extends 'base.html.twig' %}#}
 
 
 
 {#{% block body %}#}
-{#    <div class="container">#}
+    {#<div class="container">#}
 
-{#        <div class="row justify-content-md-center">#}
-{#            <div class="col-md-8 d-flex" id="visit-card">#}
-{#                <section class="col-md-4" id="user-profile-left">#}
-{#                    <div class="card">#}
-{#                        <img class="user-photo card-img-top" src="{{ user.photo }}" alt="Card image title">#}
-{#                        <div class="card-body text-center">#}
-{#                            <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>#}
-{#                            <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>#}
-{#                            <p class="card-text user-job">{{ user.emploi }}</p>#}
-{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
-{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
-{#                                <span class="align-middle">Ajouter</span>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </section>#}
+        {#<div class="row justify-content-md-center">#}
+            {#<div class="col-md-8 d-flex" id="visit-card">#}
+                {#<section class="col-md-4" id="user-profile-left">#}
+                    {#<div class="card">#}
+                        {#<img class="user-photo card-img-top" src="{{ user.photo }}" alt="Card image title">#}
+                        {#<div class="card-body text-center">#}
+                            {#<h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>#}
+                            {#<h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>#}
+                            {#<p class="card-text user-job">{{ user.emploi }}</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-user-plus" aria-hidden="true"></i>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</section>#}
 
-{#                <!------- profil-right--------->#}
+                {#<!------- profil-right--------->#}
 
-{#                <div class="col-md-8">#}
-{#                    <section id="user-profile-right">#}
-{#                        <ul class="list-group list-group-flush">#}
-{#                            <li class="list-group-item title">#}
-{#                                <i class="pictos-title fas fa-user"></i>#}
-{#                                <h5 class="card-title">A propos</h5>#}
+                {#<div class="col-md-8">#}
+                    {#<section id="user-profile-right">#}
+                        {#<ul class="list-group list-group-flush">#}
+                            {#<li class="list-group-item title">#}
+                                {#<i class="pictos-title fas fa-user"></i>#}
+                                {#<h5 class="card-title">A propos</h5>#}
 
-{#                            </li>#}
-{#                            <li class="list-group-item">#}
-{#                                <i class="pictos fas fa-phone"></i>#}
-{#                                <p class="infos">{{ user.phone }}</p>#}
-{#                            </li>#}
-{#                            <li class="list-group-item">#}
-{#                                <div><i class="pictos fa fa-envelope "></i></div>#}
-{#                                <div><p class="infos">{{ user.email }}</p></div>#}
+                            {#</li>#}
+                            {#<li class="list-group-item">#}
+                                {#<i class="pictos fas fa-phone"></i>#}
+                                {#<p class="infos">{{ user.phone }}</p>#}
+                            {#</li>#}
+                            {#<li class="list-group-item">#}
+                                {#<div><i class="pictos fa fa-envelope "></i></div>#}
+                                {#<div><p class="infos">{{ user.email }}</p></div>#}
 
-{#                            </li>#}
-{#                            <li class="list-group-item">#}
-{#                                <i class="pictos fa fa-home"></i>#}
-{#                                <div class="card">#}
-{#                                    <div class="card-body">#}
-{#                                        <p class="card-text infos">{{ user.adress }}</p>#}
-{#                                        <p class="card-text infos">{{ user.city }}</p>#}
-{#                                        <p class="card-text infos">{{ user.postalCode }}</p>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </li>#}
-{#                        </ul>#}
-{#                    </section>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-
-
-{#    <!------- profil-suggestions--------->#}
-
-{#    <section id="user-profile-suggestions">#}
-{#        <div class="container">#}
-{#            <div class="row justify-content-md-center">#}
-{#                <div class="col-5">#}
-{#                    <h3 class="text-center mb-4">Vous les connaissez peut-être</h3>#}
-{#                    <hr class="hr-title">#}
-{#                </div>#}
-{#            </div>#}
-
-{#            <div class="row text-center" id="user-profile-left">#}
-
-{#                <div class="col-md-3">#}
-{#                    <div class="card profile-userpic">#}
-{#                        <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">#}
-{#                        <div class="card-body">#}
-{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
-{#                            <p class="card-text user-job">Musicien</p>#}
-{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
-{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
-
-{#                                <span class="align-middle">Ajouter</span>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-
-{#                <div class="col-md-3">#}
-{#                    <div class="card profile-userpic">#}
-{#                        <img class="user-photo card-img-top rounded-circle" src="img/07.jpg" alt="Card image title">#}
-{#                        <div class="card-body">#}
-{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
-{#                            <p class="card-text user-job">Musicien</p>#}
-{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
-{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
-
-{#                                <span class="align-middle">Ajouter</span>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-
-{#                <div class="col-md-3">#}
-{#                    <div class="card profile-userpic">#}
-{#                        <img class="user-photo card-img-top rounded-circle" src="img/06.jpg" alt="Card image title">#}
-{#                        <div class="card-body">#}
-{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
-{#                            <p class="card-text user-job">Musicien</p>#}
-{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
-{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
-
-{#                                <span class="align-middle">Ajouter</span>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-
-{#                <div class="col-md-3">#}
-{#                    <div class="card profile-userpic">#}
-{#                        <img class="user-photo card-img-top rounded-circle" src="img/05.jpg" alt="Card image title">#}
-{#                        <div class="card-body">#}
-{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
-{#                            <p class="card-text user-job">Musicien</p>#}
-{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
-{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
-
-{#                                <span class="align-middle">Ajouter</span>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-
-{#            <!------- profile-suggestions ROW2--------->#}
+                            {#</li>#}
+                            {#<li class="list-group-item">#}
+                                {#<i class="pictos fa fa-home"></i>#}
+                                {#<div class="card">#}
+                                    {#<div class="card-body">#}
+                                        {#<p class="card-text infos">{{ user.adress }}</p>#}
+                                        {#<p class="card-text infos">{{ user.city }}</p>#}
+                                        {#<p class="card-text infos">{{ user.postalCode }}</p>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</section>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
 
 
-{#            <div class="row text-center" id="user-profile-left">#}
+    {#<!------- profil-suggestions--------->#}
 
-{#                <div class="col-md-3">#}
-{#                    <div class="card profile-userpic">#}
-{#                        <img class="user-photo card-img-top rounded-circle" src="img/01.jpg" alt="Card image title">#}
-{#                        <div class="card-body">#}
-{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
-{#                            <p class="card-text user-job">Musicien</p>#}
-{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
-{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+    {#<section id="user-profile-suggestions">#}
+        {#<div class="container">#}
+            {#<div class="row justify-content-md-center">#}
+                {#<div class="col-5">#}
+                    {#<h3 class="text-center mb-4">Vous les connaissez peut-être</h3>#}
+                    {#<hr class="hr-title">#}
+                {#</div>#}
+            {#</div>#}
 
-{#                                <span class="align-middle">Ajouter</span>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
+            {#<div class="row text-center" id="user-profile-left">#}
 
-{#                <div class="col-md-3">#}
-{#                    <div class="card profile-userpic">#}
-{#                        <img class="user-photo card-img-top rounded-circle" src="img/02.jpg" alt="Card image title">#}
-{#                        <div class="card-body">#}
-{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
-{#                            <p class="card-text user-job">Musicien</p>#}
-{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
-{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+                {#<div class="col-md-3">#}
+                    {#<div class="card profile-userpic">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-user-plus" aria-hidden="true"></i>#}
 
-{#                                <span class="align-middle">Ajouter</span>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
 
-{#                <div class="col-md-3">#}
-{#                    <div class="card profile-userpic">#}
-{#                        <img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">#}
-{#                        <div class="card-body">#}
-{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
-{#                            <p class="card-text user-job">Musicien</p>#}
-{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
-{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+                {#<div class="col-md-3">#}
+                    {#<div class="card profile-userpic">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/07.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-user-plus" aria-hidden="true"></i>#}
 
-{#                                <span class="align-middle">Ajouter</span>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
 
-{#                <div class="col-md-3">#}
-{#                    <div class="card profile-userpic">#}
-{#                        <img class="user-photo card-img-top rounded-circle" src="img/04.jpg" alt="Card image title">#}
-{#                        <div class="card-body">#}
-{#                            <h5 class="card-title user-name">Harry Cover</h5>#}
-{#                            <p class="card-text user-job">Musicien</p>#}
-{#                            <button type="button" class="btn btn-labeled btn-info user-btn">#}
-{#                                <i class="fa fa-user-plus" aria-hidden="true"></i>#}
+                {#<div class="col-md-3">#}
+                    {#<div class="card profile-userpic">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/06.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-user-plus" aria-hidden="true"></i>#}
 
-{#                                <span class="align-middle">Ajouter</span>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card profile-userpic">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/05.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+
+            {#<!------- profile-suggestions ROW2--------->#}
 
 
-{#    </div> <!-- END CONTAINER -->#}
+            {#<div class="row text-center" id="user-profile-left">#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card profile-userpic">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/01.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card profile-userpic">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/02.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card profile-userpic">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/03.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3">#}
+                    {#<div class="card profile-userpic">#}
+                        {#<img class="user-photo card-img-top rounded-circle" src="img/04.jpg" alt="Card image title">#}
+                        {#<div class="card-body">#}
+                            {#<h5 class="card-title user-name">Harry Cover</h5>#}
+                            {#<p class="card-text user-job">Musicien</p>#}
+                            {#<button type="button" class="btn btn-labeled btn-info user-btn">#}
+                                {#<i class="fa fa-user-plus" aria-hidden="true"></i>#}
+
+                                {#<span class="align-middle">Ajouter</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</section>#}
+
+
+    {#</div> <!-- END CONTAINER -->#}
 {#{% endblock %}#}
 

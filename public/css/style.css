@@ -98,7 +98,7 @@ ion-icon {
 }
 
 #mainNav ul.navbar-nav li.nav-item a.nav-link:hover {
-    color: #3fd8ff;;
+    color: #3fd8ff;
 }
 
 /* A CORRIGER classe active */
@@ -114,13 +114,24 @@ ion-icon {
 
 /* ===================  TOGGLE ===================*/
 
+/* contours*/
+#mainNav .navbar-toggler {
 
-/* A CORRIGER toggle color */
-#mainNav .navbar-toggler .navbar-toggler-icon {
-    font-size: 12px;
-    padding: 8px 10px;
-    background-color: #ffffff;
+    background: rgba(255, 255, 255);
 }
+
+/*sandwich*/
+/*#mainNav .navbar-light .navbar-toggler-icon{*/
+    /*color: #ffffff;*/
+/*}*/
+
+
+/*!* A CORRIGER toggle color *!*/
+/*#mainNav .navbar-toggler .navbar-toggler-icon {*/
+    /*font-size: 12px;*/
+    /*padding: 8px 10px;*/
+    /*color: #ffffff;*/
+/*}*/
 
 
 #mainNav .navbar-nav > li > a:hover,
@@ -608,11 +619,11 @@ font-size: 1rem;
     text-align: right!important;
 }
 
-#my-profile .form-control {
-    background-color: #ececec;
-    min-height: 40px;
-    border: none;
-}
+/*#my-profile .form-control {*/
+    /*background-color: #ececec;*/
+    /*min-height: 40px;*/
+    /*border: none;*/
+/*}*/
 
 #my-profile .form-control::placeholder {
     color: #dcdcdc;
