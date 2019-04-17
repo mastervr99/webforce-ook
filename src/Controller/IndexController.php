@@ -18,6 +18,7 @@ class IndexController extends AbstractController
      */
     public function index()
     {
+
         return $this->render('index/index.html.twig');
     }
 
@@ -76,11 +77,14 @@ class IndexController extends AbstractController
             $user1 = $request->query->get('user_envoi');
             $user2 = $request->query->get('user_reçoit');
 
-            //* find sur les 2 users
+        // find sur les 2 users
 
 
-            //* appel à la méthode getLastMessages() de messageRepository
-            //* en lui passant les 2 user
+        // appel à la méthode getLastMessages() de messageRepository
+
+
+
+        // en lui passant les 2 user
 
     }
 }
