@@ -19,6 +19,8 @@
                         <div class="card">
                             <img class="user-photo card-img-top" src="/public/img/04.jpg" alt="Card image title">
                             <div class="card-body text-center">
+                                {{ form_start(form) }}
+                                {{ form_row(form.photo) }}
                                 {#<h5 class="card-title user-lastname text-fluid">DeLaFontaine</h5>#}
                                 {#<h5 class="card-title user-firstname text-fluid">Jean-Marc</h5>#}
                                 {#<p class="card-text user-job">Développeur intégrateur-web</p>#}
@@ -40,19 +42,19 @@
 
 
                             {#AFFICHER LES MESSAGES FLASH#}
-                            {% for type, messages in app.session.flashBag.all %}
-                                {% for message in messages %}
+                            {#{% for type, messages in app.session.flashBag.all %}#}
+                                {#{% for message in messages %}#}
                                     {# pour la classe alert-danger du bootstrap #}
-                                    {% if type == 'error' %}
-                                        {% set type = 'danger' %}
-                                    {% endif %}
-                                    <div class="alert alert-{{ type }} mt-2">
-                                        {{ message|raw }}
-                                    </div>
-                                {% endfor %}
-                            {% endfor %}
+                                    {#{% if type == 'error' %}#}
+                                        {#{% set type = 'danger' %}#}
+                                    {#{% endif %}#}
+                                    {#<div class="alert alert-{{ type }} mt-2">#}
+                                        {#{{ message|raw }}#}
+                                    {#</div>#}
+                                {#{% endfor %}#}
+                            {#{% endfor %}#}
 
-                            {{ form_start(form) }}
+
                             {#<div class="row form-group">#}
                             {#<div class="col-sm-3 col-form-label">{{ form_label(form.nom) }}</div>#}
                             {#<div class="col-sm-7">{{ form_widget(form.nom) }}</div>#}

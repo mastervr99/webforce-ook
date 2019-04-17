@@ -215,26 +215,5 @@ class ContactController extends AbstractController
         );
     }
 
-    /**
-     * @Route("/")
-     */
-   /** public function searchContact(Request $request)
-    {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-
-        $repository = $this->getDoctrine()->getRepository(Contact::class);
-
-        $search = $request->query->get('search');
-
-        $contact = $repository->globalSearch($search);
-
-        return $this->render('user/listContact.html.twig',
-            [
-                'contactsFilter' => $contact
-            ]
-        );
-
-    }
-    */
 
 }

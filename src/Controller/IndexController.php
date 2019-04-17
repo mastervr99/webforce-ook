@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Messages;
 use App\Entity\User;
 use App\Form\ChatType;
+use App\Repository\MessagesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +25,7 @@ class IndexController extends AbstractController
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("chat/{id}")
+     * @Route("/chat/{id}")
      */
     public function chat( Request $request, User $userRecoit)
     {
@@ -72,8 +73,9 @@ class IndexController extends AbstractController
      */
     public function chatMessages(Request $request)
     {
-        $user1 = $request->query->get('user_envoi');
-        $user2 = $request->query->get('user_reçoit');
+
+            $user1 = $request->query->get('user_envoi');
+            $user2 = $request->query->get('user_reçoit');
 
         // find sur les 2 users
 

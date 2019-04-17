@@ -86,7 +86,7 @@
 
                         {#menu deroulant#}
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuadmin">
-                            <a class="dropdown-item" href="{{ path('app_user_moncompte') }}">Mon compte</a>
+                            <a class="dropdown-item" href="{{ path('app_user_moncompte') }}">Mes informations</a>
                             <a class="dropdown-item" href="{{ path('app_user_profiluser', {'id': app.user.id}) }}">Mon
                                 profil</a>
                             <a class="dropdown-item" href="{{ path('app_contact_createcontact') }}">Ajouter un
@@ -115,24 +115,14 @@
 
 {#<main>#}
 
-{#AFFICHER LES MESSAGES FLASH#}
-{% for type, messages in app.session.flashBag.all %}
-    {% for message in messages %}
-        {# pour la classe alert-danger du bootstrap #}
-        {% if type == 'error' %}
-            {% set type = 'danger' %}
-        {% endif %}
-        <div class="alert alert-{{ type }} mt-2">
-            {{ message|raw }}
-        </div>
-    {% endfor %}
-{% endfor %}
+
 
 
 <body class="body-bg">
 <main>
-    {% block body %}
 
+
+    {% block body %}
 
 
 
