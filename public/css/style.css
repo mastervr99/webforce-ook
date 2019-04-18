@@ -116,16 +116,21 @@ ion-icon {
     color: #3fd8ff;
 }
 
+#mainNav ul.navbar-nav li.nav-item a.dropdown-item{
+    font-size: 0.9rem;
+}
+
 /* A CORRIGER classe active */
 #mainNav ul.navbar-nav li.nav-item a.dropdown-item.active {
-    color: #ff0000 !important;
-    background-color: transparent;
+color: #ff0000 !important;
+background-color: transparent;
 }
 
 /*NOTIFICATIONS*/
 #mainNav .btn-notifications {
-    color: #FFFFFF;
+color: #FFFFFF;
 }
+
 
 /* ===================  TOGGLE ===================*/
 
@@ -424,6 +429,13 @@ section.features .feature-item i {
     color: #3a9dff
 }
 
+.form-v2-content .form-detail .form-group ul{
+    color:red;
+    list-style: none;
+    font-size: 12px;
+    margin:0;
+    padding:0 0 5px 0;
+}
 
 /* Responsive */
 /*@media screen and (max-width: 750px) {*/
@@ -858,11 +870,12 @@ border-radius: 50px;
 }
 
 /*dateBirth*/
-#my-profile #user_complete_dateBirth.form-control {
+
+#my-profile #user_complete_dateBirth.form-control, #my-profile #contact_dateDeNaissance.form-control {
     border: none;
 }
 
-#my-profile #user_complete_dateBirth select {
+#my-profile #user_complete_dateBirth select, #my-profile #contact_dateDeNaissance select {
     margin-right: 20px;
 }
 

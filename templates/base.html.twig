@@ -79,6 +79,9 @@
                     {#DEBUT MENU#}
                     <li class="nav-item"><a class="nav-link" href="{{ path('app_user_listcontact') }}">Mes contacts</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_contact_createcontact') }}">Ajouter un
+                        contact</a>
+                    </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="menuadmin"
                                                      role="button"
                                                      data-toggle="dropdown">Mon compte</a>
@@ -87,11 +90,9 @@
                         {#menu deroulant#}
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuadmin">
                             <a class="dropdown-item" href="{{ path('app_user_moncompte') }}">Mes informations</a>
-                            <a class="dropdown-item" href="{{ path('app_user_profiluser', {'id': app.user.id}) }}">Mon
+                            <a class="dropdown-item" href="{{ path('app_user_profiluser', {'id': app.user.id}) }}">Voir mon
                                 profil</a>
-                            <a class="dropdown-item" href="{{ path('app_contact_createcontact') }}">Ajouter un
-                                contact</a>
-                            <hr>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ path('app_security_logout') }}">Deconnexion</a>
                             {#                    AJOUTER LES LIENS ADMIN#}
 
