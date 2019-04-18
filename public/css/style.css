@@ -1,15 +1,30 @@
 /*======================================================================
-                            GENERAL
+                            0 GENERAL
 ======================================================================*/
 
 /*Footer en bas de page*/
-* {-o-box-sizing: border-box; box-sizing: border-box;}
-* {-ms-box-sizing: border-box; box-sizing: border-box;}
-* {-moz-box-sizing: border-box; box-sizing: border-box;}
-* {-webkit-box-sizing: border-box; box-sizing: border-box;}
+* {
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
-html{
-height: 100% !important;
+* {
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100% !important;
 }
 
 body {
@@ -25,11 +40,11 @@ body#bodycolor {
     background: #f5f5f5;
 }
 
-main{
-    margin-top:130px;
+main {
+    margin-top: 130px;
 }
 
-h2, h3{
+h2, h3 {
     font-family: 'Roboto', 'Catamaran', 'Open Sans', 'Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 
@@ -52,12 +67,12 @@ ion-icon {
     color: #FFFFFF;
 }
 
-.body-bg{
+.body-bg {
     background: url("../img/bg-pattern-light.png"), linear-gradient(to right, #091822, #194f5f);
 }
 
 /*======================================================================
-                            NAVBAR
+                            NAVBAR BASE.HTML
 ======================================================================*/
 
 
@@ -80,8 +95,8 @@ ion-icon {
     color: #48e4ff;
 }
 
-#mainNav .navbar-nav > li{
-    margin-left : 30px;
+#mainNav .navbar-nav > li {
+    margin-left: 30px;
 }
 
 
@@ -98,29 +113,45 @@ ion-icon {
 }
 
 #mainNav ul.navbar-nav li.nav-item a.nav-link:hover {
-    color: #3fd8ff;;
+    color: #3fd8ff;
+}
+
+#mainNav ul.navbar-nav li.nav-item a.dropdown-item{
+    font-size: 0.9rem;
 }
 
 /* A CORRIGER classe active */
 #mainNav ul.navbar-nav li.nav-item a.dropdown-item.active {
-    color: #ff0000 !important;
-    background-color: transparent;
+color: #ff0000 !important;
+background-color: transparent;
 }
 
 /*NOTIFICATIONS*/
-#mainNav .btn-notifications{
-    color: #FFFFFF;
+#mainNav .btn-notifications {
+color: #FFFFFF;
 }
+
 
 /* ===================  TOGGLE ===================*/
 
+/* contours*/
+#mainNav .navbar-toggler {
 
-/* A CORRIGER toggle color */
-#mainNav .navbar-toggler .navbar-toggler-icon {
-    font-size: 12px;
-    padding: 8px 10px;
-    background-color: #ffffff;
+    background: rgba(255, 255, 255,1);
 }
+
+/*sandwich*/
+/*#mainNav .navbar-light .navbar-toggler-icon{*/
+/*color: #ffffff;*/
+/*}*/
+
+
+/*!* A CORRIGER toggle color *!*/
+/*#mainNav .navbar-toggler .navbar-toggler-icon {*/
+/*font-size: 12px;*/
+/*padding: 8px 10px;*/
+/*color: #ffffff;*/
+/*}*/
 
 
 #mainNav .navbar-nav > li > a:hover,
@@ -130,7 +161,7 @@ ion-icon {
 
 
 /*======================================================================
-                               INDEX.php
+                               1 INDEX.HTML
 ======================================================================*/
 
 
@@ -141,7 +172,7 @@ header.masthead {
     color: white;
     /*background: url("../img/bg-pattern.png"), linear-gradient(to right, #003c46, #00c0a3);*/
     padding-bottom: 50px;
-    margin-bottom:90px;
+    margin-bottom: 90px;
 }
 
 header.masthead .text {
@@ -153,14 +184,14 @@ header.masthead .text {
 
 header.masthead .text h1 {
     font-weight: 400;
-    margin-top:90px;
+    margin-top: 90px;
 }
 
 header.masthead .iphone {
     margin-right: auto;
     margin-left: auto;
     max-width: 280px;
-    margin-top:50px;
+    margin-top: 50px;
 }
 
 
@@ -210,8 +241,6 @@ header.masthead a.btn-outline:hover {
 }
 
 
-
-
 /* ===================  FEATURES ===================*/
 
 section.ft-background {
@@ -219,9 +248,9 @@ section.ft-background {
     width: 100%;
 }
 
-section.features h2  {
+section.features h2 {
     font-size: 50px;
-    padding-top:50px;
+    padding-top: 50px;
 }
 
 section.features .feature-item {
@@ -266,7 +295,7 @@ section.features .feature-item i {
 
 
 /*======================================================================
-                              INSCRIPTION.php
+                               2A REGISTER.HTML
 ======================================================================*/
 
 
@@ -400,6 +429,13 @@ section.features .feature-item i {
     color: #3a9dff
 }
 
+.form-v2-content .form-detail .form-group ul{
+    color:red;
+    list-style: none;
+    font-size: 12px;
+    margin:0;
+    padding:0 0 5px 0;
+}
 
 /* Responsive */
 /*@media screen and (max-width: 750px) {*/
@@ -439,7 +475,7 @@ section.features .feature-item i {
 
 
 /*======================================================================
-                        CONNECTION.php
+                        2B LOGIN.HTML
 ======================================================================*/
 
 
@@ -447,55 +483,52 @@ section.features .feature-item i {
 
 
 /*======================================================================
-                        CONTACT-LIST.php
+                       3 LIST CONTACT.HTML
 ======================================================================*/
 
 /*----------- BOUTONS  -----------*/
 
-#contact-list{
+#contact-list {
     background: #ffffff;
 }
+
 #contact-list #buttons-options .has-search .form-control {
     padding-left: 2.375rem;
 }
 
 #contact-list #buttons-options .input-group input.form-control {
-    border-radius:3rem 0 0 3rem;
+    border-radius: 3rem 0 0 3rem;
 }
 
-#contact-list #buttons-options .input-group > .input-group-append > .btn{
-
-    border-top-right-radius:3rem;
+#contact-list #buttons-options .input-group > .input-group-append > .btn {
+    border-top-right-radius: 3rem;
     border-bottom-right-radius: 3rem;
-    z-index:4;
+    z-index: 4;
     background: #17a2b8;
-
 }
-#contact-list #buttons-options .form-control::placeholder{
+
+#contact-list #buttons-options .form-control::placeholder {
     font-size: 0.9rem;
     color: #a6a6a6;
 }
 
-/*----------- LEGEND  -----------*/
+/*----------- LEGENDES  -----------*/
 
 #contact-list #legend {
     background: #1d1d1d;
     padding: 10px;
     margin-bottom: 15px;
-    vertical-align: middle;
-    text-align: center;
 }
 
 #contact-list #legend p {
     color: #FFFFFF;
-    text-align: center;
+    text-align: left;
     margin: auto;
-    padding-right: 30px;
     font-size: 0.8rem;
     text-transform: uppercase;
 }
 
-#contact-list #add-contact{
+#contact-list #add-contact {
     background-color: #FFFFFF;
 }
 
@@ -516,121 +549,84 @@ section.features .feature-item i {
 
 /* boutnon ajout contact */
 #contact-list #list .list-group-item .btn-add-contact {
-    border: none;
-    margin: 10px;
     color: #FFFFFF;
-    padding: 20px;
+    padding:8px 40px;
+}
+
+#contact-list #list .list-group-item .btn-add-contact a{
+    color: #FFFFFF;
+    font-size: 0.9rem;
     text-decoration: none;
 
 }
+#contact-list #list .list-group-item .btn-add-contact i{
+    margin: 10px;
+}
 
-/* photo*/
-#contact-list .image {
-    width: 80px;
+    /* photo*/
+#contact-list .list-group-item .photo {
+    width: 100%;
     margin-right: 2rem;
     border: 3px solid rgb(214, 214, 214);
     border-radius: 50px 50px 50px 50px;
 }
 
 /* nom prenom*/
-#contact-list .text a {
+#contact-list .list-group-item .text a {
     margin-bottom: 0;
     color: #17a2b8;
 }
 
-#contact-list .text small {
+/* profession */
+#contact-list .list-group-item .text small {
     color: rgb(119, 119, 119);
     font-size: 0.75em;
 }
 
 /* pictos phone mail*/
-
-#contact-list .picto{
+#contact-list .list-group-item .picto {
     font-size: 0.9rem;
     color: #1d1d1d;
     vertical-align: middle;
 }
-#contact-list .picto i {
-    font-size: 1.5rem;
-    margin-right: 1rem;
+
+#contact-list .list-group-item .picto i {
+    font-size: 1.1rem;
     color: #1d1d1d;
+    margin-right: 15px;
+    padding: auto;
 }
 
-/* pictos bt modif suppr*/
 
-#contact-list .btn-user {
-border: none;
-color: white;
-padding: 12px 16px;
-font-size: 1rem;
-    margin-left: 20px;
+/* pictos bt modif suppr chat */
+
+
+#contact-list .list-group-item .btn-action {
+    margin: auto;
 }
-/*#contact-list #list button i{*/
-/*    margin:auto;*/
-/*}*/
 
+#contact-list .list-group-item .btn-user {
+    border: none;
+    color: white;
+    font-size: 1rem;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+#contact-list .list-group-item .btn-user i {
+    margin-top: 5px
+}
 
 /*PAGINATION*/
+
 #contact-list #pagination{
-    margin-top: 50px;
-}
-
-
-
-
-
-
-/*======================================================================
-                        CREATION FICHE-PROFIL.php
-======================================================================*/
-
-
-#my-profile {
-    width: 70%;
-    /*margin: 0 auto;*/
-    /*padding: 30px 0;*/
-}
-
-#my-profile form {
-    margin-bottom: 15px;
-    background: #fff;
-    padding: 30px;
-}
-
-#my-profile .form-group {
-    margin-bottom: 20px;
-    color: #999;
-}
-
-#my-profile label {
-    font-weight: normal;
-    font-size: 14px;
-    text-align: right!important;
-}
-
-#my-profile .form-control {
-    background-color: #ececec;
-    min-height: 40px;
-    border: none;
-}
-
-#my-profile .form-control::placeholder {
-    color: #dcdcdc;
-}
-
-#my-profile .form-separator {
-    margin-bottom: 50px;
-}
-
-#my-profile .btn-validate {
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px 0;
+    margin: 40px;
 }
 
 
 /*======================================================================
-                        FICHE USER-PROFIL.php
+                        4 PROFIL.HTML COMPTE.HTML ficheContact.html
 ======================================================================*/
 
 /*#visit-card{*/
@@ -642,8 +638,8 @@ font-size: 1rem;
 /*}*/
 
 
-#visit-card{
-margin-bottom: 70px;
+#visit-card {
+    margin-bottom: 70px;
 }
 
 
@@ -651,12 +647,17 @@ margin-bottom: 70px;
 
 #user-profile-left .card {
     background-color: #ffff;
-    border: none;
-    border: 1px solid #dfdfdf;
 }
 
-#user-profile-left .card-title {
-    margin-bottom: 5px;
+/*gestions img*/
+#user-profile-left .card-img-top {
+    width: 100%;
+    margin: auto;
+}
+#user-profile-left img {
+    height: 230px;
+    width: 230px;
+    object-fit: cover;
 }
 
 #user-profile-left .user-lastname {
@@ -682,41 +683,31 @@ margin-bottom: 70px;
     margin-bottom: 30px;
 }
 
-#user-profile-left .user-btn{
+#my-profile .user-btn, #user-profile-left .user-btn {
     color: #fff;
     font-size: 0.9rem;
     width: 100%;
     padding: 10px 20px;
 }
-#user-profile-left .user-btn span, #contact-list #list .list-group-item .btn-add-contact span{
-    margin-left:10px;
+
+#my-profile .user-btn a {
+    color: #fff;
 }
-#user-profile-left .user-btn:last-child{
-    margin-top:15px;
+#user-profile-left .user-btn span, #contact-list #list .list-group-item .btn-add-contact span {
+    margin-left: 10px;
 }
 
+#user-profile-left .user-btn:last-child {
+    margin-top: 15px;
+}
 
 
 /*---------  #user-profile-right  -------------*/
 
 
-#user-profile-right .list-group {
-    border: 1px solid rgba(0, 0, 0, .125);
-}
-
+/*titres legendes*/
 #user-profile-right .list-group .title, #user-profile-commentaires .list-group .title {
     background: #000000;
-}
-
-#user-profile-commentaires .card-header {
-    padding: 0;
-    background: #000000;
-    color: #ffffff;
-}
-
-#user-profile-right .list-group-item {
-    height: 50px;
-    padding: 0;
 }
 
 #user-profile-right .list-group-item i.pictos-title, #user-profile-commentaires .card-header i.pictos-title {
@@ -725,7 +716,6 @@ margin-bottom: 70px;
     width: 50px;
     height: 50px;
     text-align: center;
-    background: #000000;
     line-height: 2.1;
     float: left;
     margin-right: 10px;
@@ -738,9 +728,26 @@ margin-bottom: 70px;
 
 }
 
+/*corps*/
+#user-profile-right .list-group {
+border: 1px solid rgba(0, 0, 0, .125);
+}
+
+/*#user-profile-commentaires .card-header {*/
+/*padding: 0;*/
+/*background: #000000;*/
+/*color: #ffffff;*/
+/*}*/
+
+#user-profile-right .list-group-item {
+height: 50px;
+padding: 0;
+}
+
+/*pictos centre*/
 #user-profile-right .list-group-item i.pictos {
     font-size: 1.3rem;
-    color: #08a2b8;
+    color: #b0b0b0;
     width: 50px;
     height: 50px;
     text-align: center;
@@ -774,97 +781,235 @@ margin-bottom: 70px;
     margin-top: 13px;
 }
 
-/*------ user-profile-suggestions ------*/
+/*------ suggestions ------*/
 
-#user-profile-suggestions {
-    background: #ffffff;
-    width: 100%;
+
+#suggestions {
+    background: #ebebeb;
     padding-bottom: 80px;
 }
 
-#user-profile-suggestions h3  {
-    padding-top:60px;
+#suggestions h3 {
+    padding-top: 60px;
 }
 
-#user-profile-suggestions .profile-userpic  {
-    border:1px solid #ececec;
-    box-shadow: -1px 1px 12px #e6e6e6;
+#suggestions .card {
+    height:400px;
+    width: 100%;
+    margin: auto;
+    /*border: 1px solid #ececec;*/
+    /*box-shadow: -1px 1px 12px #e6e6e6;*/
+    display:flex;
+}
+
+#suggestions .card img {
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
     margin-top:20px;
 }
 
-
-#user-profile-suggestions img {
-    width: 70%;
-    margin: 20px auto 10px auto;
+#suggestions .card-texts{
+    height: 90px;
+    /*border:1px solid red;*/
+    margin:30px 10px 0 10px;
 }
 
-#user-profile-suggestions #user-profile-left .user-name {
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-#user-profile-suggestions #user-profile-left .user-job {
-    margin-bottom: 30px;
-}
-
-#user-profile-suggestions .card-body {
-    padding: 0;
-}
-
-#user-profile-suggestions #user-profile-left .user-btn {
-    color: #fff;
-    font-size: 1rem;
-    padding: 10px;
-}
-
-#user-profile-suggestions #user-profile-left .btn {
-    border-radius: 0;
-}
-
-#user-profile-suggestions i {
-    font-size: 1.2rem;
-}
-
-#user-profile-suggestions #user-profile-left {
+#suggestions #user-profile-left {
     padding-bottom: 2rem;
 }
 
+#suggestions #user-profile-left .user-name {
+font-size: 1.2rem;
+}
 
+/*#suggestions #user-profile-left .user-job {*/
+/*margin-bottom: 20px;*/
+/*}*/
 
+#suggestions .card-body {
+padding: 0;
+}
+
+#suggestions #user-profile-left button {
+color: #fff;
+font-size: 1rem;
+}
+
+#suggestions #user-profile-left .btn {
+border-radius: 0;
+}
+
+#suggestions i {
+font-size: 1.2rem;
+}
 
 
 
 /*======================================================================
-                        modification-contact
+                        5 CREATE CONTACT.HTML
 ======================================================================*/
 
-#modify-profil .user-btn-suppr {
-    color: #fff;
-    font-size: 1rem;
-    width: 100%;
-    padding: 10px 20px;
-    margin: 20px 0;
+
+#my-profile {
+    width: 70%;
+    /*margin: 0 auto;*/
+    /*padding: 30px 0;*/
+    background:#FFFFFF;
 }
 
-#modify-profil .date-ajout {
-    color: #4e4e4e;
+#my-profile .formulaire {
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 30px;
+}
+
+#my-profile .form-group {
+    margin-bottom: 20px;
+    color: #999;
+}
+
+#my-profile label {
+    font-weight: normal;
+    font-size: 14px;
+    text-align: right !important;
+}
+
+#my-profile input {
+border-radius: 50px;
+}
+
+/*dateBirth*/
+
+#my-profile #user_complete_dateBirth.form-control, #my-profile #contact_dateDeNaissance.form-control {
+    border: none;
+}
+
+#my-profile #user_complete_dateBirth select, #my-profile #contact_dateDeNaissance select {
+    margin-right: 20px;
+}
+
+/*#my-profile .form-control {*/
+/*background-color: #ececec;*/
+/*min-height: 40px;*/
+/*border: none;*/
+/*}*/
+
+#my-profile .form-control::placeholder {
+    color: #dcdcdc;
+}
+
+#my-profile .form-separator {
+    margin-bottom: 50px;
+}
+
+#my-profile .btn-validate {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+
+/*======================================================================
+                        6 CONTACT.HTML
+======================================================================*/
+
+/*#fiche .user-btn-suppr {*/
+    /*color: #fff;*/
+    /*font-size: 1rem;*/
+    /*width: 100%;*/
+    /*padding: 10px 20px;*/
+    /*margin: 20px 0;*/
+/*}*/
+
+#fiche .date-ajout {
+    color: #ffffff;
     font-size: 0.8rem;
     margin-bottom: 20px;
     text-align: right;
+
 }
+
 
 /*======================================================================
                         FOOTER
 ======================================================================*/
 
-
+/*Fond*/
 #myFooter {
     background-color: #3c3d41;
     color: white;
-    padding-top: 30px;
     margin-top: 100px;
+    padding:20px 0;
 }
 
+/*brand*/
+#myFooter h2 a {
+font-size: 40px;
+text-align: center;
+color: #ffffff;
+}
+
+/*listes text*/
+#myFooter ul {
+list-style-type: none;
+padding-left: 0;
+line-height: 1.5;
+}
+
+#myFooter a {
+color: #ffffff;
+text-decoration: none;
+    font-size:0.9rem;
+}
+
+#myFooter a:hover,
+#myFooter a:focus {
+text-decoration: none;
+color: white;
+}
+
+
+/*social-networks */
+#myFooter .social-networks {
+text-align: center;
+}
+#myFooter .social-networks a {
+font-size: 30px;
+color: #f9f9f9;
+padding: 10px;
+transition: 0.2s;
+}
+
+#myFooter .social-networks a:hover {
+text-decoration: none;
+}
+
+#myFooter .facebook:hover {
+color: #0077e2;
+}
+
+#myFooter .google:hover {
+color: #ef1a1a;
+}
+
+#myFooter .twitter:hover {
+color: #00aced;
+}
+
+/* btn final */
+#myFooter .btn {
+color: white;
+background-color: #17a2b8;
+border-radius: 20px;
+border: none;
+width: 150px;
+display: block;
+margin: 10px auto 10px auto;
+line-height: 25px;
+}
+
+/* copyright*/
 #myFooter .footer-copyright {
     background-color: #333333;
     padding-top: 3px;
@@ -872,93 +1017,14 @@ margin-bottom: 70px;
     text-align: center;
 }
 
-#myFooter .row {
-    margin-bottom: 60px;
-}
-
-#myFooter .navbar-brand {
-    margin-top: 45px;
-    height: 65px;
-}
-
 #myFooter .footer-copyright p {
-    margin: 10px;
-    color: #ccc;
+margin: 10px;
+color: #ffffff;
 }
 
-#myFooter ul {
-    list-style-type: none;
-    padding-left: 0;
-    line-height: 1.7;
-}
-
-#myFooter h5 {
-    font-size: 18px;
-    color: white;
-    font-weight: bold;
-    margin-top: 30px;
-}
-
-#myFooter h2 a{
-    font-size: 50px;
-    text-align: center;
-    color: #fff;
-}
-
-#myFooter a {
-    color: #d2d1d1;
-    text-decoration: none;
-}
-
-#myFooter a:hover,
-#myFooter a:focus {
-    text-decoration: none;
-    color: white;
-}
-
-#myFooter .social-networks {
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 16px;
-}
-
-#myFooter .social-networks a {
-    font-size: 32px;
-    color: #f9f9f9;
-    padding: 10px;
-    transition: 0.2s;
-}
-
-#myFooter .social-networks a:hover {
-    text-decoration: none;
-}
-
-#myFooter .facebook:hover {
-    color: #0077e2;
-}
-
-#myFooter .google:hover {
-    color: #ef1a1a;
-}
-
-#myFooter .twitter:hover {
-    color: #00aced;
-}
-
-#myFooter .btn {
-    color: white;
-    background-color: #17a2b8;
-    border-radius: 20px;
-    border: none;
-    width: 150px;
-    display: block;
-    margin: 0 auto;
-    margin-top: 10px;
-    line-height: 25px;
-}
-
+/*responsive*/
 @media screen and (max-width: 767px) {
     #myFooter {
-        text-align: center;
-    }
+    text-align: center;
+}
 }
