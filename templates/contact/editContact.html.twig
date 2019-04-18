@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {#    <main>#}
     {#<div class="form-group">#}
     {#{{ form_label(form.nom) }}#}
     {#{{ form_widget(form.nom) }}#}
@@ -91,6 +90,8 @@
                             <div class="col-sm-7">{{ form_widget(form.photo) }}</div>
                         </div>
 
+                        {{ form_end(form) }}
+
                         <div class="row">
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-labeled btn-info user-btn ">
@@ -99,20 +100,16 @@
                                 </button>
                             </div>
                             <div class="col-md-6">
-                                <button type="" class="btn btn-labeled btn-secondary user-btn ">
+                                <button type="" class="btn btn-labeled btn-secondary user-btn">
                                     <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
-                                    <span class="align-middle"><a
-                                                href="{{ path('app_user_listcontact') }}">Annuler</a></span>
+                                    <span class="align-middle"><a href="{{ path('app_user_listcontact') }}">Annuler</a></span>
                                 </button>
                             </div>
                         </div>
-                        {{ form_end(form) }}
                     </div>{# end div.formulaire#}
                 </section> {# end div#my-profile #}
             </div>
         </div>
     </div><!-- END CONTAINER -->
 
-    {#    </main>#}
-    {#    </body>#}
 {% endblock %}

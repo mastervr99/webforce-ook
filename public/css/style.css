@@ -116,16 +116,21 @@ ion-icon {
     color: #3fd8ff;
 }
 
+#mainNav ul.navbar-nav li.nav-item a.dropdown-item{
+    font-size: 0.9rem;
+}
+
 /* A CORRIGER classe active */
 #mainNav ul.navbar-nav li.nav-item a.dropdown-item.active {
-    color: #ff0000 !important;
-    background-color: transparent;
+color: #ff0000 !important;
+background-color: transparent;
 }
 
 /*NOTIFICATIONS*/
 #mainNav .btn-notifications {
-    color: #FFFFFF;
+color: #FFFFFF;
 }
+
 
 /* ===================  TOGGLE ===================*/
 
@@ -424,6 +429,13 @@ section.features .feature-item i {
     color: #3a9dff
 }
 
+.form-v2-content .form-detail .form-group ul{
+    color:red;
+    list-style: none;
+    font-size: 12px;
+    margin:0;
+    padding:0 0 5px 0;
+}
 
 /* Responsive */
 /*@media screen and (max-width: 750px) {*/
@@ -614,7 +626,7 @@ section.features .feature-item i {
 
 
 /*======================================================================
-                        4 PROFIL.HTML COMPTE.HTML
+                        4 PROFIL.HTML COMPTE.HTML ficheContact.html
 ======================================================================*/
 
 /*#visit-card{*/
@@ -637,7 +649,7 @@ section.features .feature-item i {
     background-color: #ffff;
 }
 
-/*getions img*/
+/*gestions img*/
 #user-profile-left .card-img-top {
     width: 100%;
     margin: auto;
@@ -646,7 +658,6 @@ section.features .feature-item i {
     height: 230px;
     width: 230px;
     object-fit: cover;
-
 }
 
 #user-profile-left .user-lastname {
@@ -694,23 +705,9 @@ section.features .feature-item i {
 /*---------  #user-profile-right  -------------*/
 
 
-#user-profile-right .list-group {
-    border: 1px solid rgba(0, 0, 0, .125);
-}
-
+/*titres legendes*/
 #user-profile-right .list-group .title, #user-profile-commentaires .list-group .title {
     background: #000000;
-}
-
-#user-profile-commentaires .card-header {
-    padding: 0;
-    background: #000000;
-    color: #ffffff;
-}
-
-#user-profile-right .list-group-item {
-    height: 50px;
-    padding: 0;
 }
 
 #user-profile-right .list-group-item i.pictos-title, #user-profile-commentaires .card-header i.pictos-title {
@@ -719,7 +716,6 @@ section.features .feature-item i {
     width: 50px;
     height: 50px;
     text-align: center;
-    background: #000000;
     line-height: 2.1;
     float: left;
     margin-right: 10px;
@@ -732,9 +728,26 @@ section.features .feature-item i {
 
 }
 
+/*corps*/
+#user-profile-right .list-group {
+border: 1px solid rgba(0, 0, 0, .125);
+}
+
+/*#user-profile-commentaires .card-header {*/
+/*padding: 0;*/
+/*background: #000000;*/
+/*color: #ffffff;*/
+/*}*/
+
+#user-profile-right .list-group-item {
+height: 50px;
+padding: 0;
+}
+
+/*pictos centre*/
 #user-profile-right .list-group-item i.pictos {
     font-size: 1.3rem;
-    color: #08a2b8;
+    color: #b0b0b0;
     width: 50px;
     height: 50px;
     text-align: center;
@@ -768,60 +781,69 @@ section.features .feature-item i {
     margin-top: 13px;
 }
 
-/*------ user-profile-suggestions ------*/
+/*------ suggestions ------*/
 
-#user-profile-suggestions {
-    background: #ffffff;
-    width: 100%;
+
+#suggestions {
+    background: #ebebeb;
     padding-bottom: 80px;
 }
 
-#user-profile-suggestions h3 {
+#suggestions h3 {
     padding-top: 60px;
 }
 
-#user-profile-suggestions .profile-userpic {
-    border: 1px solid #ececec;
-    box-shadow: -1px 1px 12px #e6e6e6;
-    margin-top: 20px;
+#suggestions .card {
+    height:400px;
+    width: 100%;
+    margin: auto;
+    /*border: 1px solid #ececec;*/
+    /*box-shadow: -1px 1px 12px #e6e6e6;*/
+    display:flex;
 }
 
-
-#user-profile-suggestions img {
-    width: 70%;
-    margin: 20px auto 10px auto;
+#suggestions .card img {
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    margin-top:20px;
 }
 
-#user-profile-suggestions #user-profile-left .user-name {
-    font-size: 1.2rem;
-    margin-top: 10px;
+#suggestions .card-texts{
+    height: 90px;
+    /*border:1px solid red;*/
+    margin:30px 10px 0 10px;
 }
 
-#user-profile-suggestions #user-profile-left .user-job {
-    margin-bottom: 30px;
-}
-
-#user-profile-suggestions .card-body {
-    padding: 0;
-}
-
-#user-profile-suggestions #user-profile-left .user-btn {
-    color: #fff;
-    font-size: 1rem;
-    padding: 10px;
-}
-
-#user-profile-suggestions #user-profile-left .btn {
-    border-radius: 0;
-}
-
-#user-profile-suggestions i {
-    font-size: 1.2rem;
-}
-
-#user-profile-suggestions #user-profile-left {
+#suggestions #user-profile-left {
     padding-bottom: 2rem;
 }
+
+#suggestions #user-profile-left .user-name {
+font-size: 1.2rem;
+}
+
+/*#suggestions #user-profile-left .user-job {*/
+/*margin-bottom: 20px;*/
+/*}*/
+
+#suggestions .card-body {
+padding: 0;
+}
+
+#suggestions #user-profile-left button {
+color: #fff;
+font-size: 1rem;
+}
+
+#suggestions #user-profile-left .btn {
+border-radius: 0;
+}
+
+#suggestions i {
+font-size: 1.2rem;
+}
+
 
 
 /*======================================================================
@@ -858,11 +880,12 @@ border-radius: 50px;
 }
 
 /*dateBirth*/
-#my-profile #user_complete_dateBirth.form-control {
+
+#my-profile #user_complete_dateBirth.form-control, #my-profile #contact_dateDeNaissance.form-control {
     border: none;
 }
 
-#my-profile #user_complete_dateBirth select {
+#my-profile #user_complete_dateBirth select, #my-profile #contact_dateDeNaissance select {
     margin-right: 20px;
 }
 
@@ -888,22 +911,23 @@ border-radius: 50px;
 
 
 /*======================================================================
-                        6 EDIT CONTACT.HTML
+                        6 CONTACT.HTML
 ======================================================================*/
 
-#modify-profil .user-btn-suppr {
-    color: #fff;
-    font-size: 1rem;
-    width: 100%;
-    padding: 10px 20px;
-    margin: 20px 0;
-}
+/*#fiche .user-btn-suppr {*/
+    /*color: #fff;*/
+    /*font-size: 1rem;*/
+    /*width: 100%;*/
+    /*padding: 10px 20px;*/
+    /*margin: 20px 0;*/
+/*}*/
 
-#modify-profil .date-ajout {
-    color: #4e4e4e;
+#fiche .date-ajout {
+    color: #ffffff;
     font-size: 0.8rem;
     margin-bottom: 20px;
     text-align: right;
+
 }
 
 
