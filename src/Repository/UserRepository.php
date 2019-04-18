@@ -103,6 +103,7 @@ class UserRepository extends ServiceEntityRepository
 
     public function globalSearch($search)
     {
+
         $qb = $this->createQueryBuilder('u');
 
         // tri par date de publication décroissante
