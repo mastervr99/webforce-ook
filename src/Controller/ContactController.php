@@ -246,6 +246,7 @@ class ContactController extends AbstractController
             ->setDateDeNaissance($user->getDateBirth())
             ->setPhoto($user->getPhoto())
             ->setProfession($user->getEmploi())
+            ->setUser($this->getUser())
         ;
 
         if (is_null($contact)) {
