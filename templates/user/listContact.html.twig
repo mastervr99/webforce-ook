@@ -85,8 +85,8 @@
                         <li class="list-group-item ">
                             <div class="row justify-content-md-center">
                                 <div class="col-md-auto btn-add-contact">
-                                        <a type="button" class="btn btn-link btn-info user-button mx-auto " href="{{ path('app_contact_createcontact') }}">
-                                            <i class="fa fa-user-plus" aria-hidden="true"></i>Ajouter un nouveau contact</a>
+                                    <a type="button" class="btn btn-link btn-info user-button mx-auto " href="{{ path('app_contact_createcontact') }}">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>Ajouter un nouveau contact</a>
                                     </a>
                                 </div>
                             </div>
@@ -98,45 +98,46 @@
                             <li class="list-group-item">
                                 <div class="row">
 
-                                        <div class="col-md-1 align-items-center">
-                                            <div class="photo">
-                                                <a class="img-fluid rounded-circle" href=<img src="{{ asset('photo/' ~ contact.photo) }}" alt="photo">
-                                                </a>
-                                            </div>
-                                    <div class="col-md-4 d-flex align-items-center">
-                                        <div class="image">
-                                            <a href="">
-                                                <img src="{{ asset('photo/' ~ contact.photo) }}" alt="" class="img-fluid rounded-circle">
+                                    <div class="col-md-1 align-items-center">
+                                        <div class="photo">
+                                            <a class="img-fluid rounded-circle" href=""><img src="{{ asset('photo/' ~ contact.photo) }}" alt="photo">
                                             </a>
                                         </div>
+                                    </div>
+                                    {#                                    <div class="col-md-4 d-flex align-items-center">#}
+                                    {#                                        <div class="image">#}
+                                    {#                                            <a href="">#}
+                                    {#                                                <img src="{{ asset('photo/' ~ contact.photo) }}" alt="" class="img-fluid rounded-circle">#}
+                                    {#                                            </a>#}
+                                    {#                                        </div>#}
 
-                                        <div class="text col-md-3 align-items-center">
-                                            <a href="{{ path('app_contact_fichecontact', {'id': contact.id}) }}">{{ contact.nom }} {{ contact.prenom }}</a>
-                                            <br>
-                                            <small> {{ contact.profession }}</small>
-                                        </div>
+                                    <div class="text col-md-3 align-items-center">
+                                        <a href="{{ path('app_contact_fichecontact', {'id': contact.id}) }}">{{ contact.nom }} {{ contact.prenom }}</a>
+                                        <br>
+                                        <small> {{ contact.profession }}</small>
+                                    </div>
 
-                                        <div class="col-md-2 d-flex align-items-center picto ">
-                                            <i class="fas fa-mobile-alt"></i>{{ contact.telephone }}
-                                        </div>
-                                        <div class="col-md-4 d-flex align-items-center picto ">
-                                            <i class="fa fa-envelope"></i>{{ contact.email }}
-                                        </div>
+                                    <div class="col-md-2 d-flex align-items-center picto ">
+                                        <i class="fas fa-mobile-alt"></i>{{ contact.telephone }}
+                                    </div>
+                                    <div class="col-md-4 d-flex align-items-center picto ">
+                                        <i class="fa fa-envelope"></i>{{ contact.email }}
+                                    </div>
 
-                                        <div class="col-md-2 d-flex justify-content-end m-auto">
-                                            <a class="btn btn-link btn-info btn-user" type="button"
-                                               href="{{ path('app_contact_editcontact', {'id': contact.id}) }}">
-                                                <i class="fa fa-pen"></i>
-                                            </a>
-                                            <a class="btn btn-link btn-secondary btn-user" type="button"
-                                               href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                            <a class="btn btn-link btn-secondary btn-user" type="submit"
-                                               href="{{ path('app_index_chat', {'id': contact.id}) }}">
-                                                <i class="fa fa-comments "></i>
-                                            </a>
-                                        </div>
+                                    <div class="col-md-2 d-flex justify-content-end m-auto">
+                                        <a class="btn btn-link btn-info btn-user" type="button"
+                                           href="{{ path('app_contact_editcontact', {'id': contact.id}) }}">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                        <a class="btn btn-link btn-secondary btn-user btn-chat" type="submit"
+                                           href="{{ path('app_index_chat', {'id': contact.id}) }}">
+                                            <i class="fa fa-comments "></i>
+                                        </a>
+                                        <a class="btn btn-link btn-secondary btn-user" type="button"
+                                           href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                         {% else %}

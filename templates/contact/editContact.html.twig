@@ -1,10 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {#<div class="form-group">#}
-    {#{{ form_label(form.nom) }}#}
-    {#{{ form_widget(form.nom) }}#}
-    {#</div>#}
 
     <div class="form-container">
 
@@ -90,7 +86,6 @@
                             <div class="col-sm-7">{{ form_widget(form.photo) }}</div>
                         </div>
 
-                        {{ form_end(form) }}
 
                         <div class="row">
                             <div class="col-md-6">
@@ -106,12 +101,11 @@
                                 </button>
                             </div>
                         </div>
+                        {{ form_end(form) }}
                     </div>{# end div.formulaire#}
                 </section> {# end div#my-profile #}
             </div>
         </div>
     </div><!-- END CONTAINER -->
 
-{#    </main>#}
-{#    </body>#}
 {% endblock %}
