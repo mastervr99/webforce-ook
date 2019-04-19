@@ -92,8 +92,13 @@ class IndexController extends AbstractController
 
         $messages = $em->getRepository(Messages::class)->getLastMessages($user1, $user2, $minId);
 
+        $response= ' ';
 
-        return new JsonResponse($response);
+        foreach ($messages as $message){
+            $response .='<span>'.$message->getcontent().'</span>';
+        }
+
+        return new Response($response);
 
     }
 }
