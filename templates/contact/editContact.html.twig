@@ -11,15 +11,22 @@
 
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
-                        <img class="user-photo card-img-top" src="img/07.jpg" alt="Card image title">
-                        <div class="card-body text-center">
-                            <h5 class="card-title user-lastname text-fluid">DeLaFontaine</h5>
-                            <h5 class="card-title user-firstname text-fluid">Jean-Marc</h5>
-                            <p class="card-text user-job">Développeur intégrateur-web</p>
+                        <img class="card-img-top" src="https://source.unsplash.com/random"
+                                {# <img class="card-img-top" src="{{ contact.photo }}"#}
+                             alt="Titre de la photo">                        <div class="card-body text-center">
+                            <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
+                            <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>
+                            <p class="card-text user-job">{{ contact.profession }}</p>
                             <button type="button" class="btn btn-labeled btn-info user-btn">
                                 <ion-icon class="align-middle" name="camera"></ion-icon>
                                 <span class="align-middle">Ajouter une photo</span>
                             </button>
+
+                            <div class="row form-group">
+                                <div class="col-sm-3 col-form-label">{{ form_label(form.photo) }}</div>
+                                <div class="col-sm-7">{{ form_widget(form.photo) }}</div>
+                            </div>
+
 
                         </div>
                     </div>
@@ -60,7 +67,6 @@
                             <div class="col-sm-7">{{ form_widget(form.dateDeNaissance) }}</div>
                         </div>
 
-
                         <div class="row form-group">
                             <div class="col-sm-3 col-form-label">{{ form_label(form.adresse) }}</div>
                             <div class="col-sm-7">{{ form_widget(form.adresse) }}</div>
@@ -74,18 +80,10 @@
                             <div class="col-sm-7">{{ form_widget(form.ville) }}</div>
                         </div>
 
-
                         <div class="row form-group form-separator">
                             <div class="col-sm-3 col-form-label">{{ form_label(form.notePersonnelle) }}</div>
                             <div class="col-sm-7">{{ form_widget(form.notePersonnelle) }}</div>
                         </div>
-
-
-                        <div class="row form-group">
-                            <div class="col-sm-3 col-form-label">{{ form_label(form.photo) }}</div>
-                            <div class="col-sm-7">{{ form_widget(form.photo) }}</div>
-                        </div>
-
 
                         <div class="row">
                             <div class="col-md-6">

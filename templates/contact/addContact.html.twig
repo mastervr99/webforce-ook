@@ -1,57 +1,177 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="page-content">
-        <div class="container">
-            <div class="row form-v2-content mx-auto ">
 
-                <div class="col-md-6">
-                    <div class="form-detail">
-                        <h2>Ajouter un contact</h2>
-                        {{ form_start(form) }}
-                        <div class="form-group">
-                            {{ form_row(form.nom) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.prenom) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.email) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.dateDeNaissance) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.telephone) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.profession) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.adresse) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.codePostal) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.ville) }}
-                        </div>
+
+
+    <!------- profile-left--------->
+    <div class="container">
+        <div class="row justify-content-md-center">
+
+            <section class="col-md-3" id="user-profile-left">
+                <div class="card">
+                    <img class="card-img-top" src="https://source.unsplash.com/random"
+                            {# <img class="card-img-top" src="{{ contact.photo }}"#}
+                         alt="Titre de la photo">
+                    <div class="card-body text-center">
+                        <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
+                        <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>
+                        <p class="card-text user-job">{{ contact.profession }}</p>
                         <div class="form-group">
                             {{ form_row(form.photo) }}
                         </div>
-                        <div class="form-group">
-                            {{ form_row(form.notePersonnelle) }}
-                        </div>
-
-                        <div class="form-group">
-                            <button class="btn-valider btn-block" type="submit">Valider</button>
-                        </div>
-                        {{ form_end(form) }}
 
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!------- profile-right--------->
+
+            <section class="col-md-7" id="my-profile">
+                <div class="formulaire">
+                    <h3 class="text-center mb-4">Ajouter ce contact</h3>
+                    <hr class="hr-title">
+
+
+                    <div class="dropdown invisibl">
+                        <button class=" btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <div class="col-md-6 dropdown-menu">
+                            <div class="dropdown-item">
+
+                                {{ form_start(form) }}
+                                <div class="form-group">
+                                    {{ form_row(form.nom) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.prenom) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.email) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.dateDeNaissance) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.telephone) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.profession) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.adresse) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.codePostal) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.ville) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.photo) }}
+                                </div>
+                            </div>{#end dropdown-item#}
+                        </div> {#end dropdown-menu#}
+                    </div>{#end dropdown#}
+
+
+                    <div class="row form-group justify-content-md-center  form-separator">
+                        <p>Ajoutez si vous le souhaitez quelque chose à propos de ce contact <br>
+                            (date de rencontre, lieu, annecdote, anniversaire...) :</p>
+                        <div class="col-sm-3 col-form-label">{{ form_label(form.notePersonnelle) }}</div>
+                        <div class="col-sm-7">{{ form_widget(form.notePersonnelle) }}</div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.notePersonnelle) }}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-labeled btn-info user-btn">
+                                <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
+                                <span class="align-middle">Enregistrer ce contact</span>
+                            </button>
+                    {#<div class="form-group">#}
+                        {#<button class="btn-valider btn-block" type="submit">Valider</button>#}
+                    {#</div>#}
+                        </div>
+                        <div class="col-md-6">
+                            <button type="" class="btn btn-labeled btn-secondary user-btn">
+                                <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
+                                <span class="align-middle"><a
+                                            href="{{ path('app_user_listcontact') }}">Annuler</a></span>
+                            </button>
+                        </div>
+                    {{ form_end(form) }}
+                    </div>
+                </div>{# end div.formulaire#}
+            </section> {# end div#my-profile #}
         </div>
-    </div>
+    </div><!-- END CONTAINER -->
+
 {% endblock %}
+
+
+
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block body %}#}
+    {#<div class="page-content">#}
+        {#<div class="container">#}
+            {#<div class="row form-v2-content mx-auto ">#}
+
+                {#<div class="col-md-6">#}
+                    {#<div class="form-detail">#}
+                        {#<h2>Ajouter un contact</h2>#}
+                        {#{{ form_start(form) }}#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.nom) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.prenom) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.email) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.dateDeNaissance) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.telephone) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.profession) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.adresse) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.codePostal) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.ville) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.photo) }}#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                            {#{{ form_row(form.notePersonnelle) }}#}
+                        {#</div>#}
+
+                        {#<div class="form-group">#}
+                            {#<button class="btn-valider btn-block" type="submit">Valider</button>#}
+                        {#</div>#}
+                        {#{{ form_end(form) }}#}
+
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+{#{% endblock %}#}
+
+
+
 

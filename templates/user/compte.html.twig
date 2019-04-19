@@ -1,10 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {#<div class="form-group">#}
-    {#{{ form_label(form.nom) }}#}
-    {#{{ form_widget(form.nom) }}#}
-    {#</div>#}
 
     <div class="form-container">
 
@@ -15,13 +11,13 @@
 
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
-                        <img class="card-img-top" src="https://source.unsplash.com/random"
-                                {# <img class="card-img-top" src="{{ contact.photo }}"#}
+                        <img class="card-img-top" src="{{ user.photo }}"
                              alt="Titre de la photo">
                         <div class="card-body text-center">
 {#                            <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>#}
 {#                            <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>#}
 {#                            <p class="card-text user-job">{{ user.emploi }}</p>#}
+                        {{ form_start(form) }}
                             <button type="button" class="btn btn-labeled btn-info user-btn">
                                 <ion-icon class="align-middle" name="camera"></ion-icon>
                                 <span class="align-middle">Ajouter une photo</span>
@@ -39,21 +35,6 @@
 
                         <h3 class="text-center mb-4">Mon compte</h3>
                         <hr class="hr-title">
-
-                        {{ form_start(form) }}
-
-                        {# AFFICHER LES MESSAGES FLASH#}
-                        {% for type, messages in app.session.flashBag.all %}
-                            {% for message in messages %}
-{# pour la classe alert-danger du bootstrap#}
-                                {% if type == 'error' %}
-                                    {% set type = 'danger' %}
-                                {% endif %}
-                                <div class="alert alert-{{ type }} mt-2">
-                                    {{ message|raw }}
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
 
 
                         {#<div class="row form-group">#}
@@ -105,7 +86,7 @@
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-labeled btn-info user-btn">
                                     <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
-                                    <span class="align-middle">Metre à jour</span>
+                                    <span class="align-middle">Mettre à jour</span>
                                 </button>
                             </div>
                             <div class="col-md-6">
