@@ -111,7 +111,10 @@ class UserRepository extends ServiceEntityRepository
 
         $qb
             ->orWhere('u.lastname LIKE :search')
+            ->orWhere('CONCAT (u.lastname,\' \',u.firstname)  LIKE :search')
+            ->orWhere('CONCAT (u.firstname,\' \',u.lastname)  LIKE :search')
             ->orWhere('u.firstname LIKE :search')
+            ->orWhere('CONCAT (u.firstname,\' \',u.city)  LIKE :search')
             ->orWhere('u.city LIKE :search')
             ->orWhere('u.postalCode LIKE :search')
             ->orWhere('u.emploi LIKE :search')

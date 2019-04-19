@@ -10,7 +10,7 @@ $(document).ready(function () {
 
             }
         );
-        $('input[name="message"]',this).val('');
+        $('#input_message_content',this).val('');
     });
 
     function getMessage(){
@@ -27,6 +27,6 @@ $(document).ready(function () {
         );
     }
  //getMessage();
-    setInterval(getMessage, 2000);
+   setInterval(getMessage, 10000);
 
 });

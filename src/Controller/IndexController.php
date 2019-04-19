@@ -31,10 +31,10 @@ class IndexController extends AbstractController
     public function chat( Request $request, User $userRecoit)
     {
 
-        //$form = $this->createForm(ChatType::class);
+        //POUR REPARTIR DE LA PAGE CHAT DE ZERO SANS MESS D UNE PRECEDENTE SESSION
+        $session = $request->getSession();
 
-        //$form->get('message_to')->setData($userRecoit->getId());
-
+        $session->remove("last_message");
 
 
         return $this->render(
@@ -42,7 +42,6 @@ class IndexController extends AbstractController
             [
                 'user_id' => $userRecoit->getId()
             ]
-            //['form' => $form->createView()]
         );
 
     }
@@ -80,10 +79,8 @@ class IndexController extends AbstractController
     {
         $session = $request->getSession();
 
-        //$session->setId()
-
-
-
+//        SI LA SESSION A UN LAST MESS
+//        LA SI ELLE N A PAS DE LAST MESS ALORS MINID VAUT NULL ELSE IL VA CHERCHER MES LAST MESS
         if (!$session->has('last_message')) {
             $minId = null;
         } else {
@@ -98,13 +95,22 @@ class IndexController extends AbstractController
 
         $response = '';
 
+        //BOUCLE PR AFFICH UN MESS DS MESSAGES DRACE AU METH DE MON REPOSITORY
         foreach ($messages as $message) {
-            $response .= '<span>' . $message->getContent() . '</span>';
+            //RECUPERER L ID DU USER1 PR AFFICH SON MESS A DROITE
+            if ($message->getUserEnvoi()->getId() == $this->getUser()->getId()) {
+                $response .= '<p class="text-right">' . $message->getContent() . '</p><hr>';
+                //L AUTRE USER AURA SON TEXT PAR DEFAULT A GAUCHE
+            } else {
+                $response .= '<span>' . $message->getContent() . '</span><hr>';
+            }
         }
 
-        $session
-            ->set('last_message', $messages->getId())
-        ;
+//        DEFINIR LAST MESS PAR RAPPORT AU DERNIER ID MESS QUIL A RECU
+//        SI IL NE RECOIT AUCUN MESS LA BOUCLE NE FAIS AUCUN TOUR ET DONC $MESSAGE N EXISTE PAS
+        if (isset($message)) {
+            $session->set('last_message', $message->getId());
+        }
 
         return new Response($response);
     }
