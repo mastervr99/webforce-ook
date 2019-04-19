@@ -26,7 +26,7 @@ $(document).ready(function () {
             }
         );
     }
-getMessage();
-    //setInterval(getMessage, 2000);
+ getMessage();
+   // setInterval(getMessage, 2000);
 
 });
