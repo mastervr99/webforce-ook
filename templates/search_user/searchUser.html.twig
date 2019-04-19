@@ -26,36 +26,88 @@
     </div>
     {{ form_end(search_form) }}
 
+    <!------- RESULTATS--------->
 
-    <div class="container">
-        <ul class="list-group list-group-flush">
-            {% for user in users %}
-                <li class="list-group-item">
-                    <div class="contact" id="contact">
-                        <div class="row">
-                            <div class="col-sm-7 col-md-4  d-flex align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <div class="text">
-                                        {{ user.lastname }} {{ user.firstname }}
-                                        <br>
-                                        <small> {{ user.emploi }}</small>
-                                    </div>
+    <div id="suggestions" >
+        <div class="container">
+
+            <div class="row justify-content-md-center">
+                <div class="col-5">
+                    <h3 class="text-center mb-4">Résultats de votre recherche</h3>
+                    <hr class="hr-title">
+                </div>
+            </div>
+
+
+            <div class="row text-center mb-5" id="user-profile-left">
+                {% for user in users %}
+                    <div class="col-md-3" id="search-results">
+                        <div class="card d-flex justify-content-between">
+                            <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
+
+                            <div class="card-body">
+                                <div class="card-texts">
+                                    <h5 class="card-title user-name">{{ user.lastname }} <br> {{ user.firstname }}</h5>
+                                    <p class="card-text user-job">{{ user.emploi }}</p>
                                 </div>
                             </div>
 
-                            <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">
-                                <a class="btn btn-link btn-info nav-link mr-3" href="{{ path('app_index_chat', {'id': user.id}) }}"><i class="far fa-comments"></i></a>
-                                <a class="btn btn-link btn-info nav-link mr-3" href="{{ path('app_user_profiluser', {'id': user.id}) }}"><i class="fas fa-user-circle"></i></a>
-                                <a class="btn btn-link btn-info nav-link mr-3" href="{{ path('app_contact_addcontact', {'id': user.id}) }}"><i class="fas fa-user-plus"></i></a>
-                            </div>
+                            <a class="btn btn-info user-btn"
+                               type="button"
+                               href="{{ path('app_contact_addcontact', {'id': user.id}) }}">
+                                <i class="fas fa-user-plus"></i>Ajouter</a>
 
                         </div>
                     </div>
-                </li>
-            {% else %}
-                <div class="alert alert-info mt-5">Aucun utilisateur trouvé</div>
-            {% endfor %}
-        </ul>
+
+                {% else %}
+                    <div class="alert alert-info mt-5">Aucun utilisateur trouvé</div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
+    </div>
+
+
+
+
+
+
+
+    {#    <div class="container">#}
+    {#        <ul class="list-group list-group-flush">#}
+    {#            {% for user in users %}#}
+    {#                <li class="list-group-item">#}
+    {#                    <div class="contact" id="contact">#}
+    {#                        <div class="row">#}
+    {#                            <div class="col-sm-7 col-md-4  d-flex align-items-center">#}
+    {#                                <div class="d-flex align-items-center">#}
+    {#                                    <div class="text">#}
+    {#                                        {{ user.lastname }} {{ user.firstname }}#}
+    {#                                        <br>#}
+    {#                                        <small> {{ user.emploi }}</small>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+
+    {#                                <div class="col-sm-1 col-md-1 d-flex justify-content-center mx-auto my-auto">#}
+    {#                                    <a class="btn btn-link btn-info nav-link mr-3"#}
+    {#                                       href="{{ path('app_index_chat', {'id': user.id}) }}"><i class="far fa-comments"></i></a>#}
+    {#                                    <a class="btn btn-link btn-info nav-link mr-3"#}
+    {#                                       href="{{ path('app_user_profiluser', {'id': user.id}) }}"><i#}
+    {#                                                class="fas fa-user-circle"></i></a>#}
+    {#                                    <a class="btn btn-link btn-info nav-link mr-3"#}
+    {#                                       href="{{ path('app_contact_addcontact', {'id': user.id}) }}"><i#}
+    {#                                                class="fas fa-user-plus"></i></a>#}
+    {#                                </div>#}
+
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </li>#}
+    {#                {% else %}#}
+    {#                    <div class="alert alert-info mt-5">Aucun utilisateur trouvé</div>#}
+    {#                {% endfor %}#}
+    {#            </ul>#}
+    {#        </div>#}
 {% endblock %}
 
