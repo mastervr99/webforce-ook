@@ -80,6 +80,8 @@ class IndexController extends AbstractController
     {
         $session = $request->getSession();
 
+        //$session->setId();
+        
         if (!$session->has('last_message')) {
             $minId = null;
         } else {
@@ -92,8 +94,13 @@ class IndexController extends AbstractController
 
         $messages = $em->getRepository(Messages::class)->getLastMessages($user1, $user2, $minId);
 
+        $response = '';
 
-        return new JsonResponse($response);
+        foreach ($messages as $message) {
+            $response .= '<span>' . $message->getContent() . '</span>';
+        }
 
+        return new Response($response);
     }
+
 }
