@@ -80,8 +80,10 @@ class IndexController extends AbstractController
     {
         $session = $request->getSession();
 
-        //$session->setId();
-        
+        //$session->setId()
+
+
+
         if (!$session->has('last_message')) {
             $minId = null;
         } else {
@@ -99,6 +101,10 @@ class IndexController extends AbstractController
         foreach ($messages as $message) {
             $response .= '<span>' . $message->getContent() . '</span>';
         }
+
+        $session
+            ->set('last_message', $messages->getId())
+        ;
 
         return new Response($response);
     }
