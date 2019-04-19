@@ -9,35 +9,27 @@
                     <div class="form-detail">
                         <h2 class="font-weight-bold">Chat</h2>
                         <hr class="hr-title">
-                        <form action="{{ path('app_index_chatmessages') }}">
-                            {{ form_start(form) }}
-                                <div class="card mt-3">
-                                    <div id='message-container' class="card-body" style="height:300px; overflow: auto">
-
-                                    </div>
-                                </div>
-                                <form id="form-message" class="form-inline mt-2">
-                                    <div class="row">
-                                        <div class="form-group">
-                                            {{ form_row(form.message_to) }}
-                                            {{ form_row(form.user_envoi) }}
-                                        </div>
-                                        <div class="form-group col-lg-10">
-                                            <button class=" btn btn-outline-primary" type="submit">Envoyer</button>
-                                            {#   PAS DE TYPE SUBMIT ????  thusy        #}
-                                        </div>
-                                    </div>
-                            {{ form_end(form) }}
-                            </form>
-                        </form>
+                        <div class="card mt-3">
+                            <div id="message-container" class="card-body" style="height:300px; overflow: auto"></div>
                         </div>
+                        <form id="form-message">
+                            <input type="hidden" name="message_to" id="input_message_to" value="{{ user_id }}">
+                            <div class="form-group">
+                                <input class="form-control" name="content">
+                            </div>
+                            <div class="form-group col-lg-10">
+                                <button class=" btn btn-outline-primary" type="submit">Envoyer</button>
+                                {#   PAS DE TYPE SUBMIT ????  thusy        #}
+                            </div>
+                        </form>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
-{##}
+
+    {##}
 
 
 

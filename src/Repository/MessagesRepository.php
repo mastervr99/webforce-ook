@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Messages;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -53,15 +54,22 @@ class MessagesRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('m');
 
         $qb
-            ->orWhere('m.user_envoi = :user1')
-            ->andWhere('m.user_recoit = :user2')
-            ->orWhere('m.user_envoi = :user2')
-            ->andWhere('m.user_recoit = :user1')
+            ->orWhere('m.user_envoi = :user1 AND m.user_recoit = :user2')
+            ->orWhere('m.user_envoi = :user2 AND m.user_recoit = :user1')
             ->setParameter('user1', $user1)
             ->setParameter('user2', $user2)
-            ->andWhere('m.id > :minId')
-            ->setParameter('minId', $minId)
+            ->orderBy('m.id', 'desc')
         ;
+
+        if (!is_null($minId)) {
+            $qb
+                ->andWhere('m.id > :minId')
+                ->setParameter('minId', $minId)
+            ;
+        } else {
+            $qb->setMaxResults(5);
+        }
+
 
         $query = $qb->getQuery();
 
