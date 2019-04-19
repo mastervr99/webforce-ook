@@ -14,15 +14,19 @@ $(document).ready(function () {
     });
 
     function getMessage(){
+
+        var userId = $('#input_message_to').val();
+        console.log(userId);
+
         $.get(
             '/chat-messages',
+            'user=' + userId,
             function(response){
                 $('#message-container').append(response);
             }
         );
     }
-    if(hasUser){
-        setInterval(getMessage, 2000);
-    }
+getMessage();
+    //setInterval(getMessage, 2000);
 
-}
+});

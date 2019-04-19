@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\ChatType;
 use App\Repository\MessagesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,14 +31,18 @@ class IndexController extends AbstractController
     public function chat( Request $request, User $userRecoit)
     {
 
-        $form = $this->createForm(ChatType::class);
+        //$form = $this->createForm(ChatType::class);
 
-        $form->get('message_to')->setData($userRecoit->getId());
+        //$form->get('message_to')->setData($userRecoit->getId());
+
 
 
         return $this->render(
             'index/chat.html.twig',
-            ['form' => $form->createView()]
+            [
+                'user_id' => $userRecoit->getId()
+            ]
+            //['form' => $form->createView()]
         );
 
     }
@@ -59,7 +64,7 @@ class IndexController extends AbstractController
         $message->setDatePublication(new \DateTime());
         $message->setUserEnvoi($this->getUser());
         $message->setUserRecoit($userRecoit);
-        $message->setContent($request->request->get('user_envoi'));
+        $message->setContent($request->request->get('content'));
 
         $em->persist($message);
         $em->flush();
@@ -73,18 +78,22 @@ class IndexController extends AbstractController
      */
     public function chatMessages(Request $request)
     {
+        $session = $request->getSession();
 
-            $user1 = $request->query->get('user_envoi');
-            $user2 = $request->query->get('user_reçoit');
+        if (!$session->has('last_message')) {
+            $minId = null;
+        } else {
+            $minId = $session->get('last_message');
+        }
 
-        // find sur les 2 users
+        $em = $this->getDoctrine()->getManager();
+        $user1 = $this->getUser();
+        $user2 = $em->find(User::class, $request->query->get('user'));
+
+        $messages = $em->getRepository(Messages::class)->getLastMessages($user1, $user2, $minId);
 
 
-        // appel à la méthode getLastMessages() de messageRepository
-
-
-
-        // en lui passant les 2 user
+        return new JsonResponse($response);
 
     }
 }
