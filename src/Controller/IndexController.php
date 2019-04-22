@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Entity\Messages;
 use App\Entity\User;
 use App\Form\ChatType;
 use App\Repository\MessagesRepository;
+use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,7 +28,7 @@ class IndexController extends AbstractController
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/chat/{id}")
+     * @Route("/chat/{id}", requirements={"id" = "\d+"})
      */
     public function chat( Request $request, User $userRecoit)
     {
@@ -115,4 +117,28 @@ class IndexController extends AbstractController
         return new Response($response);
     }
 
+    /**
+     * @Route("/contactToUser/{id}")
+     */
+    public function contactToUser(Request $request, User $user)
+    {
+
+        $idContact = $request->query->get('id');
+
+        $repo = $this->getDoctrine()->getRepository(Contact::class);
+
+        $contact = $repo->findOneBy(['id' => $idContact]);
+
+        $repository = $this->getDoctrine()->getRepository(User::class);
+
+        $user = $repository->findOneBy(['email' => $contact->getEmail()]);
+
+
+        $this->redirectToRoute('index/chat.html.twig',
+            [
+                'id' => $user->getId()
+            ]
+        )
+        ;
+    }
 }
