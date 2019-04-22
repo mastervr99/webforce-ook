@@ -11,9 +11,13 @@
 
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
-                        <img class="card-img-top" src="https://source.unsplash.com/random"
-                                {# <img class="card-img-top" src="{{ contact.photo }}"#}
-                             alt="Titre de la photo">                        <div class="card-body text-center">
+                        {% if contact.photo %}
+                            <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}" alt="Titre de la photo">
+                        {% else %}
+                            <img class="card-img-top" src="https://www.destinations-nature.com/var/comexposium/storage/images/media/destinations-nature-medias/espace-pro/contact-picto-silhouette/3620866-1-fre-FR/CONTACT-Picto-Silhouette_contact_logo_list_destinations_nature_frm.png" alt="Titre de la photo">
+
+                        {% endif %}
+                        <div class="card-body text-center">
                             <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
                             <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>
                             <p class="card-text user-job">{{ contact.profession }}</p>
@@ -22,6 +26,7 @@
                                 <span class="align-middle">Ajouter une photo</span>
                             </button>
 
+                            {{ form_start(form) }}
                             <div class="row form-group">
                                 <div class="col-sm-3 col-form-label">{{ form_label(form.photo) }}</div>
                                 <div class="col-sm-7">{{ form_widget(form.photo) }}</div>
@@ -41,7 +46,6 @@
                         <hr class="hr-title">
 
 
-                        {{ form_start(form) }}
                         <div class="row form-group">
                             <div class="col-sm-3 col-form-label">{{ form_label(form.nom) }}</div>
                             <div class="col-sm-7">{{ form_widget(form.nom) }}</div>
@@ -92,6 +96,7 @@
                                     <span class="align-middle">Enregistrer</span>
                                 </button>
                             </div>
+                            {{ form_end(form) }}
                             <div class="col-md-6">
                                 <button type="" class="btn btn-labeled btn-secondary user-btn">
                                     <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
@@ -99,7 +104,6 @@
                                 </button>
                             </div>
                         </div>
-                        {{ form_end(form) }}
                     </div>{# end div.formulaire#}
                 </section> {# end div#my-profile #}
             </div>

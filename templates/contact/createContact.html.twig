@@ -12,7 +12,6 @@
         <!------- profile-left--------->
         <div class="container">
             <div class="row justify-content-md-center">
-
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
                         <img class="card-img-top" src="https://source.unsplash.com/random"
@@ -26,6 +25,9 @@
                                  <ion-icon class="align-middle" name="camera"></ion-icon>
                                  <span class="align-middle">Ajouter une photo</span>
                              </button>
+
+                            {{ form_start(form) }}
+
                             <div class="form-group">
                                 {{ form_row(form.photo) }}
                             </div>
@@ -41,7 +43,6 @@
                         <hr class="hr-title">
 
 
-                        {{ form_start(form) }}
                         <div class="row form-group justify-content-md-center">
                             <div class="col-sm-3 col-form-label">{{ form_label(form.nom) }}</div>
                             <div class="col-sm-7">{{ form_widget(form.nom) }}</div>
@@ -98,6 +99,7 @@
                                     <span class="align-middle">Enregistrer le contact</span>
                                 </button>
                             </div>
+                            {{ form_end(form) }}
                             <div class="col-md-6">
                                 <button type="" class="btn btn-labeled btn-secondary user-btn">
                                     <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
@@ -105,7 +107,6 @@
                                 </button>
                             </div>
                         </div>
-                        {{ form_end(form) }}
                     </div>{# end div.formulaire#}
                 </section> {# end div#my-profile #}
             </div>
