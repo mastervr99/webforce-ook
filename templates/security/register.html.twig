@@ -1,60 +1,63 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <section id="MAIN-CONTAINER">
 
-    <div class="page-content">
         <div class="container">
-            <div class="row form-v2-content mx-auto ">
+            <div class="page-content">
+                <div class="row form-v2-content mx-auto ">
 
-                <div class="col-md-5 photo ">
-                    <div class="form-left"></div>
-                </div>
+                    <div class="col-md-5 photo ">
+                        <div class="form-left"></div>
+                    </div>
 
-                <div class="col-md-7">
-                    <div class="form-detail">
-                        <h2 class="font-weight-bold">Créer un compte</h2>
-                        <hr class="hr-title">
-                        {#AFFICHER LES MESSAGES FLASH#}
-                        {% for type, messages in app.session.flashBag.all %}
-                            {% for message in messages %}
-                                {# pour la classe alert-danger du bootstrap #}
-                                {% if type == 'error' %}
-                                    {% set type = 'danger' %}
-                                {% endif %}
-                                <div class="alert alert-{{ type }} mt-2">
-                                    {{ message|raw }}
+                    <div class="col-md-7">
+                        <div class="form-detail">
+                            <h2 class="font-weight-bold">Créer un compte</h2>
+                            <hr class="hr-title">
+                            {#AFFICHER LES MESSAGES FLASH#}
+                            {% for type, messages in app.session.flashBag.all %}
+                                {% for message in messages %}
+                                    {# pour la classe alert-danger du bootstrap #}
+                                    {% if type == 'error' %}
+                                        {% set type = 'danger' %}
+                                    {% endif %}
+                                    <div class="alert alert-{{ type }} mt-2">
+                                        {{ message|raw }}
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                            {{ form_start(form) }}
+                            <div class="form-group">
+                                {{ form_row(form.lastname) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(form.firstname) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(form.email) }}
+                            </div>
+                            {% for passwordField in form.plainPassword %}
+                                <div class="form-group">
+                                    {{ form_label(passwordField, null, { 'attr': {'class': 'form-group'} }) }}
+                                    {{ form_widget(passwordField, { 'attr': {'class': 'form-input'} }) }}
                                 </div>
                             {% endfor %}
-                        {% endfor %}
-                        {{ form_start(form) }}
-                        <div class="form-group">
-                            {{ form_row(form.lastname) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.firstname) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.email) }}
-                        </div>
-                        {% for passwordField in form.plainPassword %}
+
                             <div class="form-group">
-                                {{ form_label(passwordField, null, { 'attr': {'class': 'form-group'} }) }}
-                                {{ form_widget(passwordField, { 'attr': {'class': 'form-input'} }) }}
+                                <button class="btn-valider btn-block" type="submit">Valider</button>
                             </div>
-                        {% endfor %}
-
-                        <div class="form-group">
-                            <button class="btn-valider btn-block" type="submit">Valider</button>
-                        </div>
-                        {{ form_end(form) }}
+                            {{ form_end(form) }}
 
 
-                        <div class="sentence">
-                            <a href="{{ path('app_security_login') }}" >J'ai déjà un compte</a>
+                            <div class="sentence">
+                                <a href="{{ path('app_security_login') }}">J'ai déjà un compte</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    </section>
 {% endblock %}

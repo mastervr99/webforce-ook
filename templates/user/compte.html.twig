@@ -2,38 +2,65 @@
 
 {% block body %}
 
+<section id="MAIN-CONTAINER">
     <div class="form-container">
 
 
-        <!------- profile-left--------->
         <div class="container">
             <div class="row justify-content-md-center">
 
+                <!------- profile-left--------->
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
-                        <img class="card-img-top" src="{{ user.photo }}"
-                             alt="Titre de la photo">
-                        <div class="card-body text-center">
-{#                            <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>#}
-{#                            <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>#}
-{#                            <p class="card-text user-job">{{ user.emploi }}</p>#}
-                        {{ form_start(form) }}
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="camera"></ion-icon>
-                                <span class="align-middle">Ajouter une photo</span>
-                            </button>
-                            {{ form_row(form.photo) }}
 
+
+                        <!-------------- photo ----------------->
+                        <img class="card-img-top" src="https://source.unsplash.com/random"
+                                {# <img class="card-img-top" src="{{ user.photo }}"#}
+                             alt="Titre de la photo">
+                            {# <!-- upload photo-->#}
+
+                        {#                    <button type="button" class="btn btn-info">#}
+                        {#                        <ion-icon class="align-middle" name="camera"></ion-icon>#}
+                        {#                        <span class="align-middle">Ajouter une photo</span>#}
+                        {#                    </button>#}
+
+                        <!-------------- bt upload photo ----------------->
+                        <div>
+                            <div class="form-group" id="upload-photo">
+                                <div class="input-group justify-content-md-center">
+                                    <div class="input-group-btn ">
+                                        <a class="btn btn-info bg-file ">
+                                            <ion-icon class="align-middle" name="camera"></ion-icon>
+                                            <span class="align-middle user-btn">Modifier la photo</span>
+                                            <input id="photoUpload" name="logo" type="file" accept=".jpg, .png, .jpeg"
+                                                   class="attachment_upload form control">
+                                            <label class=" " for="file"></label>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="main-img-preview">
+                                    <img class="thumbnail img-preview"
+                                         title="Apperçu">
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>
+                                <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>
+                                <p class="card-text user-job">{{ user.emploi }}</p>
+                            </div>
                         </div>
+
                     </div>
                 </section>
 
-                <!------- profile-right--------->
+                <!------- section centre --------->
 
                 <section class="col-md-7" id="my-profile">
                     <div class="formulaire">
 
-                        <h3 class="text-center mb-4">Mon compte</h3>
+                        <h3 class="text-center mb-4">Modifier mon profil</h3>
                         <hr class="hr-title">
 
 
@@ -86,7 +113,7 @@
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-labeled btn-info user-btn">
                                     <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
-                                    <span class="align-middle">Mettre à jour</span>
+                                    <span class="align-middle">Valider</span>
                                 </button>
                             </div>
                             <div class="col-md-6">
@@ -102,5 +129,6 @@
             </div>
         </div>
     </div><!-- END CONTAINER -->
+</section>
 
 {% endblock %}

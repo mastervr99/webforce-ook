@@ -1,37 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {#        <div class="form-group">#}
-    {#        {{ form_label(form.nom) }}#}
-    {#        {{ form_widget(form.nom) }}#}
-    {#        </div>#}
 
-    <div class="form-container">
+    <section id="MAIN-CONTAINER">
 
 
-        <!------- profile-left--------->
         <div class="container">
             <div class="row justify-content-md-center">
 
+                <!------- profile-left--------->
+
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
+
+                        <!-------------- upload photo ----------------->
+
+                        {{ form_start(form) }}
+
                         <img class="card-img-top" src="https://source.unsplash.com/random"
-                                {# <img class="card-img-top" src="{{ contact.photo }}"#}
+                                {# <img class="card-img-top" src="{{ user.photo }}"#}
                              alt="Titre de la photo">
-                        <div class="card-body text-center">
-{#                            <h5 class="card-title user-lastname text-fluid">DeLaFontaine</h5>#}
-{#                            <h5 class="card-title user-firstname text-fluid">Jean-Marc</h5>#}
-{#                            <p class="card-text user-job">Développeur intégrateur-web</p>#}
-                             <button type="button" class="btn btn-info user-btn">
-                                 <ion-icon class="align-middle" name="camera"></ion-icon>
-                                 <span class="align-middle">Ajouter une photo</span>
-                             </button>
-                            <div class="form-group">
-                                {{ form_row(form.photo) }}
+
+
+                        {# <!-- upload photo-->#}
+                        <div class="form-group" id="upload-photo">
+                            <div class="input-group-btn ">
+                                <a class="btn btn-info bg-file ">
+                                    <ion-icon class="align-middle" name="camera"></ion-icon>
+                                    <span class="align-middle user-btn">Modifier la photo</span>
+                                    <input id="photoUpload" name="logo" type="file" accept=".jpg, .png, .jpeg"
+                                           class="attachment_upload form control">
+                                    <label class=" " for="file"></label>
+                                </a>
+                            </div>
+                            <div class="main-img-preview">
+                                <img class="thumbnail img-preview"
+                                     title="Apperçu">
                             </div>
                         </div>
+
                     </div>
                 </section>
+                {#        <div class="form-group">#}
+                {#                {{ form_start(form) }}#}
+                {#            {{ form_row(form.photo) }}#}
+                {#        </div>#}
+
 
                 <!------- profile-right--------->
 
@@ -41,32 +55,27 @@
                         <hr class="hr-title">
 
 
-                        {{ form_start(form) }}
-                        <div class="row form-group justify-content-md-center">
-                            <div class="col-sm-3 col-form-label">{{ form_label(form.nom) }}</div>
-                            <div class="col-sm-7">{{ form_widget(form.nom) }}</div>
-                        </div>
                         <div class="row form-group justify-content-md-center">
                             <div class="col-sm-3 col-form-labe form-separatorl">{{ form_label(form.prenom) }}</div>
                             <div class="col-sm-7">{{ form_widget(form.prenom) }}</div>
                         </div>
-
-
-                        <div class="row form-group justify-content-md-center">
-                            <div class="col-sm-3 col-form-label">{{ form_label(form.telephone) }}</div>
-                            <div class="col-sm-7">{{ form_widget(form.telephone) }}</div>
+                        <div class="row form-group justify-content-md-center ">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.nom) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.nom) }}</div>
                         </div>
-                        <div class="row form-group justify-content-md-center">
-                            <div class="col-sm-3 col-form-label">{{ form_label(form.email) }}</div>
-                            <div class="col-sm-7">{{ form_widget(form.email) }}</div>
-                        </div>
-                        <div class="row form-group justify-content-md-center">
+                        <div class="row form-group justify-content-md-center form-separator">
                             <div class="col-sm-3 col-form-label">{{ form_label(form.profession) }}</div>
                             <div class="col-sm-7">{{ form_widget(form.profession) }}</div>
                         </div>
+
+
+                        <div class="row form-group justify-content-md-center ">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.email) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.email) }}</div>
+                        </div>
                         <div class="row form-group justify-content-md-center form-separator">
-                            <div class="col-sm-3 col-form-label">{{ form_label(form.dateDeNaissance) }}</div>
-                            <div class="col-sm-7">{{ form_widget(form.dateDeNaissance) }}</div>
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.telephone) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.telephone) }}</div>
                         </div>
 
 
@@ -83,6 +92,10 @@
                             <div class="col-sm-7">{{ form_widget(form.ville) }}</div>
                         </div>
 
+                        <div class="row form-group justify-content-md-center form-separator">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.dateDeNaissance) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.dateDeNaissance) }}</div>
+                        </div>
 
                         <div class="row form-group justify-content-md-center  form-separator">
                             <div class="col-sm-3 col-form-label">{{ form_label(form.notePersonnelle) }}</div>
@@ -90,18 +103,18 @@
                         </div>
 
 
-
                         <div class="row">
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-labeled btn-info user-btn">
                                     <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
-                                    <span class="align-middle">Enregistrer le contact</span>
+                                    <span class="align-middle">Valider</span>
                                 </button>
                             </div>
                             <div class="col-md-6">
                                 <button type="" class="btn btn-labeled btn-secondary user-btn">
                                     <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
-                                    <span class="align-middle"><a href="{{ path('app_user_listcontact') }}">Annuler</a></span>
+                                    <span class="align-middle"><a
+                                                href="{{ path('app_user_listcontact') }}">Annuler</a></span>
                                 </button>
                             </div>
                         </div>
@@ -109,8 +122,9 @@
                     </div>{# end div.formulaire#}
                 </section> {# end div#my-profile #}
             </div>
-        </div>
-    </div><!-- END CONTAINER -->
+        </div><!-- END CONTAINER -->
+
+    </section>
 
 {% endblock %}
 
