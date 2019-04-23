@@ -9,14 +9,17 @@
 
                 <!------- section gauche --------->
 
-                <section class="col-xs-5 col-sm-7 col-md-4 col-lg-4 justify-content-md-center" id="user-profile-left">
+                <section class="col-xs-5 col-sm-7 col-md-3 col-lg-3 justify-content-md-center" id="user-profile-left">
                     <div class="card">
 
                         <!-------------- gestion photo ----------------->
                         {% if contact.photo %}
-                            <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}" alt="Titre de la photo">
+                            <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}"
+                                 alt="Titre de la photo">
                         {% else %}
-                            <img class="card-img-top" src="https://www.destinations-nature.com/var/comexposium/storage/images/media/destinations-nature-medias/espace-pro/contact-picto-silhouette/3620866-1-fre-FR/CONTACT-Picto-Silhouette_contact_logo_list_destinations_nature_frm.png" alt="Titre de la photo">
+                            <img class="card-img-top"
+                                 src="https://www.destinations-nature.com/var/comexposium/storage/images/media/destinations-nature-medias/espace-pro/contact-picto-silhouette/3620866-1-fre-FR/CONTACT-Picto-Silhouette_contact_logo_list_destinations_nature_frm.png"
+                                 alt="Titre de la photo">
                         {% endif %}
 
                         <!-------------- bt upload photo ----------------->
@@ -33,6 +36,7 @@
                                         </a>
                                     </div>
                                 </div>
+                                {{ form_start(form) }}
                                 {{ form_widget(form.photo) }}
                                 <div class="main-img-preview">
                                     <img class="thumbnail img-preview"
@@ -40,16 +44,18 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </section>
+                {#                <!------- profile-right--------->#}
 
-{#                <!------- profile-right--------->#}
+                <section class="col-xs-12 col-md-7 col-lg-7 justify-content-md-center" id="my-profile">
+                    <div class="formulaire ">
 
-                <section class="col-md-7" id="my-profile">
-                    <div class="formulaire">
                         <h3 class="text-center mb-4">Modification de {{ contact.prenom }} {{ contact.nom }} </h3>
                         <hr class="hr-title">
 
                         <div class="row form-group justify-content-center">
-                            <div class="col-sm-3 col-form-labe form-separatorl">{{ form_label(form.prenom) }}</div>
+                            <div class="col-sm-3 col-form-label form-separatorl">{{ form_label(form.prenom) }}</div>
                             <div class="col-sm-7">{{ form_widget(form.prenom) }}</div>
                         </div>
                         <div class="row form-group justify-content-center ">
@@ -97,14 +103,14 @@
 
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-sm-6 col-md-6">
                                 <button type="submit" class="btn btn-labeled btn-info user-btn">
                                     <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
                                     <span class="align-middle">Valider</span>
                                 </button>
                             </div>
                             {{ form_end(form) }}
-                            <div class="col-md-6">
+                            <div class="col-sm-6 col-md-6">
                                 <button type="" class="btn btn-labeled btn-secondary user-btn">
                                     <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
                                     <span class="align-middle"><a

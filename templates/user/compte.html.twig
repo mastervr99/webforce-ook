@@ -16,7 +16,8 @@
 
                 <!------- section gauche --------->
 
-                <section class="col-xs-5 col-sm-7 col-md-4 col-lg-4 justify-content-md-center" id="user-profile-left">
+
+                <section class="col-sm-7 col-md-3 col-lg-3 justify-content-md-center" id="user-profile-left">
                     <div class="card">
 
                         <!--- photo--->
@@ -32,108 +33,109 @@
                         <div>
                             <div class="form-group" id="upload-photo">
                                 <div class="input-group justify-content-md-center">
-                                    <div class="input-group-btn ">
-                                        <a class="btn btn-info">
-                                            <ion-icon class="align-middle" name="camera"></ion-icon>
-                                            <span class="align-middle user-btn">Modifier la photo</span>
-                                            <input id="photoUpload" name="logo" type="file" accept=".jpg, .png, .jpeg"
-                                                   class="attachment_upload form control">
-                                            <label class=" " for="file"></label>
-                                        </a>
-                                    </div>
+                                    {#<div class="input-group-btn ">#}
+                                        {#<a class="btn btn-info">#}
+                                            {#<ion-icon class="align-middle" name="camera"></ion-icon>#}
+                                            {#<span class="align-middle user-btn">Modifier la photo</span>#}
+
+                                            {#<!--- input-upload -->#}
+                                            {#<input id="photoUpload" type="file" accept=".jpg, .png, .jpeg"#}
+                                                   {#class="attachment_upload form control">#}
+                                        {#</a>#}
+                                    {#</div>#}
                                 </div>
+                                <!--- appercu -->
+                                {{ form_start(form) }}
+                                {{ form_label(form.photo) }}
                                 {{ form_widget(form.photo) }}
-                                <div class="main-img-preview">
-                                    <img class="thumbnail img-preview"
-                                         title="Apperçu">
-                                </div>
+                                {#<div class="main-img-preview">#}
+                                    {#<img class="thumbnail img-preview"#}
+                                         {#title="Apperçu">#}
+                                {#</div>#}
+
                             </div>
                         </div>
 
-
-
                         <div class="card-body text-center">
-
                             <!--- infos--->
                             <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>
                             <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>
                             <p class="card-text user-job">{{ user.emploi }}</p>
                             {#<!--- bouton modifier-->#}
                             {#<a class="btn btn-labeled btn-info user-btn" type="submit"#}
-                                                              {#href="{{ path('app_user_moncompte') }}">#}
-                                {#<i class="fa fa-pen"></i>#}
-                                {#<span class="align-middle">Modifier</span>#}
+                            {#href="{{ path('app_user_moncompte') }}">#}
+                            {#<i class="fa fa-pen"></i>#}
+                            {#<span class="align-middle">Modifier</span>#}
                             {#</a>#}
-
                         </div>
                     </div>
                 </section>
 
-                    <!------- section droite --------->
+                <!------- section droite --------->
 
-                    <section class="col-xs-12 col-md-7 col-md-7 justify-content-md-center" id="my-profile">
-                        <div class="formulaire ">
+                <section class="col-xs-12 col-md-7 col-lg-7 justify-content-md-center" id="my-profile">
+                    <div class="formulaire ">
 
-                            <h3 class="text-center mb-4">Modifier mon profil</h3>
-                            <hr class="hr-title">
+                        <h3 class="text-center mb-4">Modifier mon profil</h3>
+                        <hr class="hr-title">
 
-                            <div class="row form-group justify-content-center">
-                                <div class="col-sm-4 col-form-label">{{ form_label(form.phone) }}</div>
-                                <div class="col-sm-6">{{ form_widget(form.phone) }}</div>
-                            </div>
-                            <div class="row form-group justify-content-center">
-                                <div class="col-sm-4 col-form-label">{{ form_label(form.email) }}</div>
-                                <div class="col-sm-6">{{ form_widget(form.email) }}</div>
-                            </div>
-                            <div class="row form-group justify-content-center">
-                                <div class="col-sm-4 col-form-label">{{ form_label(form.emploi) }}</div>
-                                <div class="col-sm-6">{{ form_widget(form.emploi) }}</div>
-                            </div>
-                            <div class="row form-group justify-content-center form-separator">
-                                <div class="col-sm-4 col-form-label">{{ form_label(form.dateBirth) }}</div>
-                                <div class="col-sm-6">{{ form_widget(form.dateBirth) }}</div>
-                            </div>
-
-
-                            <div class="row form-group justify-content-center">
-                                <div class="col-sm-3 col-form-label">{{ form_label(form.adress) }}</div>
-                                <div class="col-sm-6">{{ form_widget(form.adress) }}</div>
-                            </div>
-                            <div class="row form-group justify-content-center">
-                                <div class="col-sm-3 col-form-label">{{ form_label(form.postalCode) }}</div>
-                                <div class="col-sm-6">{{ form_widget(form.postalCode) }}</div>
-                            </div>
-                            <div class="row form-group justify-content-center form-separator">
-                                <div class="col-sm-3 col-form-label">{{ form_label(form.city) }}</div>
-                                <div class="col-sm-6">{{ form_widget(form.city) }}</div>
-                            </div>
-
-                            <div class="row form-group justify-content-center  form-separator">
-                                <div class="col-sm-3 col-form-label">{{ form_label(form.notePerso) }}</div>
-                                <div class="col-sm-6">{{ form_widget(form.notePerso) }}</div>
-                            </div>
+                        <div class="row form-group justify-content-center">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.phone) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.phone) }}</div>
+                        </div>
+                        <div class="row form-group justify-content-center">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.email) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.email) }}</div>
+                        </div>
+                        <div class="row form-group justify-content-center">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.emploi) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.emploi) }}</div>
+                        </div>
+                        <div class="row form-group justify-content-center form-separator">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.dateBirth) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.dateBirth) }}</div>
+                        </div>
 
 
-                            <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <button type="submit" class="btn btn-labeled btn-info user-btn">
-                                        <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
-                                        <span class="align-middle">Valider</span>
-                                    </button>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <button type="" class="btn btn-labeled btn-secondary user-btn">
-                                        <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
-                                        <span class="align-middle"><a href="{{ path('app_user_listcontact') }}">Annuler</a></span>
-                                    </button>
-                                </div>
-                            </div>
+                        <div class="row form-group justify-content-center">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.adress) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.adress) }}</div>
+                        </div>
+                        <div class="row form-group justify-content-center">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.postalCode) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.postalCode) }}</div>
+                        </div>
+                        <div class="row form-group justify-content-center form-separator">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.city) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.city) }}</div>
+                        </div>
+
+                        <div class="row form-group justify-content-center  form-separator">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.notePerso) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.notePerso) }}</div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-labeled btn-info user-btn">
+                                    <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
+                                    <span class="align-middle">Mettre à jour</span>
+                                </button>
                             {{ form_end(form) }}
-                        </div>{# end div.formulaire#}
-                    </section> {# end div#my-profile #}
-                </div>
+
+                            <div class="col-sm-6 col-md-6">
+                                <button type="" class="btn btn-labeled btn-secondary user-btn">
+                                    <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
+                                    <span class="align-middle"><a href="{{ path('app_user_listcontact') }}">Annuler</a></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>{# end div.formulaire#}
+                </section> {# end div#my-profile #}
             </div>
         </div><!-- END CONTAINER -->
+
     </section>
 
 {% endblock %}
