@@ -2,13 +2,14 @@
 
 {% block body %}
 
+<section id="MAIN-CONTAINER">
     <div class="form-container">
 
 
-        <!------- profile-left--------->
         <div class="container">
             <div class="row justify-content-md-center">
 
+                <!------- profile-left--------->
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
                         {% if user.photo %}
@@ -31,15 +32,16 @@
                             {{ form_row(form.photo) }}
 
                         </div>
+
                     </div>
                 </section>
 
-                <!------- profile-right--------->
+                <!------- section centre --------->
 
                 <section class="col-md-7" id="my-profile">
                     <div class="formulaire">
 
-                        <h3 class="text-center mb-4">Mon compte</h3>
+                        <h3 class="text-center mb-4">Modifier mon profil</h3>
                         <hr class="hr-title">
 
 
@@ -92,7 +94,7 @@
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-labeled btn-info user-btn">
                                     <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
-                                    <span class="align-middle">Mettre à jour</span>
+                                    <span class="align-middle">Valider</span>
                                 </button>
                             </div>
                             {{ form_end(form) }}
@@ -108,5 +110,6 @@
             </div>
         </div>
     </div><!-- END CONTAINER -->
+</section>
 
 {% endblock %}
