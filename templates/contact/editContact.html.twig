@@ -8,18 +8,19 @@
         <div class="container">
             <div class="row justify-content-md-center">
 
-                <!------- profile-left--------->
+                <!------- section gauche --------->
 
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
 
+                        <!-------------- gestion photo ----------------->
+                        {% if contact.photo %}
+                            <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}" alt="Titre de la photo">
+                        {% else %}
+                            <img class="card-img-top" src="https://www.destinations-nature.com/var/comexposium/storage/images/media/destinations-nature-medias/espace-pro/contact-picto-silhouette/3620866-1-fre-FR/CONTACT-Picto-Silhouette_contact_logo_list_destinations_nature_frm.png" alt="Titre de la photo">
+                        {% endif %}
+
                         <!-------------- upload photo ----------------->
-
-
-                        <img class="card-img-top" src="https://source.unsplash.com/random"
-                                {# <img class="card-img-top" src="{{ user.photo }}"#}
-                             alt="Titre de la photo">
-
 
                         <div class="form-group" id="upload-photo">
                             <div class="input-group-btn ">
@@ -30,38 +31,20 @@
                                            class="attachment_upload form control">
                                     <label class=" " for="file"></label>
                                 </a>
-                        {% if contact.photo %}
-                            <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}" alt="Titre de la photo">
-                        {% else %}
-                            <img class="card-img-top" src="https://www.destinations-nature.com/var/comexposium/storage/images/media/destinations-nature-medias/espace-pro/contact-picto-silhouette/3620866-1-fre-FR/CONTACT-Picto-Silhouette_contact_logo_list_destinations_nature_frm.png" alt="Titre de la photo">
-
-                        {% endif %}
-                        <div class="card-body text-center">
-                            <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
-                            <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>
-                            <p class="card-text user-job">{{ contact.profession }}</p>
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <ion-icon class="align-middle" name="camera"></ion-icon>
-                                <span class="align-middle">Ajouter une photo</span>
-                            </button>
-
-                            {{ form_start(form) }}
-                            <div class="row form-group">
-                                <div class="col-sm-3 col-form-label">{{ form_label(form.photo) }}</div>
-                                <div class="col-sm-7">{{ form_widget(form.photo) }}</div>
                             </div>
                             <div class="main-img-preview">
                                 <img class="thumbnail img-preview"
                                      title="Apperçu">
                             </div>
                         </div>
-                <div class="form-group">
-                    {{ form_start(form) }}
-                    {{ form_row(form.photo) }}
-                </div>
+
+                        {{ form_start(form) }}
+                        <div class="row form-group">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.photo) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.photo) }}</div>
+                        </div>
                     </div>
                 </section>
-
 
 {#                <!------- profile-right--------->#}
 
@@ -69,7 +52,6 @@
                     <div class="formulaire">
                         <h3 class="text-center mb-4">Modification de {{ contact.prenom }} {{ contact.nom }} </h3>
                         <hr class="hr-title">
-
 
                         <div class="row form-group justify-content-md-center">
                             <div class="col-sm-3 col-form-labe form-separatorl">{{ form_label(form.prenom) }}</div>

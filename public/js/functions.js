@@ -132,13 +132,13 @@ var timer;
 var active;
 timer = function () {
 
-    if ($("#archive-button").hasClass("btn-success")) {
+    if ($(".archive-button").hasClass("btn-success")) {
     } else {
-        $("#archive-button").removeClass("btn-danger").addClass("btn-secondary");
+        $(".archive-button").removeClass("btn-danger").addClass("btn-secondary");
     }
 }
 
-$("#archive-button").click(function () {
+$(".archive-button").click(function () {
     if ($(this).hasClass("btn-secondary")) {
         $(this).addClass("btn-danger").removeClass("btn-secondary");
         setTimeout(timer, 4000);
@@ -149,7 +149,7 @@ $("#archive-button").click(function () {
 
 
             setTimeout(function () {
-                $("#archive-button").removeClass("btn-success").addClass("btn-secondary");
+                $(".archive-button").removeClass("btn-success").addClass("btn-secondary");
             }, 1500);
 
             let route = "{{ path('blog_show', {'slug': 'my-blog-post'})|escape('js') }}";

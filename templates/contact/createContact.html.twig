@@ -13,7 +13,7 @@
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
 
-                        <!-------------- upload photo ----------------->
+                        <!-------------- gestion photo ----------------->
 
                         {{ form_start(form) }}
 
@@ -22,7 +22,8 @@
                              alt="Titre de la photo">
 
 
-                        {# <!-- upload photo-->#}
+                        <!-------------- upload photo ----------------->
+
                         <div class="form-group" id="upload-photo">
                             <div class="input-group-btn ">
                                 <a class="btn btn-info bg-file ">
@@ -36,28 +37,15 @@
                             <div class="main-img-preview">
                                 <img class="thumbnail img-preview"
                                      title="Apperçu">
-                        <div class="card-body text-center">
-{#                            <h5 class="card-title user-lastname text-fluid">DeLaFontaine</h5>#}
-{#                            <h5 class="card-title user-firstname text-fluid">Jean-Marc</h5>#}
-{#                            <p class="card-text user-job">Développeur intégrateur-web</p>#}
-                             <button type="button" class="btn btn-info user-btn">
-                                 <ion-icon class="align-middle" name="camera"></ion-icon>
-                                 <span class="align-middle">Ajouter une photo</span>
-                             </button>
-
-                            {{ form_start(form) }}
-
-                            <div class="form-group">
-                                {{ form_row(form.photo) }}
                             </div>
                         </div>
 
+                        <div class="row form-group">
+                            <div class="col-sm-3 col-form-label">{{ form_label(form.photo) }}</div>
+                            <div class="col-sm-7">{{ form_widget(form.photo) }}</div>
+                        </div>
                     </div>
                 </section>
-                {#        <div class="form-group">#}
-                {#                {{ form_start(form) }}#}
-                {#            {{ form_row(form.photo) }}#}
-                {#        </div>#}
 
 
                 <!------- profile-right--------->

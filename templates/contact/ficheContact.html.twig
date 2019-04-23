@@ -21,61 +21,33 @@
 
                     <section class="col-md-3" id="user-profile-left">
                         <div class="card">
+
                             <!--- photo--->
-                            <img class="card-img-top" src="https://source.unsplash.com/random">
-                            <! <img class="card-img-top" src="{{ contact.photo }}" #}
-                                    alt="Titre de la photo">
+                            {% if contact.photo %}
+                                <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}"
+                                     alt="Titre de la photo">
+                            {% else %}
+                                <img class="card-img-top" src="https://source.unsplash.com/random"
+                                     alt="Titre de la photo">
+                            {% endif %}
 
                             <div class="card-body text-center">
+
                                 <!--- infos--->
                                 <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
                                 <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>
                                 <p class="card-text user-job">{{ contact.profession }}</p>
 
-                                <!--- bouton modofier-->
-
+                                <!--- bouton modifier-->
                                 <a class="btn btn-labeled btn-info user-btn" type="submit"
                                    href="{{ path('app_contact_editcontact', {'id': contact.id}) }}">
                                     <i class="fa fa-pen"></i>
                                     <span class="align-middle">Modifier</span>
                                 </a>
-
-
-
-
-                                {#                                <button type="button" class="btn btn-labeled btn-secondary user-btn suppr-btn">#}
-{#                                    <i class="fa fa-trash"></i>#}
-{#                                    <span class="align-middle">Supprimer</span>#}
-{#                                </button>#}
                             </div>
+
                         </div>
                     </section>
-            <div class="row justify-content-md-center">
-                <section class="col-md-3" id="user-profile-left">
-                    <div class="card">
-
-                        {% if contact.photo %}
-                            <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}" alt="Titre de la photo">
-                        {% else %}
-                            <img class="card-img-top" src="https://source.unsplash.com/random" alt="Titre de la photo">
-
-                        {% endif %}
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
-                            <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>
-                            <p class="card-text user-job">{{ contact.profession }}</p>
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <i class="fa fa-pen"></i>
-                                <span class="align-middle">Modifier</span>
-                            </button>
-                            <button type="button" class="btn btn-labeled btn-secondary user-btn">
-                                <i class="fa fa-trash"></i>
-                                <span class="align-middle">Supprimer</span>
-                            </button>
-                        </div>
-                    </div>
-                </section>
 
                     <!------- section droite --------->
 
@@ -123,15 +95,7 @@
                                     <p class="card-text infos">{{ contact.notePersonnelle }}</p>
                                 </div>
                             </div>
-                            {#<div class="card mt-3">#}
-                            {#<div class="card-header">#}
-                            {#<i class="pictos-title fas fa-hashtag"></i>#}
-                            {#<h5 class="card-title">Mot-clés</h5>#}
-                            {#</div>#}
-                            {#<div class="card-body">#}
-                            {#<p class="card-text infos">#copine #Travail #chat</p>#}
-                            {#</div>#}
-                            {#</div>#}
+
                         </section>
                     </div>
                 </div>

@@ -12,31 +12,36 @@
             </div>
         </div>
 
-        <section class="row justify-content-md-center">
+        <div class="row justify-content-md-center">
 
             <!------- section gauche --------->
 
             <section class="col-md-3" id="user-profile-left">
                 <div class="card">
 
+                    <!--- photo--->
                     {% if user.photo %}
-                        <img class="card-img-top" src="{{ asset('photo/' ~ user.photo ) }}" alt="Titre de la photo">
-
+                        <img class="card-img-top" src="{{ asset('photo/' ~ user.photo ) }}"
+                             alt="Titre de la photo">
                     {% else %}
-                        <img class="card-img-top" src="https://source.unsplash.com/random" alt="Titre de la photo">
-
+                        <img class="card-img-top" src="https://source.unsplash.com/random"
+                             alt="Titre de la photo">
                     {% endif %}
 
                     <div class="card-body text-center">
+
                         <!--- infos--->
                         <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>
                         <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>
                         <p class="card-text user-job">{{ user.emploi }}</p>
                         <!--- boutons action--->
-                        <button type="button" class="btn btn-labeled btn-info user-btn">
+                        <!--- bouton modifier-->
+                        <a class="btn btn-labeled btn-info user-btn" type="submit"
+                           href="{{ path('app_user_moncompte') }}>
                             <i class="fa fa-pen"></i>
                             <span class="align-middle">Modifier</span>
-                        </button>
+                        </a>
+
                     </div>
                 </div>
             </section>
