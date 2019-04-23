@@ -215,11 +215,14 @@ class ContactController extends AbstractController
 
         $repository = $this->getDoctrine()->getRepository(Contact::class);
 
+        $user = $this->getUser();
+
         $contact = $repository->findBy(['id' => $id]);
 
         return $this->render('contact/ficheContact.html.twig',
             [
-                'contact' => $contact
+                'contact' => $contact,
+                'user'=>$user
             ]
         );
     }
