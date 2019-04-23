@@ -79,6 +79,7 @@ class IndexController extends AbstractController
      */
     public function chatMessages(Request $request)
     {
+
         $session = $request->getSession();
 
 //        SI LA SESSION A UN LAST MESS

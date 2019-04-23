@@ -24,6 +24,8 @@ class UserController extends AbstractController
      */
     public function listContact(Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $user = $this->getUser();
 
         $repository = $this->getDoctrine()->getRepository(Contact::class);
@@ -52,6 +54,8 @@ class UserController extends AbstractController
      */
     public function monCompte(Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $user = $this->getUser();
 
 //ALLER CHERCHER L ID DU USER DEJA CONNECTE
