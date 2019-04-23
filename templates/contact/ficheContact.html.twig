@@ -16,9 +16,14 @@
             <div class="row justify-content-md-center">
                 <section class="col-md-3" id="user-profile-left">
                     <div class="card">
-                        <img class="card-img-top" src="https://source.unsplash.com/random"
-                                {# <img class="card-img-top" src="{{ contact.photo }}"#}
-                             alt="Titre de la photo">
+
+                        {% if contact.photo %}
+                            <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}" alt="Titre de la photo">
+                        {% else %}
+                            <img class="card-img-top" src="https://source.unsplash.com/random" alt="Titre de la photo">
+
+                        {% endif %}
+
                         <div class="card-body text-center">
                             <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
                             <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>

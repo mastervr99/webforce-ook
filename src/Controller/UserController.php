@@ -57,6 +57,8 @@ class UserController extends AbstractController
 //ALLER CHERCHER L ID DU USER DEJA CONNECTE
         $em = $this->getDoctrine()->getManager();
 
+        $originalPhoto = null;
+
         if (!is_null($user->getPhoto())) {
             // nom du fichier venant de la bdd
             $originalPhoto = $user->getPhoto();
@@ -72,11 +74,12 @@ class UserController extends AbstractController
 
         $form =$this->createForm(UserCompleteType::class, $user);
 
+        $form->handleRequest($request);
+
         //VALID FORM???
         if ($form->isSubmitted()){
 
             //LE METTRE EN BDD
-            $form->handleRequest($request);
 
             $photo = $user->getPhoto();
 
@@ -96,13 +99,13 @@ class UserController extends AbstractController
                 // on sette l'attribut image de l'article avec son nom
                 // pour enregistrement en bdd
                 $user->setPhoto($filename);
-            }
 
-            // en modification on supprime l'ancienne image
-            // s'il y en a une
-            if (!is_null($originalPhoto)) {
-                unlink($this->getParameter('upload_dir') . $originalPhoto);
 
+                // en modification on supprime l'ancienne image
+                // s'il y en a une
+                if (!is_null($originalPhoto)) {
+                    unlink($this->getParameter('upload_dir') . $originalPhoto);
+                }
             } else {
                 // en modification, sans upload, on sette l'attribut image
                 // avec le nom de l'ancienne image
@@ -115,7 +118,7 @@ class UserController extends AbstractController
     //        AFFICH UN MESS DE CONFIRM
             $this->addFlash('success','Votre profil a été mis a jour');
 
-             return $this->redirectToRoute('app_user_moncompte');
+             return $this->redirectToRoute('app_user_listcontact');
         }
 
 

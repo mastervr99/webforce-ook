@@ -43,8 +43,13 @@
                 {% for user in users %}
                     <div class="col-md-3" id="search-results">
                         <div class="card d-flex justify-content-between">
-                            <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
+                            {% if user.photo %}
+                                <img class="card-img-top" src="{{ asset('photo/' ~ user.photo ) }}" alt="Titre de la photo">
 
+                            {% else %}
+                                <img class="card-img-top" src="https://source.unsplash.com/random" alt="Titre de la photo">
+
+                            {% endif %}
                             <div class="card-body">
                                 <div class="card-texts">
                                     <h5 class="card-title user-name">{{ user.lastname }} <br> {{ user.firstname }}</h5>
