@@ -330,7 +330,7 @@ class ContactController extends AbstractController
         return $this->render('contact/addContact.html.twig',
             [
                 'form' => $form->createView(),
-                'original_photo' => $originalPhoto,
+                'user' => $user,
                 'contact' => $contact
             ]
         );

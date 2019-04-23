@@ -35,41 +35,55 @@
                             <li class="list-group-item">
                                 <div class="row posRel">
 
-                                    <div class="col-md-1 align-items-center">
-                                        <div class="photo">
-                                                {#{% if contact.photo %}#}
-                                                    {#<img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}" alt="Titre de la photo">#}
-                                                {#{% else %}#}
-                                                    {#<img class="card-img-top" src="https://www.destinations-nature.com/var/comexposium/storage/images/media/destinations-nature-medias/espace-pro/contact-picto-silhouette/3620866-1-fre-FR/CONTACT-Picto-Silhouette_contact_logo_list_destinations_nature_frm.png" alt="Titre de la photo">#}
+{#                                    <div class="col-md-1 align-items-center">#}
+{#                                        <div class="photo">#}
+{#                                                {% if message.userEnvoi.photo %}#}
+{#                                                    <img class="card-img-top" src="{{ asset('photo/' ~ message.userEnvoi.photo ) }}" alt="Titre de la photo">#}
+{#                                                {% else %}#}
+{#                                                    <img class="card-img-top" src="http://downloadicons.net/sites/default/files/User-Clients-Icon-731769.png" alt="Titre de la photo">#}
 
-                                                {#{% endif %}#}
+{#                                                {% endif %}#}
+{#                                        </div>#}
+{#                                    </div>#}
+
+{#                                    #}{# nom prenom profession #}
+{#                                    <div class="text col-sm-8 col-md-5 col-lg-3 align-items-center resp-name ">#}
+{#                                        <h4>{{ message.userEnvoi }}</h4>#}
+{#                                    </div>#}
+{#                                    <div class="col-sm-9 col-md-8 col-lg-3 d-flex align-items-center picto resp-tel ">#}
+{#                                        <p>{{ message.content }}</p>#}
+{#                                    </div>#}
+
+{#                                    <div class="col-md-2 d-flex justify-content-end m-auto">#}
+{#                                        <a class="btn btn-link btn-info btn-user" type="button"#}
+{#                                           href="{{ path('app_index_chat', {'id': message.userEnvoi.id}) }}">#}
+{#                                            <i class="fa fa-comments "></i>#}
+{#                                        </a>#}
+{#                                        <a class="btn btn-link btn-secondary btn-user btn-chat" type="submit"#}
+{#                                           href="{{ path('app_contact_addcontact', {'id': message.userEnvoi.id }) }}">#}
+{#                                            <i class="fa fa-user-plus "></i>#}
+{#                                        </a>#}
+{#                                        #}{#<a id="MybtnModal" class="btn btn-link btn-secondary btn-user" type="button"#}
+{#                                        #}{#href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}">#}
+{#                                        #}{#<i class="fa fa-trash"></i>#}
+{#                                        #}{#</a>#}
+
+
+{#                                    </div>#}
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            {% if message.userEnvoi.photo %}#}
+                                                <img class="card-img-top" src="{{ asset('photo/' ~ message.userEnvoi.photo ) }}" alt="Titre de la photo">
+                                            {% else %}
+                                                <img class="card-img-top" src="http://downloadicons.net/sites/default/files/User-Clients-Icon-731769.png" alt="Titre de la photo">
+                                            {% endif %}
+                                            <h5 class="card-title"><span class="badge badge-primary">{{ message.userEnvoi }} </span></h5>
+                                            <p class="card-text">
+                                                <span class="badge badge-info">{{ message.content }} </span>
+                                            </p>
+                                            <a href="{{ path('app_index_chat', {'id': message.userEnvoi.id}) }}" class="btn btn-primary"><i class="fa fa-comments "></i>Répondre</a>
+                                            <a href="{{ path('app_contact_addcontact', {'id': message.userEnvoi.id}) }}" class="btn btn-primary"><i class="fa fa-user-plus "></i>Ajouter</a>
                                         </div>
-                                    </div>
-
-                                    {# nom prenom profession #}
-                                    <div class="text col-sm-8 col-md-5 col-lg-3 align-items-center resp-name ">
-                                        <a href="">{{ message.userEnvoi }}</a>
-                                        <br>
-                                    </div>
-                                    <div class="col-sm-9 col-md-8 col-lg-3 d-flex align-items-center picto resp-tel ">
-                                        {{ message.content }}
-                                    </div>
-
-                                    <div class="col-md-2 d-flex justify-content-end m-auto">
-                                        <a class="btn btn-link btn-info btn-user" type="button"
-                                           href="{{ path('app_index_chat', {'id': message.userEnvoi.id}) }}">
-                                            <i class="fa fa-comments "></i>
-                                        </a>
-                                        <a class="btn btn-link btn-secondary btn-user btn-chat" type="submit"
-                                           href="{{ path('app_contact_addcontact', {'id': message.userEnvoi.id }) }}">
-                                            <i class="fa fa-user-plus "></i>
-                                        </a>
-                                        {#<a id="MybtnModal" class="btn btn-link btn-secondary btn-user" type="button"#}
-                                        {#href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}">#}
-                                        {#<i class="fa fa-trash"></i>#}
-                                        {#</a>#}
-
-
                                     </div>
                                 </div>
                             </li>
