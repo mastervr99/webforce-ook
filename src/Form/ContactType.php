@@ -139,6 +139,7 @@ class ContactType extends AbstractType
                     'attr' =>
                         [
                             'id' => 'photo-contact',
+                            'id' => 'photoUpload',
                             'class' => 'attachment_upload'
                         ]
 
