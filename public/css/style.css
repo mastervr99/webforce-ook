@@ -866,6 +866,7 @@ section.features .feature-item i {
     object-fit: cover;
     width: 230px;
     height: 230px;
+    border:1px solid #f50044;
 }
 
 #upload-photo {
@@ -878,7 +879,7 @@ section.features .feature-item i {
     width: 100%;
     right: 0px;
     bottom: 81px;
-    z-index: 20;
+    z-index: 50;
 }
 
 #upload-photo .bg-file {
@@ -913,6 +914,7 @@ section.features .feature-item i {
 
 #user-profile-left .card {
     background-color: #ffff;
+    margin-bottom: 50px;
 }
 
 /*gestions img*/
@@ -1075,6 +1077,7 @@ section.features .feature-item i {
     /*border: 1px solid #ececec;*/
     /*box-shadow: -1px 1px 12px #e6e6e6;*/
     display: flex;
+    margin-bottom : 30px;
 }
 
 #suggestions .card img {
@@ -1148,7 +1151,6 @@ section.features .feature-item i {
 #my-profile label {
     font-weight: normal;
     font-size: 14px;
-    text-align: right !important;
 }
 
 #my-profile input {
@@ -1404,64 +1406,64 @@ footer .footer-copyright p {
 /*---------------------------------------------------------*/
 
 
-/*body:after {*/
-/*    background: rgba(206, 63, 41, 0.5);*/
-/*    color: #fff;*/
-/*    left: 0;*/
-/*    position: fixed;*/
-/*    text-align: center;*/
-/*    top: 8%;*/
-/*    width: 100%;*/
-/*}*/
+body:after {
+    background: rgba(206, 63, 41, 0.5);
+    color: #fff;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    top: 8%;
+    width: 100%;
+}
 
-/*!* Content for different screen widths *!*/
-/*@media only screen and (min-width: 0px) {*/
-/*    body:after {*/
-/*        content: "0 to 100px";*/
-/*    }*/
-/*}*/
+/* Content for different screen widths */
+@media only screen and (min-width: 0px) {
+    body:after {
+        content: "0 to 100px";
+    }
+}
 
-/*@media only screen and (min-width: 100px) {*/
-/*    body:after {*/
-/*        content: "100 to 240px";*/
-/*    }*/
-/*}*/
+@media only screen and (min-width: 100px) {
+    body:after {
+        content: "100 to 240px";
+    }
+}
 
-/*@media only screen and (min-width: 240px) {*/
-/*    body:after {*/
-/*        content: "240 to 320px";*/
-/*    }*/
-/*}*/
+@media only screen and (min-width: 240px) {
+    body:after {
+        content: "240 to 320px";
+    }
+}
 
-/*@media only screen and (min-width: 320px) {*/
-/*    body:after {*/
-/*        content: "320 to 480px";*/
-/*    }*/
-/*}*/
+@media only screen and (min-width: 320px) {
+    body:after {
+        content: "320 to 480px";
+    }
+}
 
-/*@media only screen and (min-width: 480px) {*/
-/*    body:after {*/
-/*        content: "480 to 768px";*/
-/*    }*/
-/*}*/
+@media only screen and (min-width: 480px) {
+    body:after {
+        content: "480 to 768px";
+    }
+}
 
-/*@media only screen and (min-width: 768px) {*/
-/*    body:after {*/
-/*        content: "768 to 980px";*/
-/*    }*/
-/*}*/
+@media only screen and (min-width: 768px) {
+    body:after {
+        content: "768 to 980px";
+    }
+}
 
-/*@media only screen and (min-width: 980px) {*/
-/*    body:after {*/
-/*        content: "980 to 1024px";*/
-/*    }*/
-/*}*/
+@media only screen and (min-width: 980px) {
+    body:after {
+        content: "980 to 1024px";
+    }
+}
 
-/*@media only screen and (min-width: 1024px) {*/
-/*    body:after {*/
-/*        content: "1024 and up";*/
-/*    }*/
-/*}*/
+@media only screen and (min-width: 1024px) {
+    body:after {
+        content: "1024 and up";
+    }
+}
 
 
 /* ==============

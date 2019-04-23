@@ -2,43 +2,43 @@
 
 {% block body %}
 
-<section id="MAIN-CONTAINER">
+    <section id="MAIN-CONTAINER">
 
-    <section class="container">
+        <div class="container">
 
-        <div class="row justify-content-md-center">
-            <div class="col-md-8">
-                <p class="date-ajout">DATE DE CREATION DU PROFIL</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="date-ajout">Date de creation de mon profil le {{ user.getCreatedAt| date('d/m/Y') }}</p>
+                </div>
             </div>
-        </div>
 
-        <div class="row justify-content-md-center">
+            <section class="row justify-content-center">
 
-            <!------- section gauche --------->
+                <!------- section gauche --------->
 
-            <section class="col-md-3" id="user-profile-left">
-                <div class="card">
+                <section class="col-sm-7 col-md-3 col-lg-3 justify-content-center" id="user-profile-left">
+                    <div class="card">
 
-                    <!--- photo--->
-                    {% if user.photo %}
-                        <img class="card-img-top" src="{{ asset('photo/' ~ user.photo ) }}"
-                             alt="Titre de la photo">
-                    {% else %}
-                        <img class="card-img-top" src="https://source.unsplash.com/random"
-                             alt="Titre de la photo">
-                    {% endif %}
+                        <!--- photo--->
+                        {% if user.photo %}
+                            <img class="card-img-top" src="{{ asset('photo/' ~ user.photo ) }}"
+                                 alt="Titre de la photo">
+                        {% else %}
+                            <img class="card-img-top" src="https://source.unsplash.com/random"
+                                 alt="Titre de la photo">
+                        {% endif %}
 
-                    <div class="card-body text-center">
+
+                        <div class="card-body text-center">
 
                         <!--- infos--->
                         <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>
                         <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>
                         <p class="card-text user-job">{{ user.emploi }}</p>
-                        <!--- boutons action--->
                         <!--- bouton modifier-->
                         <a class="btn btn-labeled btn-info user-btn" type="submit"
-                           href="{{ path('app_user_moncompte') }}>
-                            <i class="fa fa-pen"></i>
+                           href="{{ path('app_user_moncompte') }}">
+                             <i class="fa fa-pen"></i>
                             <span class="align-middle">Modifier</span>
                         </a>
 
@@ -48,7 +48,7 @@
 
             <!------- section droite --------->
 
-            <section class="col-md-5">
+            <div class="col-md-5">
                 <div id="user-profile-right">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item title">
@@ -78,9 +78,9 @@
                         <!-- ici mini map -->
                     </div>
                 </div>
-            </section>
+            </div>
         </section>
-    </section> <!-- END CONTAINER -->
+    </div> <!-- END CONTAINER -->
 
 
     <hr class="light">
@@ -88,18 +88,18 @@
 
     <!------- suggestions--------->
 
-    <section id="suggestions">
+    <div id="suggestions">
 
         <div class="container-fluid">
-            <div class="row justify-content-md-center">
-                <div class="col-5">
+            <div class="row justify-content-center">
+                <div class="col-sm-8 col-md-5">
                     <h3 class="text-center mb-4">Vous les connaissez peut-être</h3>
                     <hr class="hr-title">
                 </div>
             </div>
 
             <div class="row text-center mb-5" id="user-profile-left">
-                <div class="col-md-3">
+                <div class="col-sm-12 col-md-3">
                     <div class="card d-flex justify-content-between">
                         <div class="photo ">
                         <img class="card-img-top rounded-circle img-fluid" src="https://source.unsplash.com/random">
@@ -120,7 +120,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-sm-12 col-md-3">
                     <div class="card d-flex justify-content-between">
                         <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
 
@@ -139,7 +139,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-sm-12 col-md-3">
                     <div class="card d-flex justify-content-between">
                         <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
 
@@ -158,7 +158,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-sm-12 col-md-3">
                     <div class="card d-flex justify-content-between">
                         <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
 
@@ -179,7 +179,7 @@
             </div>
         </div>
 
-    </section>
+    </div>
 </section>
 
 {% endblock %}

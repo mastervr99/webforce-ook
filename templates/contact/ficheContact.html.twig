@@ -4,22 +4,21 @@
 
     <section id="MAIN-CONTAINER">
 
-
         <div class="container">
 
-            {% for contact in contact %}
+        {% for contact in contact %}
 
-                <div class="row justify-content-md-center">
-                    <div class="col-md-8">
-                        <p class="date-ajout">DATE DE CREATION DU CONTACT</p>
-                    </div>
+            <div class="row justify-content-md-center">
+                <div class="col-md-8">
+                    <p class="date-ajout">Contact creé le {{ contact.getCreatedAt| date('d/m/Y') }}</p>
                 </div>
+            </div>
 
-                <div class="row justify-content-md-center">
+                <section class="row justify-content-md-center">
 
                     <!------- section gauche --------->
 
-                    <section class="col-md-3" id="user-profile-left">
+                    <section class="col-sm-7 col-md-3 col-lg-3 justify-content-center" id="user-profile-left">
                         <div class="card">
 
                             <!--- photo--->
@@ -95,10 +94,10 @@
                                     <p class="card-text infos">{{ contact.notePersonnelle }}</p>
                                 </div>
                             </div>
-
                         </section>
+
                     </div>
-                </div>
+                </section>
                 <hr class="light">
 
             {% endfor %}
@@ -107,10 +106,11 @@
 
         <!------- suggestions contacts --------->
 
-        <section id="suggestions">
-            <div class="container">
-                <div class="row justify-content-md-center">
-                    <div class="col-5">
+        <div id="suggestions">
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 col-md-5">
                         <h3 class="text-center mb-4">D'autres de vos contacts</h3>
                         <hr class="hr-title">
                     </div>
@@ -194,12 +194,10 @@
                     </div>
                 </div>
             </div>
-        </section> <!-- END CONTAINER -->
 
-
-        </div> {#end #fiche #}
-
+        </div>
     </section>
+
 {% endblock %}
 
 
