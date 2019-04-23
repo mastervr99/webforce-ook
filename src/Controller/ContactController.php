@@ -276,46 +276,53 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted()){
 
-            $photo = $contact->getPhoto();
+            if($form->isValid()){
 
-            // s'il y a eu une image uploadée
-            if (!is_null($photo)) {
-                // nom sous lequel on va enregistrer l'image
-                $filename = uniqid() . '.' . $photo->guessExtension();
+                $photo = $contact->getPhoto();
 
-                // déplace l'image uploadée
-                $photo->move(
-                // vers le répertoire /public/photo
-                // cf config/services.yaml
-                    $this->getParameter('upload_dir'),
-                    // nom du fichier
-                    $filename
-                );
+                // s'il y a eu une image uploadée
+                if (!is_null($photo)) {
+                    // nom sous lequel on va enregistrer l'image
+                    $filename = uniqid() . '.' . $photo->guessExtension();
 
-                // on sette l'attribut image de l'article avec son nom
-                // pour enregistrement en bdd
-                $contact->setPhoto($filename);
+                    // déplace l'image uploadée
+                    $photo->move(
+                    // vers le répertoire /public/photo
+                    // cf config/services.yaml
+                        $this->getParameter('upload_dir'),
+                        // nom du fichier
+                        $filename
+                    );
 
-                // en modification on supprime l'ancienne image
-                // s'il y en a une
-                if (!is_null($originalPhoto)) {
-                    unlink($this->getParameter('upload_dir') . $originalPhoto);
+                    // on sette l'attribut image de l'article avec son nom
+                    // pour enregistrement en bdd
+                    $contact->setPhoto($filename);
+
+                    // en modification on supprime l'ancienne image
+                    // s'il y en a une
+                    if (!is_null($originalPhoto)) {
+                        unlink($this->getParameter('upload_dir') . $originalPhoto);
+                    }
+                } else {
+                    // en modification, sans upload, on sette l'attribut image
+                    // avec le nom de l'ancienne image
+                    $contact->setPhoto($originalPhoto);
                 }
-            } else {
-                // en modification, sans upload, on sette l'attribut image
-                // avec le nom de l'ancienne image
-                $contact->setPhoto($originalPhoto);
-            }
 
-            //LE METTRE EN BDD
+                //LE METTRE EN BDD
 
-            $em->persist($contact);
-            $em->flush();
+                $em->persist($contact);
+                $em->flush();
 
 //        AFFICH UN MESS DE CONFIRM
-            $this->addFlash('success','Votre contact a été ajouté !');
+                $this->addFlash('success','Votre contact a été ajouté !');
 
-            return $this->redirectToRoute('app_user_listcontact');
+                return $this->redirectToRoute('app_user_listcontact');
+            }
+            else
+            {
+                $this->addFlash('error','Un email identique est présent dans votre liste de contacts');
+            }
         } else {
             $this->addFlash('error', 'Le formulaire contient des erreurs');
         }

@@ -143,4 +143,22 @@ class IndexController extends AbstractController
         )
         ;
     }
+
+    /**
+     * @Route("/Messages")
+     */
+    public function allMessages()
+    {
+        $user = $this->getUser();
+
+        $repository = $this->getDoctrine()->getRepository(Messages::class);
+
+        $messages = $repository->getAllMessages($user);
+
+        return $this->render('index/all_messages.html.twig',
+            [
+                'messages' => $messages->getContent()
+            ]
+        );
+    }
 }

@@ -76,4 +76,17 @@ class MessagesRepository extends ServiceEntityRepository
         return $query->getResult();
 
     }
+
+    public function getAllMessages(User $user)
+    {
+        $qb = $this->createQueryBuilder('m');
+
+        $qb
+            ->where('m.user_recoit = :user')
+            ->setParameter('user', $user)
+            ->orderBy('m.id', 'desc')
+            ->setMaxResults(5)
+        ;
+
+    }
 }
