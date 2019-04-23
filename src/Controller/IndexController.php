@@ -154,10 +154,18 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Messages::class);
 
         $messages = $repository->getAllMessages($user);
+dump($messages);
+//        if(!($messages)){
+//
+//            $this->addFlash('error','Vous n\'avez aucun message');
+//
+//            return $this->redirectToRoute('app_user_listcontact');
+//        }
 
         return $this->render('index/all_messages.html.twig',
             [
-                'messages' => $messages->getContent()
+                'messages' => $messages
+                //'sender' => $messages->getUserEnvoi()->getLastname()
             ]
         );
     }
