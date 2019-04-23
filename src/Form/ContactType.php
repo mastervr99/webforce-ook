@@ -134,12 +134,12 @@ class ContactType extends AbstractType
             ->add('photo',
                 FileType::class,
                 [
-                    'label' => 'Photo',
+                    'label' => 'Modifier la photo :',
                     'required' => false,
                     'attr' =>
                         [
                             'id' => 'photo-contact',
-                            'id' => 'photoUpload',
+//                            'id' => 'photoUpload',
                             'class' => 'attachment_upload'
                         ]
 

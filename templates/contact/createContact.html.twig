@@ -6,11 +6,11 @@
 
 
         <div class="container">
-            <div class="row justify-content-md-center">
+            <div class="row justify-content-center">
 
-                <!------- profile-left--------->
+                <!------- section gauche --------->
 
-                <section class="col-md-3" id="user-profile-left">
+                <section class="col-sm-7 col-md-3 col-lg-3 justify-content-md-center" id="user-profile-left">
                     <div class="card">
 
                         <!-------------- gestion photo ----------------->
@@ -19,8 +19,8 @@
                         {#<img class="card-img-top" src="https://www.destinations-nature.com/var/comexposium/storage/images/media/destinations-nature-medias/espace-pro/contact-picto-silhouette/3620866-1-fre-FR/CONTACT-Picto-Silhouette_contact_logo_list_destinations_nature_frm.png" alt="Titre de la photo">#}
 
                         <img class="card-img-top" src="https://source.unsplash.com/random">
-                                 {#<img class="card-img-top" src="{{ user.photo }}"#}
-                             {#alt="Titre de la photo">#}
+                        {#<img class="card-img-top" src="{{ user.photo }}"#}
+                        {#alt="Titre de la photo">#}
 
 
                         <!-------------- upload photo ----------------->
@@ -45,16 +45,16 @@
                 </section>
 
 
-                <!------- profile-right--------->
+                <!------- section droite --------->
 
-                <section class="col-md-7" id="my-profile">
-                    <div class="formulaire">
+                <section class="col-xs-12 col-md-7 col-lg-7 justify-content-md-center" id="my-profile">
+                    <div class="formulaire ">
                         <h3 class="text-center mb-4">Créer un contact</h3>
                         <hr class="hr-title">
 
 
                         <div class="row form-group justify-content-center">
-                            <div class="col-sm-3 col-form-labe form-separatorl">{{ form_label(form.prenom) }}</div>
+                            <div class="col-sm-3 col-form-label form-separatorl">{{ form_label(form.prenom) }}</div>
                             <div class="col-sm-7">{{ form_widget(form.prenom) }}</div>
                         </div>
                         <div class="row form-group justify-content-center">

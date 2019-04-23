@@ -866,7 +866,7 @@ section.features .feature-item i {
     object-fit: cover;
     width: 230px;
     height: 230px;
-    z-index: 50;
+    border:1px solid #f50044;
 }
 
 #upload-photo {
@@ -879,7 +879,7 @@ section.features .feature-item i {
     width: 100%;
     right: 0px;
     bottom: 81px;
-    z-index: 20;
+    z-index: 50;
 }
 
 #upload-photo .bg-file {
