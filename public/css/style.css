@@ -1404,64 +1404,64 @@ footer .footer-copyright p {
 /*---------------------------------------------------------*/
 
 
-body:after {
-    background: rgba(206, 63, 41, 0.5);
-    color: #fff;
-    left: 0;
-    position: fixed;
-    text-align: center;
-    top: 8%;
-    width: 100%;
-}
+/*body:after {*/
+/*    background: rgba(206, 63, 41, 0.5);*/
+/*    color: #fff;*/
+/*    left: 0;*/
+/*    position: fixed;*/
+/*    text-align: center;*/
+/*    top: 8%;*/
+/*    width: 100%;*/
+/*}*/
 
-/* Content for different screen widths */
-@media only screen and (min-width: 0px) {
-    body:after {
-        content: "0 to 100px";
-    }
-}
+/*!* Content for different screen widths *!*/
+/*@media only screen and (min-width: 0px) {*/
+/*    body:after {*/
+/*        content: "0 to 100px";*/
+/*    }*/
+/*}*/
 
-@media only screen and (min-width: 100px) {
-    body:after {
-        content: "100 to 240px";
-    }
-}
+/*@media only screen and (min-width: 100px) {*/
+/*    body:after {*/
+/*        content: "100 to 240px";*/
+/*    }*/
+/*}*/
 
-@media only screen and (min-width: 240px) {
-    body:after {
-        content: "240 to 320px";
-    }
-}
+/*@media only screen and (min-width: 240px) {*/
+/*    body:after {*/
+/*        content: "240 to 320px";*/
+/*    }*/
+/*}*/
 
-@media only screen and (min-width: 320px) {
-    body:after {
-        content: "320 to 480px";
-    }
-}
+/*@media only screen and (min-width: 320px) {*/
+/*    body:after {*/
+/*        content: "320 to 480px";*/
+/*    }*/
+/*}*/
 
-@media only screen and (min-width: 480px) {
-    body:after {
-        content: "480 to 768px";
-    }
-}
+/*@media only screen and (min-width: 480px) {*/
+/*    body:after {*/
+/*        content: "480 to 768px";*/
+/*    }*/
+/*}*/
 
-@media only screen and (min-width: 768px) {
-    body:after {
-        content: "768 to 980px";
-    }
-}
+/*@media only screen and (min-width: 768px) {*/
+/*    body:after {*/
+/*        content: "768 to 980px";*/
+/*    }*/
+/*}*/
 
-@media only screen and (min-width: 980px) {
-    body:after {
-        content: "980 to 1024px";
-    }
-}
+/*@media only screen and (min-width: 980px) {*/
+/*    body:after {*/
+/*        content: "980 to 1024px";*/
+/*    }*/
+/*}*/
 
-@media only screen and (min-width: 1024px) {
-    body:after {
-        content: "1024 and up";
-    }
-}
+/*@media only screen and (min-width: 1024px) {*/
+/*    body:after {*/
+/*        content: "1024 and up";*/
+/*    }*/
+/*}*/
 
 
 /* ==============
