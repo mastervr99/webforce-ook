@@ -63,6 +63,7 @@ class UserController extends AbstractController
             // nom du fichier venant de la bdd
             $originalPhoto = $user->getPhoto();
 
+            
             // on sette l'image avec un objet File sur l'emplacement de l'image
             // pour le traitement par le formulaire
             $user->setPhoto(
