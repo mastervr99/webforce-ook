@@ -138,8 +138,10 @@ class ContactType extends AbstractType
                     'required' => false,
                     'attr' =>
                         [
-                            'class' => 'form-control'
+                            'id' => 'photo-contact',
+                            'class' => 'attachment_upload'
                         ]
+
                 ]
 
             )

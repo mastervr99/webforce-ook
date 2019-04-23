@@ -1,201 +1,205 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container" id="fiche">
 
-        {% for contact in contact %}
-
-            <div class="row justify-content-md-center">
-                <div class="col-md-8">
-                    <p class="date-ajout">DATE DE CREATION DU CONTACT</p>
-                </div>
-            </div>
-
-            <div class="row justify-content-md-center">
-                <section class="col-md-3" id="user-profile-left">
-                    <div class="card">
-
-                        {% if contact.photo %}
-                            <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}" alt="Titre de la photo">
-                        {% else %}
-                            <img class="card-img-top" src="https://source.unsplash.com/random" alt="Titre de la photo">
-
-                        {% endif %}
-
-                        <div class="card-body text-center">
-                            <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
-                            <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>
-                            <p class="card-text user-job">{{ contact.profession }}</p>
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <i class="fa fa-pen"></i>
-                                <span class="align-middle">Modifier</span>
-                            </button>
-                            <button type="button" class="btn btn-labeled btn-secondary user-btn">
-                                <i class="fa fa-trash"></i>
-                                <span class="align-middle">Supprimer</span>
-                            </button>
-                        </div>
-                    </div>
-                </section>
+    <section id="MAIN-CONTAINER">
 
 
-                <!------- profile-right--------->
-
-
-                <div class="col-md-5">
-                    <section id="user-profile-right">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item title">
-                                <i class="pictos-title fas fa-user"></i>
-                                <h5 class="card-title">A propos</h5>
-                            </li>
-                            <li class="list-group-item">
-                                <i class="pictos fas fa-phone"></i>
-                                <p class="infos">{{ contact.telephone }}</p>
-                            </li>
-                            <li class="list-group-item">
-                                <div><i class="pictos fa fa-envelope "></i></div>
-                                <div><p class="infos">{{ contact.email }}</p></div>
-                            <li class="list-group-item">
-                                <i class="pictos fa fa-home"></i>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <p class="card-text infos">{{ contact.adresse }}</p>
-                                        <p class="card-text infos">{{ contact.codePostal }}</p>
-                                        <p class="card-text infos">{{ contact.ville }}</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </section>
-
-
-                    <!------- profil-commentaires--------->
-
-
-                    <section id="user-profile-commentaires">
-                        <div class="card mt-3">
-                            <div class="card-header">
-                                <i class="pictos-title fa fa-paperclip" aria-hidden="true"></i>
-                                <h5 class="card-title ">Commentaires</h5>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text infos">{{ contact.notePersonnelle }}</p>
-                            </div>
-                        </div>
-                        {#<div class="card mt-3">#}
-                            {#<div class="card-header">#}
-                                {#<i class="pictos-title fas fa-hashtag"></i>#}
-                                {#<h5 class="card-title">Mot-clés</h5>#}
-                            {#</div>#}
-                            {#<div class="card-body">#}
-                                {#<p class="card-text infos">#copine #Travail #chat</p>#}
-                            {#</div>#}
-                        {#</div>#}
-                    </section>
-                </div>
-            </div>
-            <hr class="light">
-
-        {% endfor %}
-    </div>
-
-
-    <!------- suggestions contacts --------->
-
-    <section id="suggestions">
         <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-5">
-                    <h3 class="text-center mb-4">D'autres de vos contacts</h3>
-                    <hr class="hr-title">
-                </div>
-            </div>
 
-            <div class="row text-center mb-5" id="user-profile-left">
-                <div class="col-md-3">
-                    <div class="card d-flex justify-content-between">
-                        <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
-                        {# <img class="card-img-top" src="{{ contact.photo }}"#}
-                        <div class="card-body">
-                            <div class="card-texts">
-                                <h5 class="card-title user-name">Alexandra Dugrandchateaudeau</h5>
-                                <p class="card-text user-job">Commerciale et ingénieure informaticienne </p>
-                            </div>
-                        </div>
-                        <div class="">
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="align-middle">Voir le profil</span>
-                            </button>
-                        </div>
+            {% for contact in contact %}
+
+                <div class="row justify-content-md-center">
+                    <div class="col-md-8">
+                        <p class="date-ajout">DATE DE CREATION DU CONTACT</p>
                     </div>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="card d-flex justify-content-between">
-                        <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
-                        {# <img class="card-img-top" src="{{ contact.photo }}"#}
-                        <div class="card-body">
-                            <div class="card-texts">
-                                <h5 class="card-title user-name">Alexandra Dugrandchateaudeau</h5>
-                                <p class="card-text user-job">Commerciale et ingénieure informaticienne </p>
-                            </div>
-                        </div>
-                        <div class="">
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="align-middle">Voir le profil</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <div class="row justify-content-md-center">
 
-                <div class="col-md-3">
-                    <div class="card d-flex justify-content-between">
-                        <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
-                        {# <img class="card-img-top" src="{{ contact.photo }}"#}
-                        <div class="card-body">
-                            <div class="card-texts">
-                                <h5 class="card-title user-name">Alexandra Dugrandchateaudeau</h5>
-                                <p class="card-text user-job">Commerciale et ingénieure informaticienne </p>
-                            </div>
-                        </div>
-                        <div class="">
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="align-middle">Voir le profil</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                    <!------- section gauche --------->
 
-                <div class="col-md-3">
-                    <div class="card d-flex justify-content-between">
-                        <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
-                        {# <img class="card-img-top" src="{{ contact.photo }}"#}
-                        <div class="card-body">
-                            <div class="card-texts">
-                                <h5 class="card-title user-name">Alexandra Dugrandchateaudeau</h5>
-                                <p class="card-text user-job">Commerciale et ingénieure informaticienne </p>
+                    <section class="col-md-3" id="user-profile-left">
+                        <div class="card">
+
+                            <!--- photo--->
+                            {% if contact.photo %}
+                                <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}"
+                                     alt="Titre de la photo">
+                            {% else %}
+                                <img class="card-img-top" src="https://source.unsplash.com/random"
+                                     alt="Titre de la photo">
+                            {% endif %}
+
+                            <div class="card-body text-center">
+
+                                <!--- infos--->
+                                <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
+                                <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>
+                                <p class="card-text user-job">{{ contact.profession }}</p>
+
+                                <!--- bouton modifier-->
+                                <a class="btn btn-labeled btn-info user-btn" type="submit"
+                                   href="{{ path('app_contact_editcontact', {'id': contact.id}) }}">
+                                    <i class="fa fa-pen"></i>
+                                    <span class="align-middle">Modifier</span>
+                                </a>
                             </div>
+
                         </div>
-                        <div class="">
-                            <button type="button" class="btn btn-labeled btn-info user-btn">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span class="align-middle">Voir le profil</span>
-                            </button>
-                        </div>
+                    </section>
+
+                    <!------- section droite --------->
+
+                    <div class="col-md-5">
+                        <section id="user-profile-right">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item title">
+                                    <i class="pictos-title fas fa-user"></i>
+                                    <h5 class="card-title">A propos</h5>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="pictos fas fa-phone"></i>
+                                    <p class="infos">{{ contact.telephone }}</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <div><i class="pictos fa fa-envelope "></i></div>
+                                    <div><p class="infos">{{ contact.email }}</p></div>
+                                <li class="list-group-item">
+                                    <i class="pictos fa fa-home"></i>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <p class="card-text infos">{{ contact.adresse }}</p>
+                                            <p class="card-text infos">{{ contact.codePostal }}</p>
+                                            <p class="card-text infos">{{ contact.ville }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div id="map">
+                                <!-- ici mini map -->
+                            </div>
+                        </section>
+
+
+                        <!------- profil-commentaires--------->
+
+
+                        <section id="user-profile-commentaires">
+                            <div class="card mt-3">
+                                <div class="card-header">
+                                    <i class="pictos-title fa fa-paperclip" aria-hidden="true"></i>
+                                    <h5 class="card-title ">Commentaires</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text infos">{{ contact.notePersonnelle }}</p>
+                                </div>
+                            </div>
+
+                        </section>
                     </div>
                 </div>
-            </div>
+                <hr class="light">
+
+            {% endfor %}
         </div>
-    </section> <!-- END CONTAINER -->
 
 
-    </div> {#end #fiche #}
+        <!------- suggestions contacts --------->
+
+        <section id="suggestions">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-5">
+                        <h3 class="text-center mb-4">D'autres de vos contacts</h3>
+                        <hr class="hr-title">
+                    </div>
+                </div>
+
+                <div class="row text-center mb-5" id="user-profile-left">
+                    <div class="col-md-3">
+                        <div class="card d-flex justify-content-between">
+                            <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
+                            {# <img class="card-img-top" src="{{ contact.photo }}"#}
+                            <div class="card-body">
+                                <div class="card-texts">
+                                    <h5 class="card-title user-name">Alexandra Dugrandchateaudeau</h5>
+                                    <p class="card-text user-job">Commerciale et ingénieure informaticienne </p>
+                                </div>
+                            </div>
+                            <div class="">
+                                <button type="button" class="btn btn-labeled btn-info user-btn">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    <span class="align-middle">Voir le profil</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card d-flex justify-content-between">
+                            <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
+                            {# <img class="card-img-top" src="{{ contact.photo }}"#}
+                            <div class="card-body">
+                                <div class="card-texts">
+                                    <h5 class="card-title user-name">Alexandra Dugrandchateaudeau</h5>
+                                    <p class="card-text user-job">Commerciale et ingénieure informaticienne </p>
+                                </div>
+                            </div>
+                            <div class="">
+                                <button type="button" class="btn btn-labeled btn-info user-btn">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    <span class="align-middle">Voir le profil</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card d-flex justify-content-between">
+                            <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
+                            {# <img class="card-img-top" src="{{ contact.photo }}"#}
+                            <div class="card-body">
+                                <div class="card-texts">
+                                    <h5 class="card-title user-name">Alexandra Dugrandchateaudeau</h5>
+                                    <p class="card-text user-job">Commerciale et ingénieure informaticienne </p>
+                                </div>
+                            </div>
+                            <div class="">
+                                <button type="button" class="btn btn-labeled btn-info user-btn">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    <span class="align-middle">Voir le profil</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card d-flex justify-content-between">
+                            <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random">
+                            {# <img class="card-img-top" src="{{ contact.photo }}"#}
+                            <div class="card-body">
+                                <div class="card-texts">
+                                    <h5 class="card-title user-name">Alexandra Dugrandchateaudeau</h5>
+                                    <p class="card-text user-job">Commerciale et ingénieure informaticienne </p>
+                                </div>
+                            </div>
+                            <div class="">
+                                <button type="button" class="btn btn-labeled btn-info user-btn">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    <span class="align-middle">Voir le profil</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- END CONTAINER -->
 
 
+        </div> {#end #fiche #}
+
+    </section>
 {% endblock %}
 
 
