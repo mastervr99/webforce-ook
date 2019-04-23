@@ -204,8 +204,12 @@ $(document).ready(function () {
     });
 });
 
+
+
 // MAP
 // ---------------------------------------------------------
+
+
 
 // On initialise la latitude et la longitude de Paris (centre de la carte)
 var lat = 48.852969;
@@ -224,10 +228,9 @@ function initMap() {
         maxZoom: 20
     }).addTo(macarte);
 
-    // Nous ajoutons un marqueur
+    //  marqueur
     var marker = L.marker([lat, lon]).addTo(macarte);
 }
-
 
 window.onload = function () {
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
