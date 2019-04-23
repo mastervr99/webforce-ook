@@ -51,16 +51,17 @@ class ContactController extends AbstractController
 
         //VALID FORM???
         if ($form->isSubmitted()){
+            if ($form->isValid()){
 
-            $contact
-                ->setUser($this->getUser())
-            ;
+                $contact
+                    ->setUser($this->getUser())
+                ;
 
-            $photo = $contact->getPhoto();
+                $photo = $contact->getPhoto();
 
-            if (!is_null($photo)) {
-                // nom sous lequel on va enregistrer l'image
-                $filename = uniqid() . '.' . $photo->guessExtension();
+                if (!is_null($photo)) {
+                    // nom sous lequel on va enregistrer l'image
+                    $filename = uniqid() . '.' . $photo->guessExtension();
 
                 // déplace l'image uploadée
                 $photo->move(
@@ -76,15 +77,18 @@ class ContactController extends AbstractController
                 $contact->setPhoto($filename);
             }
 
-            //LE METTRE EN BDD
+                //LE METTRE EN BDD
 
-            $em->persist($contact);
-            $em->flush();
+                $em->persist($contact);
+                $em->flush();
 
-//        AFFICH UN MESS DE CONFIRM
-            $this->addFlash('success','Votre contact a été créé !');
+    //        AFFICH UN MESS DE CONFIRM
+                $this->addFlash('success','Votre contact a été créé !');
 
-            return $this->redirectToRoute('app_user_listcontact');
+                return $this->redirectToRoute('app_user_listcontact');
+                }  else{
+                    $this->addFlash('error','Email déjà existant, votre contact doit avoir un email différent');
+                }
         }
 
 
@@ -186,6 +190,8 @@ class ContactController extends AbstractController
      */
     public function deleteContact(Contact $contact)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $em = $this->getDoctrine()->getManager();
 
         // si le contact a une image, on la supprime

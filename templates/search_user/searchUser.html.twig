@@ -1,42 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form_start(search_form) }}
-    <div class="form-group">
-        {{ form_row(search_form.lastname) }}
-    </div>
-    <div class="form-group">
-        {{ form_row(search_form.firstname) }}
-    </div>
-    <div class="form-group">
-        {{ form_row(search_form.email) }}
-    </div>
-    <div class="form-group">
-        {{ form_row(search_form.postalCode) }}
-    </div>
-    <div class="form-group">
-        {{ form_row(search_form.city) }}
-    </div>
-    <div class="form-group">
-        {{ form_row(search_form.emploi) }}
-    </div>
 
-    <div class="form-group">
-        <button class="btn-valider btn-block" type="submit">Rechercher</button>
-    </div>
-    {{ form_end(search_form) }}
+    <div id="suggestions">
+        <section id="MAIN-CONTAINER">
+            <!------- RESULTATS--------->
 
-    <!------- RESULTATS--------->
-
-    <div id="suggestions" >
-        <div class="container">
-
-            <div class="row justify-content-md-center">
-                <div class="col-5">
-                    <h3 class="text-center mb-4">Résultats de votre recherche</h3>
-                    <hr class="hr-title">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-5">
+                        <h3 class="text-center mb-4">Résultats de votre recherche</h3>
+                        <hr class="hr-title">
+                    </div>
                 </div>
-            </div>
+
+                {#{{ form_start(search_form) }}#}
+                {#<div class="form-group">#}
+                    {#{{ form_row(search_form.lastname) }}#}
+                {#</div>#}
+                {#<div class="form-group">#}
+                    {#{{ form_row(search_form.firstname) }}#}
+                {#</div>#}
+                {#<div class="form-group">#}
+                    {#{{ form_row(search_form.email) }}#}
+                {#</div>#}
+                {#<div class="form-group">#}
+                    {#{{ form_row(search_form.postalCode) }}#}
+                {#</div>#}
+                {#<div class="form-group">#}
+                    {#{{ form_row(search_form.city) }}#}
+                {#</div>#}
+                {#<div class="form-group">#}
+                    {#{{ form_row(search_form.emploi) }}#}
+                {#</div>#}
+
+                {#<div class="form-group">#}
+                    {#<button class="btn-valider btn-block" type="submit">Rechercher</button>#}
+                {#</div>#}
+                {#{{ form_end(search_form) }}#}
 
 
             <div class="row text-center mb-5" id="user-profile-left">
@@ -57,20 +58,20 @@
                                 </div>
                             </div>
 
-                            <a class="btn btn-info user-btn"
-                               type="button"
-                               href="{{ path('app_contact_addcontact', {'id': user.id}) }}">
-                                <i class="fas fa-user-plus"></i>Ajouter</a>
+                                <a class="btn btn-info user-btn"
+                                   type="button"
+                                   href="{{ path('app_contact_addcontact', {'id': user.id}) }}">
+                                    <i class="fas fa-user-plus"></i>Ajouter</a>
 
+                            </div>
                         </div>
-                    </div>
 
-                {% else %}
-                    <div class="alert alert-info mt-5">Aucun utilisateur trouvé</div>
-                {% endfor %}
+                    {% else %}
+                        <div class="alert alert-info mt-5">Aucun utilisateur trouvé</div>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
     </div>
 
 
@@ -114,5 +115,6 @@
     {#                {% endfor %}#}
     {#            </ul>#}
     {#        </div>#}
+    </section>
 {% endblock %}
 

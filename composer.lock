@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8f797b8730c1114b768766fb1ed6898",
+    "content-hash": "8f1344151bda9b1eccc16d94b1c4dd17",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -4479,7 +4479,7 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",

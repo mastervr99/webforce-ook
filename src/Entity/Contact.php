@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
+ * @UniqueEntity("email", message="Email déjà existant, votre contact doit avoir un email différent")
  */
 class Contact
 {
@@ -27,7 +29,7 @@ class Contact
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true, nullable=true)
      */
     private $email;
 
