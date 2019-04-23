@@ -120,21 +120,22 @@ class IndexController extends AbstractController
     /**
      * @Route("/contactToUser/{id}")
      */
-    public function contactToUser(Request $request, User $user)
+    public function contactToUser(Request $request, Contact $contact)
     {
-
-        $idContact = $request->query->get('id');
-
-        $repo = $this->getDoctrine()->getRepository(Contact::class);
-
-        $contact = $repo->findOneBy(['id' => $idContact]);
 
         $repository = $this->getDoctrine()->getRepository(User::class);
 
         $user = $repository->findOneBy(['email' => $contact->getEmail()]);
 
+        if(is_null($user))
+        {
+            $this->addFlash('success','Ce contact n\'est pas encore inscrit : Invitez le !');
 
-        $this->redirectToRoute('index/chat.html.twig',
+            return $this->redirectToRoute('app_user_listcontact');
+        }
+
+        return $this->redirectToRoute('app_index_chat'
+            ,
             [
                 'id' => $user->getId()
             ]
