@@ -7,13 +7,13 @@
 
         <div class="container">
 
-            {% for contact in contact %}
+        {% for contact in contact %}
 
-                <div class="row justify-content-md-center">
-                    <div class="col-md-8">
-                        <p class="date-ajout">DATE DE CREATION DU CONTACT</p>
-                    </div>
+            <div class="row justify-content-md-center">
+                <div class="col-md-8">
+                    <p class="date-ajout">Contact creé le {{ user.getCreatedAt| date('d/m/Y') }}</p>
                 </div>
+            </div>
 
                 <div class="row justify-content-md-center">
 
