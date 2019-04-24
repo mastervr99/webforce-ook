@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -80,9 +81,11 @@ class UserCompleteType extends AbstractType
                             'class' => 'form-control'
                         ]
                 ])
-            ->add('dateBirth', DateType::class,
+            ->add('dateBirth',
+                BirthdayType::class,
                 [
                     'label' => 'Date de naissance',
+                    'format' => 'dd MM yyyy',
                     'required' => false,
                     'attr' =>
                         [
