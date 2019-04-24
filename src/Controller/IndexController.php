@@ -154,7 +154,7 @@ class IndexController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Messages::class);
 
         $messages = $repository->getAllMessages($user);
-dump($messages);
+
 //        if(!($messages)){
 //
 //            $this->addFlash('error','Vous n\'avez aucun message');

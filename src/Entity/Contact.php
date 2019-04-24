@@ -29,7 +29,7 @@ class Contact
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $email;
 
