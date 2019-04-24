@@ -7,69 +7,56 @@
         <div class="container">
 
             <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <p class="date-ajout">DATE DE CREATION DU PROFIL</p>
+                <div class="col-md-10 justify-content-end">
+                    <p class="date-ajout">Inscrit(e) depuis le {{ user.getCreatedAt| date('d/m/Y') }}</p>
                 </div>
             </div>
+
 
             <div class="row justify-content-center">
 
                 <!------- section gauche --------->
 
-
                 <section class="col-sm-7 col-md-3 col-lg-3 justify-content-md-center" id="user-profile-left">
                     <div class="card">
 
-                        <!--- photo--->
+                        <!-------------- photo ----------------->
+
+
+                        {{ form_start(form) }}
+
                         {% if user.photo %}
-                            <img class="card-img-top" src="{{ asset('photo/' ~ user.photo ) }}"
+                            <img class="card-img-top preview" src="{{ asset('photo/' ~ user.photo ) }}"
                                  alt="Titre de la photo">
                         {% else %}
-                            <img class="card-img-top" src="https://source.unsplash.com/random"
+                            <img class="card-img-top preview"
+                                 src="https://banner2.kisspng.com/20180421/lyw/kisspng-computer-icons-avatar-clip-art-5adb009b938864.3066118615243019796043.jpg"
                                  alt="Titre de la photo">
                         {% endif %}
-
-                        <!-------------- bt upload photo ----------------->
-                        <div>
-                            <div class="form-group" id="upload-photo">
-                                <div class="input-group justify-content-md-center">
-                                    {#<div class="input-group-btn ">#}
-                                        {#<a class="btn btn-info">#}
-                                            {#<ion-icon class="align-middle" name="camera"></ion-icon>#}
-                                            {#<span class="align-middle user-btn">Modifier la photo</span>#}
-
-                                            {#<!--- input-upload -->#}
-                                            {#<input id="photoUpload" type="file" accept=".jpg, .png, .jpeg"#}
-                                                   {#class="attachment_upload form control">#}
-                                        {#</a>#}
-                                    {#</div>#}
-                                </div>
-                                <!--- appercu -->
-                                {{ form_start(form) }}
-                                {{ form_label(form.photo) }}
+                        {#                         upload photo#}
+                        <div id="upload-photo">
+                            <div class="btn-upload">
+                                <ion-icon class="align-middle" name="camera"></ion-icon>
+                                <span class="align-middle user-btn">Modifier la photo</span>
                                 {{ form_widget(form.photo) }}
-                                {#<div class="main-img-preview">#}
-                                    {#<img class="thumbnail img-preview"#}
-                                         {#title="Apperçu">#}
-                                {#</div>#}
-
+                            </div>
+                            <div class="user-btn">
                             </div>
                         </div>
+
+                        <!-------------- infos ----------------->
 
                         <div class="card-body text-center">
                             <!--- infos--->
                             <h5 class="card-title user-lastname text-fluid">{{ user.lastname }}</h5>
                             <h5 class="card-title user-firstname text-fluid">{{ user.firstname }}</h5>
                             <p class="card-text user-job">{{ user.emploi }}</p>
-                            {#<!--- bouton modifier-->#}
-                            {#<a class="btn btn-labeled btn-info user-btn" type="submit"#}
-                            {#href="{{ path('app_user_moncompte') }}">#}
-                            {#<i class="fa fa-pen"></i>#}
-                            {#<span class="align-middle">Modifier</span>#}
-                            {#</a>#}
                         </div>
+
+
                     </div>
                 </section>
+
 
                 <!------- section droite --------->
 
@@ -117,13 +104,13 @@
 
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-sm-6 col-md-6">
                                 <button type="submit" class="btn btn-labeled btn-info user-btn">
                                     <ion-icon class="align-middle" name="checkbox-outline"></ion-icon>
-                                    <span class="align-middle">Mettre à jour</span>
+                                    <span class="align-middle">Valider</span>
                                 </button>
+                            </div>
                             {{ form_end(form) }}
-
                             <div class="col-sm-6 col-md-6">
                                 <button type="" class="btn btn-labeled btn-secondary user-btn">
                                     <ion-icon class="align-middle" name="close-circle-outline"></ion-icon>
@@ -131,9 +118,9 @@
                                 </button>
                             </div>
                         </div>
-                    </div>{# end div.formulaire#}
-                </section> {# end div#my-profile #}
-            </div>
+                    </div>
+                </section>
+            </div>{# end div.formulaire#}
         </div><!-- END CONTAINER -->
 
     </section>

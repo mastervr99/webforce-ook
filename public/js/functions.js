@@ -164,47 +164,41 @@ $(".archive-button").click(function () {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // UPLOAD DE PHOTOS
 // ---------------------------------------------------------
 
-$(document).ready(function () {
-    var uploadPhoto = document.getElementById('photoUpload');
-    uploadPhoto.className = 'attachment_upload';
-    uploadPhoto.onchange = function () {
-        document.getElementById('fakeUploadLogo').value = this.value.substring(12);
+// $(document).ready(function () {
+//     var uploadPhoto = document.getElementById('photoUpload');
+//     uploadPhoto.className = 'attachment_upload';
+//     uploadPhoto.onchange = function () {
+//         document.getElementById('fakeUploadLogo').value = this.value.substring(12);
+//     };
+//
+//     function readURL(input) {
+//         if (input.files && input.files[0]) {
+//             var reader = new FileReader();
+//
+//             reader.onload = function (e) {
+//                 $('.img-preview').attr('src', e.target.result);
+//             };
+//             reader.readAsDataURL(input.files[0]);
+//         }
+//     }
+//
+//     $("#photoUpload").change(function () {
+//         readURL(this);
+//     });
+// });
+//
+
+$("input[data-preview]").change(function() {
+    var input	= $(this);
+    var oFReader	= new FileReader();
+    oFReader.readAsDataURL(this.files[0]);
+    oFReader.onload	= function(oFREvent) {
+        $(input.data('preview')).attr('src', oFREvent.target.result);
     };
-
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('.img-preview').attr('src', e.target.result);
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#photoUpload").change(function () {
-        readURL(this);
-    });
 });
-
-
 
 // MAP
 // ---------------------------------------------------------

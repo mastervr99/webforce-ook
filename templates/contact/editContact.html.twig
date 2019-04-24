@@ -9,41 +9,42 @@
 
                 <!------- section gauche --------->
 
-                <section class="col-xs-5 col-sm-7 col-md-3 col-lg-3 justify-content-md-center" id="user-profile-left">
+                <section class="col-sm-7 col-md-3 col-lg-3 justify-content-md-center" id="user-profile-left">
                     <div class="card">
 
-                        <!-------------- gestion photo ----------------->
+                        <!-------------- photo ----------------->
+
+
+
+                        {{ form_start(form) }}
                         {% if contact.photo %}
-                            <img class="card-img-top" src="{{ asset('photo/' ~ contact.photo ) }}"
+                            <img class="card-img-top preview" src="{{ asset('photo/' ~ contact.photo ) }}"
                                  alt="Titre de la photo">
                         {% else %}
-                            <img class="card-img-top"
-                                 src="https://www.destinations-nature.com/var/comexposium/storage/images/media/destinations-nature-medias/espace-pro/contact-picto-silhouette/3620866-1-fre-FR/CONTACT-Picto-Silhouette_contact_logo_list_destinations_nature_frm.png"
+                            <img class="card-img-top preview" src="https://banner2.kisspng.com/20180421/lyw/kisspng-computer-icons-avatar-clip-art-5adb009b938864.3066118615243019796043.jpg"
                                  alt="Titre de la photo">
                         {% endif %}
-
-                        <!-------------- bt upload photo ----------------->
-                        <div>
-                            <div class="form-group" id="upload-photo">
-                                <div class="input-group justify-content-md-center">
-                                    <div class="input-group-btn ">
-                                        <a class="btn btn-info">
-                                            <ion-icon class="align-middle" name="camera"></ion-icon>
-                                            <span class="align-middle user-btn">Modifier la photo</span>
-                                            <input id="photoUpload" name="logo" type="file" accept=".jpg, .png, .jpeg"
-                                                   class="attachment_upload form control">
-                                            <label class=" " for="file"></label>
-                                        </a>
-                                    </div>
-                                </div>
-                                {{ form_start(form) }}
+                        {#                         upload photo#}
+                        <div id="upload-photo">
+                            <div class="btn-upload">
+                                <ion-icon class="align-middle" name="camera"></ion-icon>
+                                <span class="align-middle user-btn">Modifier la photo</span>
                                 {{ form_widget(form.photo) }}
-                                <div class="main-img-preview">
-                                    <img class="thumbnail img-preview"
-                                         title="Apperçu">
-                                </div>
+                            </div>
+                            <div class="user-btn">
                             </div>
                         </div>
+
+                        <!-------------- infos ----------------->
+
+                        <div class="card-body text-center">
+                            <!--- infos--->
+                            <h5 class="card-title user-lastname text-fluid">{{ contact.nom }}</h5>
+                            <h5 class="card-title user-firstname text-fluid">{{ contact.prenom }}</h5>
+                            <p class="card-text user-job">{{ contact.profession }}</p>
+                        </div>
+
+
                     </div>
                 </section>
                 {#                <!------- profile-right--------->#}

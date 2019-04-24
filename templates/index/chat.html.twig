@@ -1,41 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="page-content ">
+    <div id="MAIN-CONTAINER"></div>
+    <div id="chat">
         <div class="container">
-            <div class="row form-v2-content mx-auto ">
-
-                <div class="col-md-6">
-                    <div class="form-detail">
-                        <h2 class="font-weight-bold">Chat</h2>
-                        <hr class="hr-title">
-                        <div class="card mt-3">
-                            <div id="message-container" class="card-body" style="height:300px; overflow: auto">
-
-                            </div>
-                        </div>
-                        <form id="form-message">
-                            <input type="hidden" name="message_to" id="input_message_to" value="{{ user_id }}">
-                            <div class="form-group">
+            <div class="row justify-content-center">
+                <div class="col-md-8 my-auto">
+                    <h2 class="font-weight-bold">Chat</h2>
+                    <div id="message-container" class="card-body" style="overflow: auto"></div>
+                    <form id="form-message">
+                        <div class="row inputButton">
+                            <div class="col-md-8 justify-content-between">
+                                <input type="hidden" name="message_to" id="input_message_to" value="{{ user_id }}">
                                 <input class="form-control" name="content" id="input_message_content">
                             </div>
-                            <div class="form-group col-lg-10">
-                                <button class=" btn btn-outline-primary" type="submit">Envoyer</button>
-                                {#   PAS DE TYPE SUBMIT ????  thusy        #}
+                            <div class="col-md-4">
+                                <button class=" btn btn-labeled btn-info user-btn" type="submit">Envoyer</button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+
+                        {#   PAS DE TYPE SUBMIT ????  thusy        #}
+                    </form>
 
                 </div>
             </div>
         </div>
     </div>
-
-    {##}
-
-
-
-
+    </div>
 
 {% endblock %}
 

@@ -16,47 +16,51 @@
 
                 {#{{ form_start(search_form) }}#}
                 {#<div class="form-group">#}
-                    {#{{ form_row(search_form.lastname) }}#}
+                {#{{ form_row(search_form.lastname) }}#}
                 {#</div>#}
                 {#<div class="form-group">#}
-                    {#{{ form_row(search_form.firstname) }}#}
+                {#{{ form_row(search_form.firstname) }}#}
                 {#</div>#}
                 {#<div class="form-group">#}
-                    {#{{ form_row(search_form.email) }}#}
+                {#{{ form_row(search_form.email) }}#}
                 {#</div>#}
                 {#<div class="form-group">#}
-                    {#{{ form_row(search_form.postalCode) }}#}
+                {#{{ form_row(search_form.postalCode) }}#}
                 {#</div>#}
                 {#<div class="form-group">#}
-                    {#{{ form_row(search_form.city) }}#}
+                {#{{ form_row(search_form.city) }}#}
                 {#</div>#}
                 {#<div class="form-group">#}
-                    {#{{ form_row(search_form.emploi) }}#}
+                {#{{ form_row(search_form.emploi) }}#}
                 {#</div>#}
 
                 {#<div class="form-group">#}
-                    {#<button class="btn-valider btn-block" type="submit">Rechercher</button>#}
+                {#<button class="btn-valider btn-block" type="submit">Rechercher</button>#}
                 {#</div>#}
                 {#{{ form_end(search_form) }}#}
 
 
-            <div class="row text-center mb-5" id="user-profile-left">
-                {% for user in users %}
-                    <div class="col-md-3" id="search-results">
-                        <div class="card d-flex justify-content-between">
-                            {% if user.photo %}
-                                <img class="card-img-top" src="{{ asset('photo/' ~ user.photo ) }}" alt="Titre de la photo">
+                <div class="row text-center mb-5" id="user-profile-left">
+                    {% for user in users %}
+                        <div class="col-md-3" id="search-results">
+                            <div class="card d-flex justify-content-between">
+                                {% if user.photo %}
+                                    <img class="card-img-top"
+                                         src="{{ asset('photo/' ~ user.photo ) }}"
+                                         alt="Titre de la photo">
 
-                            {% else %}
-                                <img class="card-img-top" src="https://source.unsplash.com/random" alt="Titre de la photo">
+                                {% else %}
+                                    <img class="card-img-top"
+                                         src="https://banner2.kisspng.com/20180421/lyw/kisspng-computer-icons-avatar-clip-art-5adb009b938864.3066118615243019796043.jpg"
+                                         alt="Titre de la photo">
 
-                            {% endif %}
-                            <div class="card-body">
-                                <div class="card-texts">
-                                    <h5 class="card-title user-name">{{ user.lastname }} <br> {{ user.firstname }}</h5>
-                                    <p class="card-text user-job">{{ user.emploi }}</p>
+                                {% endif %}
+                                <div class="card-body">
+                                    <div class="card-texts">
+                                        <h5 class="card-title user-name">{{ user.lastname }} <br> {{ user.firstname }}</h5>
+                                        <p class="card-text user-job">{{ user.emploi }}</p>
+                                    </div>
                                 </div>
-                            </div>
 
                                 <a class="btn btn-info user-btn"
                                    type="button"
