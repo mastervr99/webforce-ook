@@ -172,8 +172,6 @@ class ContactController extends AbstractController
             $this->addFlash('success','Votre contact a été modifié !');
 
             return $this->redirectToRoute('app_user_listcontact');
-        } else {
-            $this->addFlash('error', 'Le formulaire contient des erreurs');
         }
 
         return $this->render('contact/editContact.html.twig',

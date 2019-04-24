@@ -91,6 +91,15 @@ ion-icon {
     box-shadow: 0 4px 12px 0 rgba(152, 160, 180, 10);
 }
 
+
+.msg-alert{
+    /*position: absolute;*/
+    margin-top: 60px;
+    /*right: 84px;*/
+    /*width : 100%;*/
+    /*z-index: 100;*/
+}
+
 /*.container-one:hover .fill-one {*/
 /*    -webkit-transform: translateX(100px);*/
 /*    -moz-transform: translateX(100px);*/
