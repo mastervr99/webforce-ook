@@ -35,29 +35,6 @@ $(document).ready(function () {
 });
 
 
-// NAVBAR
-// ---------------------------------------------------------
-
-
-// $(document).ready(function (navbarColorScroll) {
-//     $(window).scroll(function (navbarColorScroll) {
-//         if ($(document).scrollTop() < 15) {
-//             $("#mainNav").css({
-//                 "background-color:": "rgba(246,246,29,0.5)",
-//                 "height": "100px",
-//                 "transition": "0.5s"
-//             })
-//
-//         } else {
-//             $("#mainNav").css({
-//                 "background-color:": "rgba(153,46,62,0.9)",
-//                 "height": "50px",
-//                 "transition": "0.5s"
-//             })
-//         }
-//     });
-// });
-
 
 // PARTICLES JS
 // ---------------------------------------------------------
@@ -109,21 +86,7 @@ particlesJS
 });
 
 
-// MODAL
-// ---------------------------------------------------------
 
-
-// $(document).ready(function () {
-//     $('#btnModal').click(function () {
-//         $('#Mymodal').modal('show')
-//     });
-// });
-// $(document).ready(function () {
-//     $('#btnModal').click(function () {
-//         $('#Mymodal').modal('show')
-//     });
-// });
-//
 
 // bouton delete ds list-contact
 //  -------------------------------
@@ -151,9 +114,8 @@ $(".archive-button").click(function () {
 
             setTimeout(function () {
                 $(".archive-button").removeClass("btn-success").addClass("btn-secondary");
-            }, 1500);
+            }, 30000);
 
-            let route = "{{ path('blog_show', {'slug': 'my-blog-post'})|escape('js') }}";
 
         } else {
             if ($(this).hasClass("btn-success")) {
@@ -168,29 +130,6 @@ $(".archive-button").click(function () {
 // UPLOAD DE PHOTOS
 // ---------------------------------------------------------
 
-// $(document).ready(function () {
-//     var uploadPhoto = document.getElementById('photoUpload');
-//     uploadPhoto.className = 'attachment_upload';
-//     uploadPhoto.onchange = function () {
-//         document.getElementById('fakeUploadLogo').value = this.value.substring(12);
-//     };
-//
-//     function readURL(input) {
-//         if (input.files && input.files[0]) {
-//             var reader = new FileReader();
-//
-//             reader.onload = function (e) {
-//                 $('.img-preview').attr('src', e.target.result);
-//             };
-//             reader.readAsDataURL(input.files[0]);
-//         }
-//     }
-//
-//     $("#photoUpload").change(function () {
-//         readURL(this);
-//     });
-// });
-//
 
 $("input[data-preview]").change(function() {
     var input	= $(this);
