@@ -60,7 +60,7 @@ class MessagesRepository extends ServiceEntityRepository
             ->orWhere('m.user_envoi = :user2 AND m.user_recoit = :user1')
             ->setParameter('user1', $user1)
             ->setParameter('user2', $user2)
-            ->orderBy('m.id', 'desc')
+            ->orderBy('m.id', 'asc')
         ;
 
         if (!is_null($minId)) {
@@ -68,13 +68,11 @@ class MessagesRepository extends ServiceEntityRepository
                 ->andWhere('m.id > :minId')
                 ->setParameter('minId', $minId)
             ;
-        } else {
-            $qb->setMaxResults(5);
         }
 
 
         $query = $qb->getQuery();
-
+//echo $query->getSQL();
         return $query->getResult();
 
     }

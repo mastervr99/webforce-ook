@@ -24,12 +24,13 @@ $(document).ready(function () {
             'user=' + userId,
             function (response) {
                 $('#message-container').append(response);
+                getMessage();
             }
         );
     }
 
-    //getMessage();
-    setInterval(getMessage, 10000);
+    getMessage();
+    //setInterval(getMessage, 8000);
 
 });
 
