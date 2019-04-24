@@ -134,30 +134,34 @@
 
 
                                             {# bouton delete #}
-                                            <div class="del-conf-btn">
-                                                <div type="button" class="btn btn-secondary btn-user archive-button"
-                                                     data-toggle="popover" data-container="body" data="popover"
-                                                     data-placement="top" data-content="Confirmer ?"
-                                                     onclick="clearTimeout(timer)">
-                                                    <div class="trash">
-                                                        <i class="fa fa-trash "></i>
-                                                    </div>
-                                                    <a class="confirm" type="submit"
-                                                       href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </a>
-                                                    <div class="success">
-                                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <a class="btn btn-link btn-secondary btn-user" type="button"
+                                               href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                            {#<div class="del-conf-btn">#}
+                                                {#<div type="button" class="btn btn-secondary btn-user archive-button"#}
+                                                     {#data-toggle="popover" data-container="body" data="popover"#}
+                                                     {#data-placement="top" data-content="Confirmer ?"#}
+                                                     {#onclick="clearTimeout(timer)">#}
+                                                    {#<div class="trash">#}
+                                                        {#<i class="fa fa-trash "></i>#}
+                                                    {#</div>#}
+                                                    {#<a class="confirm" type="submit"#}
+                                                       {#href="{{ path('app_contact_deletecontact', {'id': contact.id} ) }}">#}
+                                                        {#<i class="fa fa-times" aria-hidden="true"></i>#}
+                                                    {#</a>#}
+                                                    {#<div class="success">#}
+                                                        {#<i class="fa fa-check" aria-hidden="true"></i>#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</div>#}
 
-                                        </div>
+                                         </div>
                                     </div>
                                 </li>
 
                             {% else %}
-                                <div class="alert alert-info mt-5">Vous n'avez pas encore enregistré de contact.</div>
+                                <div class="alert alert-info mt-5">Enregistrez votre premier contact ou Utilisez notre barre de recherche !</div>
                             {% endfor %}
                         </ul>
 
