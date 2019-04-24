@@ -321,10 +321,9 @@ class ContactController extends AbstractController
             }
             else
             {
+                dump($form->getErrors());
                 $this->addFlash('error','Un email identique est présent dans votre liste de contacts');
             }
-        } else {
-            $this->addFlash('error', 'Le formulaire contient des erreurs');
         }
 
         return $this->render('contact/addContact.html.twig',

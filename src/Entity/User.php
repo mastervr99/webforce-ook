@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity("email", message="Email déjà existant, Merci de vous connecter ou utiliser un email différent")
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -476,5 +476,58 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->firstname . ' ' . $this->lastname;
+    }
+
+    /**
+     * String representation of object
+     * @link https://php.net/manual/en/serializable.serialize.php
+     * @return string the string representation of the object or null
+     * @since 5.1.0
+     */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->firstname,
+            $this->lastname,
+            $this->email,
+            $this->password,
+            $this->adress,
+            $this->phone,
+            $this->city,
+            $this->postalCode,
+            $this->emploi,
+            $this->created_at,
+            $this->dateBirth
+        ));
+    }
+
+    /**
+     * Constructs the object
+     * @link https://php.net/manual/en/serializable.unserialize.php
+     * @param string $serialized <p>
+     * The string representation of the object.
+     * </p>
+     * @return void
+     * @since 5.1.0
+     */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->firstname,
+            $this->lastname,
+            $this->email,
+            $this->password,
+            $this->adress,
+            $this->phone,
+            $this->city,
+            $this->postalCode,
+            $this->emploi,
+            $this->created_at,
+            $this->dateBirth
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized);
     }
 }

@@ -7,7 +7,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
- * @UniqueEntity("email", message="Email déjà existant, votre contact doit avoir un email différent")
+ * @UniqueEntity(fields={"email", "user"}, message="Ce contact est déjà présent dans votre liste de contacts")
  */
 class Contact
 {
